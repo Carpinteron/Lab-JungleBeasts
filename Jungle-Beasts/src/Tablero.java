@@ -1,12 +1,15 @@
 
 public class Tablero extends javax.swing.JFrame {
 
- 
-
     public Tablero() {
         initComponents();
+        
+        
     }
-
+    //EStas listas alamecenaran las categorias 
+    ListaEnlazadaDoble Camino1 = new ListaEnlazadaDoble();
+    ListaEnlazadaDoble Camino2 = new ListaEnlazadaDoble();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -27,10 +30,8 @@ public class Tablero extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     //Listas 
-    
-     static class Nodo {
+    static class Nodo {
 
         String dato;
         Nodo siguiente;
@@ -39,7 +40,7 @@ public class Tablero extends javax.swing.JFrame {
         public Nodo(String dato) {
             this.dato = dato;
             this.siguiente = null;
-            this.prev =null;
+            this.prev = null;
         }
     }
 
@@ -49,10 +50,81 @@ public class Tablero extends javax.swing.JFrame {
 
         public ListaEnlazadaDoble() {
             head = null;
-            
+        }
+
+        public void add_alFinal(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo actual = head;
+                while (actual.siguiente != null) {
+                    actual = actual.siguiente;
+                }
+                actual.siguiente = nuevoNodo;
+                nuevoNodo.prev = actual;
+            }
+        }
+
+        public void add_alComienzo(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo actual = head;
+                actual.prev = nuevoNodo;
+                nuevoNodo.siguiente = actual;
+                head = nuevoNodo;
+
+            }
+        }
+
+        public void add_afterPOS(String dato, int pos) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo actual = head;
+                int i = 0;
+                while (actual.siguiente != null & i < pos) {
+                    actual = actual.siguiente;
+                    i++;
+                }
+
+                // Verificar si se encontró el nodo en la posición pos
+                if (actual != null) {
+                    nuevoNodo.prev = actual;
+                    nuevoNodo.siguiente = actual.siguiente;
+
+                    // Actualizar los punteros del nodo actual y del siguiente nodo
+                    if (actual.siguiente != null) {
+                        actual.siguiente.prev = nuevoNodo;
+                    }
+                    actual.siguiente = nuevoNodo;
+                } else {
+                    // Si no se encontró la posición pos, agrega el nuevo nodo al final
+                    Nodo ultimo = head;
+                    while (ultimo.siguiente != null) {
+                        ultimo = ultimo.siguiente;
+                    }
+                    ultimo.siguiente = nuevoNodo;
+                    nuevoNodo.prev = ultimo;
+                }
+
+            }
+
+        }
+
+        public void imprimir() {
+            Nodo actual = head;
+            while (actual != null) {
+                System.out.print(actual.dato + " ");
+                actual = actual.siguiente;
+            }
+            System.out.println();
         }
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -64,16 +136,24 @@ public class Tablero extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
