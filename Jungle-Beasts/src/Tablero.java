@@ -25,7 +25,7 @@ public class Tablero extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(620, Short.MAX_VALUE)
+                .addContainerGap(810, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(295, 295, 295))
         );
@@ -34,7 +34,7 @@ public class Tablero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(jButton1)
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(492, Short.MAX_VALUE))
         );
 
         pack();
