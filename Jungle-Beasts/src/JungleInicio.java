@@ -8,6 +8,7 @@ public class JungleInicio extends javax.swing.JFrame {
     public JungleInicio() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")

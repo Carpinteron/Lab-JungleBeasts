@@ -7,7 +7,8 @@ public class Avatars extends javax.swing.JFrame {
    
     public Avatars() {
         initComponents();
-         setBackground(new Color(0, 0, 0, 0));
+        setBackground(new Color(0, 0, 0, 0));
+        setLocationRelativeTo(null);
     }
 
    
