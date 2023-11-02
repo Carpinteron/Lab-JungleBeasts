@@ -23,7 +23,6 @@ public class Tablero extends javax.swing.JFrame {
         panelRound1 = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -57,29 +56,17 @@ public class Tablero extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("jButton1");
-
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelRound1Layout.createSequentialGroup()
-                    .addGap(552, 552, 552)
-                    .addComponent(jButton1)
-                    .addContainerGap(553, Short.MAX_VALUE)))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(617, Short.MAX_VALUE))
-            .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelRound1Layout.createSequentialGroup()
-                    .addGap(321, 321, 321)
-                    .addComponent(jButton1)
-                    .addContainerGap(321, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,10 +93,14 @@ public class Tablero extends javax.swing.JFrame {
          Random ran = new Random();
        
         String []Categorias={"Ingles","Conocimiento General","Matematicas","Ciencia","Razonamiento Abstracto","Sociales"};
-        for(int i=0;i<=20;i++){
-            int r=ran.nextInt(6);
+        for(int i=0;i<17;i++){
+            int r=ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
         }
+        Camino.add_afterPOS("Ahorcado", 5);
+        Camino.add_afterPOS("Ahorcado", 11);
+        Camino.add_afterPOS("Ahorcado", 17);
+        
         Camino.imprimir();
     }
  public static void ArchivoInventario(String file_name) {
@@ -117,9 +108,13 @@ public class Tablero extends javax.swing.JFrame {
             FileWriter outFile = new FileWriter(file_name + ".txt", false);
             PrintWriter registro = new PrintWriter(outFile);
 
+            // respuesta correcta enseguida: avanza 2 casillas
+            
             //Matriz para crear Archivo Existente 
-            String[][] inventario = {
-                //Seccion CONAN
+            String[][] preguntas = {
+                // Categoria , Pregunta , "a", b, c ,d, res, nombreDeLaImagen
+                //EJEMPLO
+                //{"Ingles","¿what is an apple?","naranja","manzana","uva","pera","manzana","IMGmonstruo1"},
                 {"Camiseta XS", "20", "Camiseta", "Conan Gray", "30000"},
                 {"Camiseta S", "20", "Camiseta", "Conan Gray", "30000"},
                
@@ -127,7 +122,7 @@ public class Tablero extends javax.swing.JFrame {
             };
 
             //Agregar datos de la matriz al registro
-            for (String[] fila : inventario) {
+            for (String[] fila : preguntas) {
                 String NombreProducto = fila[0];
                 String Cantidad = fila[1];
                 String Categoria = fila[2];
@@ -285,7 +280,6 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
-    private javax.swing.JButton jButton1;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
