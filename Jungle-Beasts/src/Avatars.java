@@ -40,6 +40,8 @@ public class Avatars extends javax.swing.JFrame {
             }
         });
 
+        panelRound2.setBackground(new java.awt.Color(29, 91, 49));
+
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
         BtnEXIT.setBorderPainted(false);
