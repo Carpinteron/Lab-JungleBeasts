@@ -239,30 +239,29 @@ public class Tablero extends javax.swing.JFrame {
     boolean acerto = true;
 
     public void mover() {
-        if (CatgActual.dato.equalsIgnoreCase("fin")) {
-            System.out.println("Gano");
-        } else {
-            if (CatgActual.dato.equalsIgnoreCase("inicio")) {
-                if (acerto = false) {
-                    if (CatgActual.prev.prev.dato == null) {
-                        CatgActual = Camino.retroceder(1, CatgActual);
-                    }
-                } else {
-                   
-                        CatgActual = Camino.avanzar(dado, CatgActual);
-                    
+    if (CatgActual.dato.equalsIgnoreCase("fin")) {
+        System.out.println("Gano");
+    } else {
+        if (CatgActual.dato.equalsIgnoreCase("inicio")) {
+            if (!acerto) {
+                if (CatgActual.prev != null && CatgActual.prev.prev != null && CatgActual.prev.prev.dato == null) {
+                    CatgActual = Camino.retroceder(1, CatgActual);
                 }
             } else {
-                if (acerto == true) {
-                    CatgActual = Camino.avanzar(dado, CatgActual);
-                } else {
-                    CatgActual = Camino.retroceder(2, CatgActual);
-                }
+                CatgActual = Camino.avanzar(dado, CatgActual);
             }
-
+        } else {
+            if (acerto) {
+                CatgActual = Camino.avanzar(dado, CatgActual);
+            } else {
+                CatgActual = Camino.retroceder(2, CatgActual);
+            }
         }
-
     }
+}
+
+
+    
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dado = ran.nextInt(6) + 1;
