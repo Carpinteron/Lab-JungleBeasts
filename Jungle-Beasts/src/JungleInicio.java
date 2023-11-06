@@ -26,9 +26,9 @@ ClassLoader CL = getClass().getClassLoader();
         panelRound1 = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
-        cred = new javax.swing.JButton();
         inicio = new javax.swing.JButton();
         info = new javax.swing.JButton();
+        cred = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,6 +37,7 @@ ClassLoader CL = getClass().getClassLoader();
         panelRound1.setPreferredSize(new java.awt.Dimension(1180, 664));
 
         panelRound2.setBackground(new java.awt.Color(29, 91, 49));
+        panelRound2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -48,24 +49,7 @@ ClassLoader CL = getClass().getClassLoader();
                 BtnEXITActionPerformed(evt);
             }
         });
-
-        cred.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cr.png"))); // NOI18N
-        cred.setBorderPainted(false);
-        cred.setContentAreaFilled(false);
-        cred.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cred.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                credMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                credMouseExited(evt);
-            }
-        });
-        cred.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                credActionPerformed(evt);
-            }
-        });
+        panelRound2.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1132, 6, 44, -1));
 
         inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/j.png"))); // NOI18N
         inicio.setBorderPainted(false);
@@ -84,6 +68,7 @@ ClassLoader CL = getClass().getClassLoader();
                 inicioActionPerformed(evt);
             }
         });
+        panelRound2.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 210, 70));
 
         info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cj.png"))); // NOI18N
         info.setBorderPainted(false);
@@ -102,45 +87,29 @@ ClassLoader CL = getClass().getClassLoader();
                 infoActionPerformed(evt);
             }
         });
+        panelRound2.add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 210, 70));
+
+        cred.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cr.png"))); // NOI18N
+        cred.setBorderPainted(false);
+        cred.setContentAreaFilled(false);
+        cred.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cred.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                credMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                credMouseExited(evt);
+            }
+        });
+        cred.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                credActionPerformed(evt);
+            }
+        });
+        panelRound2.add(cred, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 210, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/inicio2.png"))); // NOI18N
-
-        javax.swing.GroupLayout panelRound2Layout = new javax.swing.GroupLayout(panelRound2);
-        panelRound2.setLayout(panelRound2Layout);
-        panelRound2Layout.setHorizontalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(1132, 1132, 1132)
-                .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(cred, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelRound2Layout.setVerticalGroup(
-            panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(BtnEXIT)
-                .addGap(6, 6, 6)
-                .addGroup(panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(423, 423, 423)
-                        .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(503, 503, 503)
-                        .addComponent(cred, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRound2Layout.createSequentialGroup()
-                        .addGap(343, 343, 343)
-                        .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        panelRound2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 47, -1, 617));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
