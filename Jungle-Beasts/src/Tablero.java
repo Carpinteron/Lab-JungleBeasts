@@ -12,9 +12,11 @@ public class Tablero extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
         GenerarCamino();
+        dadoLabel.setText("");
     }
     //EStas listas alamecenaran las categorias 
     ListaEnlazadaDoble Camino = new ListaEnlazadaDoble();
+    int dado;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,6 +25,10 @@ public class Tablero extends javax.swing.JFrame {
         panelRound1 = new custom.PanelRound();
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        dadoLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -44,7 +50,7 @@ public class Tablero extends javax.swing.JFrame {
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                .addContainerGap(1130, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -56,17 +62,40 @@ public class Tablero extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        dadoLabel.setText("9");
+        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 390, 47, 53));
+
+        jButton1.setText("Tirar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 95, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1150, -1));
+
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(617, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -88,18 +117,24 @@ public class Tablero extends javax.swing.JFrame {
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
+    Random ran = new Random();
+       
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dado=ran.nextInt(6)+1;
+        dadoLabel.setText("");
+        dadoLabel.setText(Integer.toString(dado));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void GenerarCamino() {
-         Random ran = new Random();
-       
+        
         String []Categorias={"Ingles","Conocimiento General","Matematicas","Ciencia","Razonamiento Abstracto","Sociales"};
         for(int i=0;i<17;i++){
             int r=ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
         }
-        Camino.add_afterPOS("Ahorcado", 5);
-        Camino.add_afterPOS("Ahorcado", 11);
-        Camino.add_afterPOS("Ahorcado", 17);
+        Camino.add_afterPOS("Ahorcado", 5); //pos 6
+        Camino.add_afterPOS("Ahorcado", 11);// pos 12
+        Camino.add_afterPOS("Ahorcado", 17); // pos 18
         
         Camino.imprimir();
     }
@@ -280,6 +315,10 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
+    private javax.swing.JLabel dadoLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
     // End of variables declaration//GEN-END:variables
