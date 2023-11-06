@@ -1,18 +1,71 @@
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
+public class Avatars extends javax.swing.JFrame implements ActionListener {
 
-public class Avatars extends javax.swing.JFrame {
+    public static int avatar;
+    ClassLoader CL = getClass().getClassLoader();
+    ImageIcon bi = new ImageIcon(CL.getResource("IMAGENES/a.png"));
+    ImageIcon girl = new ImageIcon(CL.getResource("IMAGENES/b.png"));
+    ImageIcon man = new ImageIcon(CL.getResource("IMAGENES/c.png"));
+    ImageIcon cb = new ImageIcon(CL.getResource("IMAGENES/check.png"));
+    
+    ImageIcon bi2 = new ImageIcon(CL.getResource("IMAGENES/a1.png"));
+    ImageIcon girl2 = new ImageIcon(CL.getResource("IMAGENES/b1.png"));
+    ImageIcon man2 = new ImageIcon(CL.getResource("IMAGENES/c1.png"));
 
-   
     public Avatars() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
-        
+        this.a.addActionListener(this);
+        this.b.addActionListener(this);
+        this.c.addActionListener(this);
+
+    }
+    JButton btn;
+
+    public void actionPerformed(ActionEvent e) {
+        btn = (JButton) e.getSource();
+        if (e.getSource() == c) {//3
+            AvatarJugador1.avatar = 1;
+            cb1.setIcon(null);//1
+            cb2.setIcon(null);//2
+            cb3.setIcon(cb);//3
+            c.setEnabled(false);//3
+            a.setEnabled(true);//1
+            b.setEnabled(true);//2
+            a.setIcon(bi);//1
+            b.setIcon(girl);//2
+
+        } else if (e.getSource() == a) {
+            AvatarJugador1.avatar = 2;
+             cb2.setIcon(null);
+            cb1.setIcon(cb);
+            cb3.setIcon(null);
+             a.setEnabled(false);
+             c.setEnabled(true);
+             b.setEnabled(true);
+            c.setIcon(man);
+            b.setIcon(girl);
+        } else if (e.getSource() == b) {
+            AvatarJugador1.avatar = 3;
+            cb1.setIcon(null);
+            cb3.setIcon(null);
+            cb2.setIcon(cb);
+           // AverdeBTN.setIcon(sverde);
+            b.setEnabled(false);
+            c.setEnabled(true);
+             a.setEnabled(true);
+           a.setIcon(bi);
+            c.setIcon(man);
+        }
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,6 +74,12 @@ public class Avatars extends javax.swing.JFrame {
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        c = new javax.swing.JButton();
+        a = new javax.swing.JButton();
+        b = new javax.swing.JButton();
+        cb3 = new javax.swing.JButton();
+        cb1 = new javax.swing.JButton();
+        cb2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -34,6 +93,7 @@ public class Avatars extends javax.swing.JFrame {
         BtnEXIT.setBorder(null);
         BtnEXIT.setBorderPainted(false);
         BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnEXITActionPerformed(evt);
@@ -65,7 +125,68 @@ public class Avatars extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, -1, -1));
+        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 630, -1, -1));
+
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/c.png"))); // NOI18N
+        c.setBorderPainted(false);
+        c.setContentAreaFilled(false);
+        c.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sc.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
+            }
+        });
+        panelRound1.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 240, 290));
+
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/a.png"))); // NOI18N
+        a.setBorderPainted(false);
+        a.setContentAreaFilled(false);
+        a.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sa.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
+            }
+        });
+        a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aActionPerformed(evt);
+            }
+        });
+        panelRound1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 240, 290));
+
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/b.png"))); // NOI18N
+        b.setBorderPainted(false);
+        b.setContentAreaFilled(false);
+        b.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sb.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+        b.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bActionPerformed(evt);
+            }
+        });
+        panelRound1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 240, 290));
+
+        cb3.setContentAreaFilled(false);
+        panelRound1.add(cb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 250, 80, 60));
+
+        cb1.setContentAreaFilled(false);
+        panelRound1.add(cb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 80, 60));
+
+        cb2.setContentAreaFilled(false);
+        panelRound1.add(cb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 80, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/seleccion (2).png"))); // NOI18N
         panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1180, 620));
@@ -94,6 +215,37 @@ public class Avatars extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bActionPerformed
+
+    private void aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aActionPerformed
+
+    private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
+        a.setIcon(bi2);
+    }//GEN-LAST:event_aMouseEntered
+
+    private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
+       a.setIcon(bi);
+    }//GEN-LAST:event_aMouseExited
+
+    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
+        b.setIcon(girl);
+    }//GEN-LAST:event_bMouseExited
+
+    private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
+        c.setIcon(man2);
+    }//GEN-LAST:event_cMouseEntered
+
+    private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
+       c.setIcon(man);
+    }//GEN-LAST:event_cMouseExited
+
+    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+        b.setIcon(girl2);
+    }//GEN-LAST:event_bMouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -129,6 +281,12 @@ public class Avatars extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
+    private javax.swing.JButton a;
+    private javax.swing.JButton b;
+    private javax.swing.JButton c;
+    private javax.swing.JButton cb1;
+    private javax.swing.JButton cb2;
+    private javax.swing.JButton cb3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private custom.PanelRound panelRound1;
