@@ -1,42 +1,57 @@
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Point;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class Tablero extends javax.swing.JFrame {
+
     ClassLoader CL = getClass().getClassLoader();
-//    ImageIcon A = new ImageIcon(CL.getResource("IMG/morado150.png"));//BIN =1
-//    ImageIcon B = new ImageIcon(CL.getResource("IMG/rojo150.png"));//CHICA=2
-//    ImageIcon C = new ImageIcon(CL.getResource("IMG/verde150.png")); //CHICO=3
+    ImageIcon A = new ImageIcon(CL.getResource("IMG/chic110.png"));//BIN =1
+    ImageIcon B = new ImageIcon(CL.getResource("IMG/chica110.png"));//CHICA=2
+    ImageIcon C = new ImageIcon(CL.getResource("IMG/chico110.png")); //CHICO=3
     private int user;
+
     public Tablero(int Avatar) {
         initComponents();
-        this.user=Avatar;
+        this.user = Avatar;
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
         FondoAleatorio();
         GenerarCamino();
         dadoLabel.setText("");
-        
-     
-//        switch (user) {
-//            case 1:
-//                USER.setIcon(A);
-//                break;
-//            case 2:
-//                USER.setIcon(B);
-//                break;
-//            case 3:
-//                USER.setIcon(C);
-//                break;
-//
-//        }
+
+        System.out.println("");
+        switch (user) {
+            case 1:
+                USER.setIcon(A);
+                break;
+            case 2:
+                USER.setIcon(B);
+                break;
+            case 3:
+                USER.setIcon(C);
+                break;
+
+        }
+
+        for (int i = 0; i < 20; i++) {
+            int a = i + 1;
+            Casillas.add_alFinal("P" + a);
+        }
+        Casillas.imprimir();
+
+        Point J = USER.getLocation();
+        USER.setLocation(J);
     }
     //EStas listas alamecenaran las categorias 
     ListaEnlazadaDoble Camino = new ListaEnlazadaDoble();
+    ListaEnlazadaDoble Casillas = new ListaEnlazadaDoble();
     int dado;
 
     @SuppressWarnings("unchecked")
@@ -49,10 +64,10 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         USER = new javax.swing.JLabel();
         dadoLabel = new javax.swing.JLabel();
-        huecoBTn2 = new javax.swing.JButton();
-        huecoBTn1 = new javax.swing.JButton();
-        huecoBTn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        P20 = new javax.swing.JLabel();
+        P19 = new javax.swing.JLabel();
+        P18 = new javax.swing.JLabel();
         P17 = new javax.swing.JLabel();
         P16 = new javax.swing.JLabel();
         P15 = new javax.swing.JLabel();
@@ -107,30 +122,12 @@ public class Tablero extends javax.swing.JFrame {
         );
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 520, 90, 110));
 
         dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         dadoLabel.setText("9");
-
-        huecoBTn2.setText("Hueco");
-        huecoBTn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                huecoBTn2ActionPerformed(evt);
-            }
-        });
-
-        huecoBTn1.setText("Hueco");
-        huecoBTn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                huecoBTn1ActionPerformed(evt);
-            }
-        });
-
-        huecoBTn.setText("Hueco");
-        huecoBTn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                huecoBTnActionPerformed(evt);
-            }
-        });
+        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 390, 47, 53));
 
         jButton1.setText("Tirar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,189 +135,64 @@ public class Tablero extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 95, 40));
 
-        P17.setText("17");
+        P20.setText("17");
+        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 70, 50));
+        jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 50, 40));
 
-        P16.setText("16");
+        P18.setText("16");
+        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 70, 50));
 
-        P15.setText("15");
+        P17.setText("15");
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 70, 50));
 
-        P14.setText("14");
+        P16.setText("14");
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 70, 50));
 
-        P13.setText("13");
+        P15.setText("13");
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 70, 50));
 
-        P12.setText("12");
+        P14.setText("12");
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 70, 50));
+        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 60, 30));
 
-        P11.setText("11");
+        P12.setText("11");
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 70, 50));
 
-        P10.setText("10");
+        P11.setText("10");
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 70, 50));
 
-        P9.setText("9");
+        P10.setText("9");
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 70, 50));
 
-        P8.setText("8");
+        P9.setText("8");
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 70, 50));
 
-        P7.setText("7");
+        P8.setText("7");
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 70, 50));
+        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 60, 30));
 
         P6.setText("6");
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 190, 70, 50));
 
         P5.setText("4");
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 290, 70, 50));
 
         P4.setText("4");
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 70, 50));
 
         P3.setText("3");
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 70, 50));
 
         P2.setText("2");
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, 70, 50));
 
         P1.setText("Pregunta 1");
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 50));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(800, 800, 800)
-                .addComponent(P4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(P15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(P14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addComponent(P13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(P12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(470, 470, 470)
-                .addComponent(USER, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(P11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(huecoBTn1))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(P16, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(690, 690, 690)
-                .addComponent(P8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(820, 820, 820)
-                .addComponent(P7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(P17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(900, 900, 900)
-                .addComponent(P1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1040, 1040, 1040)
-                .addComponent(P6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(950, 950, 950)
-                .addComponent(huecoBTn))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1040, 1040, 1040)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(670, 670, 670)
-                .addComponent(P3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(620, 620, 620)
-                .addComponent(P9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(740, 740, 740)
-                .addComponent(P2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(950, 950, 950)
-                .addComponent(P5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(490, 490, 490)
-                .addComponent(P10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1070, 1070, 1070)
-                .addComponent(dadoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(huecoBTn2))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(310, 310, 310)
-                .addComponent(P4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(P15, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(P14, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(P13, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(P12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(USER, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(P11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(350, 350, 350)
-                .addComponent(huecoBTn1))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(340, 340, 340)
-                .addComponent(P16, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(P8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(P7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(P17, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(510, 510, 510)
-                .addComponent(P1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(P6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(huecoBTn))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(450, 450, 450)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(420, 420, 420)
-                .addComponent(P3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(P9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(540, 540, 540)
-                .addComponent(P2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(290, 290, 290)
-                .addComponent(P5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(P10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(390, 390, 390)
-                .addComponent(dadoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(huecoBTn2))
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1150, 650));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -360,28 +232,40 @@ public class Tablero extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
     Random ran = new Random();
-       
+    String posActual = "P0";
+    String CatgActual;
+
+    public void mover() {
+        int nuevaPosicion = Integer.parseInt(posActual.substring(1)) + dado;
+
+        // Asegúrate de que la nueva posición esté dentro de los límites de la lista de casillas
+        if (nuevaPosicion >= 1 && nuevaPosicion <= 20) {
+            String nuevaPosicionStr = "P" + nuevaPosicion;
+
+            // Encuentra la posición de "nuevaPosicionStr" en la lista
+            int indiceNuevaPosicion = Casillas.buscarpos(nuevaPosicionStr);
+
+            // if (indiceNuevaPosicion != -1) {
+            // Obtiene las coordenadas de la nueva posición desde el panel
+            JLabel nuevoLabel = (JLabel) jPanel1.getComponent(indiceNuevaPosicion);
+            int xNuevaPosicion = nuevoLabel.getX();
+            int yNuevaPosicion = nuevoLabel.getY();
+
+            // Mueve "USER" a las nuevas coordenadas
+            USER.setLocation(xNuevaPosicion, yNuevaPosicion);
+
+        }
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dado=ran.nextInt(6)+1;
+        dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
         dadoLabel.setText(Integer.toString(dado));
+        mover();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void huecoBTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTnActionPerformed
-        Send_ToAhorcado();
-    }//GEN-LAST:event_huecoBTnActionPerformed
-
-    private void huecoBTn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTn1ActionPerformed
-        Send_ToAhorcado();
-    }//GEN-LAST:event_huecoBTn1ActionPerformed
-
-    private void huecoBTn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTn2ActionPerformed
-        Send_ToAhorcado();
-    }//GEN-LAST:event_huecoBTn2ActionPerformed
-
-    public void FondoAleatorio(){
-       int  f=ran.nextInt(4);
-        switch(f){
+    public void FondoAleatorio() {
+        int f = ran.nextInt(4);
+        switch (f) {
             case 0:
                 fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png")));
                 break;
@@ -396,40 +280,40 @@ public class Tablero extends javax.swing.JFrame {
                 break;
         }
     }
-    public void Send_ToAhorcado(){
-         Ahorcado a = new Ahorcado();
+
+    public void Send_ToAhorcado() {
+        Ahorcado a = new Ahorcado();
         a.setVisible(true);
         this.dispose();
     }
+
     public void GenerarCamino() {
-        
-        String []Categorias={"Ingles","Conocimiento General","Matematicas","Ciencia","Razonamiento Abstracto","Sociales"};
-        for(int i=0;i<17;i++){
-            int r=ran.nextInt(6); // numero del 0 a 5
+
+        String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencia", "Razonamiento Abstracto", "Sociales"};
+        for (int i = 0; i < 17; i++) {
+            int r = ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
         }
         Camino.add_afterPOS("Ahorcado", 5); //pos 6
         Camino.add_afterPOS("Ahorcado", 11);// pos 12
         Camino.add_afterPOS("Ahorcado", 17); // pos 18
-        
+
         Camino.imprimir();
     }
- public static void ArchivoInventario(String file_name) {
+
+    public static void ArchivoInventario(String file_name) {
         try {
             FileWriter outFile = new FileWriter(file_name + ".txt", false);
             PrintWriter registro = new PrintWriter(outFile);
 
             // respuesta correcta enseguida: avanza 2 casillas
-            
             //Matriz para crear Archivo Existente 
             String[][] preguntas = {
                 // Categoria , Pregunta , "a", b, c ,d, res, nombreDeLaImagen, seHizo=trueoFalse
                 //EJEMPLO
                 //{"Ingles","¿what is an apple?","naranja","manzana","uva","pera","manzana","IMGmonstruo1"},
                 {"Camiseta XS", "20", "Camiseta", "Conan Gray", "30000"},
-                {"Camiseta S", "20", "Camiseta", "Conan Gray", "30000"},
-
-            };
+                {"Camiseta S", "20", "Camiseta", "Conan Gray", "30000"},};
 
             //Agregar datos de la matriz al registro
             for (String[] fila : preguntas) {
@@ -438,12 +322,12 @@ public class Tablero extends javax.swing.JFrame {
                 String a = fila[2];
                 String b = fila[3];
                 String c = fila[4];
-                String d= fila[5];
-                String res=fila[6];
-                String img=fila[7];
+                String d = fila[5];
+                String res = fila[6];
+                String img = fila[7];
 
                 // Agregar los datos al archivo
-                registro.println(categoria + ";" + pregunta+ ";" + a + ";" + b+ ";" + c+";"+d+";"+img);
+                registro.println(categoria + ";" + pregunta + ";" + a + ";" + b + ";" + c + ";" + d + ";" + img);
 
             }
             registro.close();
@@ -504,6 +388,16 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
 
+        public int buscarpos(String dato) {
+            Nodo actual = head;
+            int i = 0;
+            while (actual != null && !actual.dato.equals(dato)) {
+                actual = actual.siguiente;
+                i++;
+            }
+            return i;
+        }
+
         public void add_afterPOS(String dato, int pos) {
             Nodo nuevoNodo = new Nodo(dato);
             if (head == null) {
@@ -548,6 +442,7 @@ public class Tablero extends javax.swing.JFrame {
             }
             System.out.println();
         }
+
     }
 
     public static void main(String args[]) {
@@ -585,7 +480,7 @@ public class Tablero extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               // new Tablero(null).setVisible(true);
+                // new Tablero(null).setVisible(true);
             }
         });
     }
@@ -601,7 +496,10 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel P15;
     private javax.swing.JLabel P16;
     private javax.swing.JLabel P17;
+    private javax.swing.JLabel P18;
+    private javax.swing.JLabel P19;
     private javax.swing.JLabel P2;
+    private javax.swing.JLabel P20;
     private javax.swing.JLabel P3;
     private javax.swing.JLabel P4;
     private javax.swing.JLabel P5;
@@ -612,9 +510,6 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel USER;
     private javax.swing.JLabel dadoLabel;
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton huecoBTn;
-    private javax.swing.JButton huecoBTn1;
-    private javax.swing.JButton huecoBTn2;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private custom.PanelRound panelRound1;
