@@ -34,7 +34,7 @@ public class Tablero extends javax.swing.JFrame {
             case 2:
                 USER.setIcon(B);
                 break;
-                
+
             case 3:
                 USER.setIcon(C);
                 break;
@@ -54,6 +54,7 @@ public class Tablero extends javax.swing.JFrame {
     ListaEnlazadaDoble Camino = new ListaEnlazadaDoble();
     ListaEnlazadaDoble Casillas = new ListaEnlazadaDoble();
     int dado;
+    Nodo CatgActual;
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -233,35 +234,44 @@ public class Tablero extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
     Random ran = new Random();
-    String posActual = "P0";
-    String CatgActual;
+    int CasillaActual = 0;
+
+    boolean acerto = true;
 
     public void mover() {
-        int nuevaPosicion = Integer.parseInt(posActual.substring(1)) + dado;
-
-        // Asegúrate de que la nueva posición esté dentro de los límites de la lista de casillas
-        if (nuevaPosicion >= 1 && nuevaPosicion <= 20) {
-            String nuevaPosicionStr = "P" + nuevaPosicion;
-
-            // Encuentra la posición de "nuevaPosicionStr" en la lista
-            int indiceNuevaPosicion = Casillas.buscarpos(nuevaPosicionStr);
-
-            // if (indiceNuevaPosicion != -1) {
-            // Obtiene las coordenadas de la nueva posición desde el panel
-            JLabel nuevoLabel = (JLabel) jPanel1.getComponent(indiceNuevaPosicion);
-            int xNuevaPosicion = nuevoLabel.getX();
-            int yNuevaPosicion = nuevoLabel.getY();
-
-            // Mueve "USER" a las nuevas coordenadas
-            USER.setLocation(xNuevaPosicion, yNuevaPosicion);
+        if (CatgActual.dato.equalsIgnoreCase("fin")) {
+            System.out.println("Gano");
+        } else {
+            if (CatgActual.dato.equalsIgnoreCase("inicio")) {
+                if (acerto = false) {
+                    if (CatgActual.prev.prev.dato == null) {
+                        CatgActual = Camino.retroceder(1, CatgActual);
+                    }
+                } else {
+                   
+                        CatgActual = Camino.avanzar(dado, CatgActual);
+                    
+                }
+            } else {
+                if (acerto == true) {
+                    CatgActual = Camino.avanzar(dado, CatgActual);
+                } else {
+                    CatgActual = Camino.retroceder(2, CatgActual);
+                }
+            }
 
         }
+
     }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
         dadoLabel.setText(Integer.toString(dado));
+
         mover();
+
+        System.out.println("CatgActual: " + CatgActual.dato);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void FondoAleatorio() {
@@ -295,10 +305,12 @@ public class Tablero extends javax.swing.JFrame {
             int r = ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
         }
-        Camino.add_afterPOS("Ahorcado", 5); //pos 6
-        Camino.add_afterPOS("Ahorcado", 11);// pos 12
-        Camino.add_afterPOS("Ahorcado", 17); // pos 18
-
+        Camino.add_alComienzo("Inicio");
+        Camino.add_afterPOS("Ahorcado", 6); //pos 7
+        Camino.add_afterPOS("Ahorcado", 12);// pos 13
+        Camino.add_afterPOS("Ahorcado", 18); // pos 19
+        Camino.add_alFinal("Fin");
+        CatgActual = Camino.head;
         Camino.imprimir();
     }
 
@@ -389,6 +401,30 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
 
+        public Nodo avanzar(int cant, Nodo desde) {
+
+            int i = 0;
+            Nodo actual = desde;
+            // Avanza "cant" nodos desde la posición "desde"
+            while (actual.siguiente != null & actual != null & i < cant) {
+                actual = actual.siguiente;
+                i++;
+            }
+            return actual;
+        }
+
+//      
+        public Nodo retroceder(int c, Nodo desde) {
+            int i = 0;
+            Nodo actual = desde;
+            // Avanza "cant" nodos desde la posición "desde"
+            while (actual.prev != null & actual != null & i < c) {
+                actual = actual.prev;
+                i++;
+            }
+            return actual;
+        }
+
         public int buscarpos(String dato) {
             Nodo actual = head;
             int i = 0;
@@ -397,6 +433,21 @@ public class Tablero extends javax.swing.JFrame {
                 i++;
             }
             return i;
+        }
+
+        public Nodo buscarNodo(int pos) {
+            if (pos < 0) {
+                throw new IllegalArgumentException("La posición no puede ser negativa.");
+            }
+
+            Nodo actual = head;
+            int i = 0;
+            while (actual != null && i < pos) {
+                actual = actual.siguiente;
+                i++;
+            }
+
+            return actual;
         }
 
         public void add_afterPOS(String dato, int pos) {
