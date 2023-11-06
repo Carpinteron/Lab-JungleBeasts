@@ -13,7 +13,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     ImageIcon girl = new ImageIcon(CL.getResource("IMAGENES/b.png"));
     ImageIcon man = new ImageIcon(CL.getResource("IMAGENES/c.png"));
     ImageIcon cb = new ImageIcon(CL.getResource("IMAGENES/check.png"));
-    
+
     ImageIcon bi2 = new ImageIcon(CL.getResource("IMAGENES/a1.png"));
     ImageIcon girl2 = new ImageIcon(CL.getResource("IMAGENES/b1.png"));
     ImageIcon man2 = new ImageIcon(CL.getResource("IMAGENES/c1.png"));
@@ -45,12 +45,12 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
 
         } else if (e.getSource() == a) {
             AvatarJugador1.avatar = 2;
-             cb2.setIcon(null);
+            cb2.setIcon(null);
             cb1.setIcon(cb);
             cb3.setIcon(null);
-             a.setEnabled(false);
-             c.setEnabled(true);
-             b.setEnabled(true);
+            a.setEnabled(false);
+            c.setEnabled(true);
+            b.setEnabled(true);
             c.setIcon(man);
             b.setIcon(girl);
             val.setText("");
@@ -59,11 +59,11 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
             cb1.setIcon(null);
             cb3.setIcon(null);
             cb2.setIcon(cb);
-           // AverdeBTN.setIcon(sverde);
+            // AverdeBTN.setIcon(sverde);
             b.setEnabled(false);
             c.setEnabled(true);
-             a.setEnabled(true);
-           a.setIcon(bi);
+            a.setEnabled(true);
+            a.setIcon(bi);
             c.setIcon(man);
             val.setText("");
         }
@@ -89,8 +89,6 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         panelRound2.setBackground(new java.awt.Color(29, 91, 49));
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
@@ -109,7 +107,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         panelRound2Layout.setHorizontalGroup(
             panelRound2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(1130, Short.MAX_VALUE)
                 .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -118,10 +116,8 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
             .addGroup(panelRound2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BtnEXIT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
-
-        panelRound1.add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 1180, 50));
 
         jButton1.setText("ok");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,17 +125,18 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
                 jButton1ActionPerformed(evt);
             }
         });
-        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 630, -1, -1));
 
         val.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         val.setForeground(new java.awt.Color(255, 0, 0));
-        panelRound1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 560, -1));
 
         c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/c.png"))); // NOI18N
         c.setBorderPainted(false);
         c.setContentAreaFilled(false);
         c.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sc.png"))); // NOI18N
         c.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cMouseEntered(evt);
             }
@@ -147,13 +144,15 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
                 cMouseExited(evt);
             }
         });
-        panelRound1.add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 240, 290));
 
         a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/a.png"))); // NOI18N
         a.setBorderPainted(false);
         a.setContentAreaFilled(false);
         a.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sa.png"))); // NOI18N
         a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 aMouseEntered(evt);
             }
@@ -166,13 +165,15 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
                 aActionPerformed(evt);
             }
         });
-        panelRound1.add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 240, 290));
 
         b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/b.png"))); // NOI18N
         b.setBorderPainted(false);
         b.setContentAreaFilled(false);
         b.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/sb.png"))); // NOI18N
         b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bMouseEntered(evt);
             }
@@ -185,19 +186,79 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
                 bActionPerformed(evt);
             }
         });
-        panelRound1.add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 240, 290));
 
         cb3.setContentAreaFilled(false);
-        panelRound1.add(cb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 250, 80, 60));
 
         cb1.setContentAreaFilled(false);
-        panelRound1.add(cb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 80, 60));
 
         cb2.setContentAreaFilled(false);
-        panelRound1.add(cb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 80, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/seleccion (2).png"))); // NOI18N
-        panelRound1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1180, 620));
+
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(510, 510, 510)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(960, 960, 960)
+                .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(890, 890, 890)
+                .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(val, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(1060, 1060, 1060)
+                .addComponent(jButton1))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(580, 580, 580)
+                .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
+        );
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(330, 330, 330)
+                .addComponent(b, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(cb3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(c, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(280, 280, 280)
+                .addComponent(val))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(630, 630, 630)
+                .addComponent(jButton1))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(270, 270, 270)
+                .addComponent(cb2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(cb1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,18 +278,26 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
 
+    int Avatar = 0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (AvatarJugador1.avatar != 0) {
-            Tablero T = new Tablero();
-        T.setVisible(true);
-        this.dispose();
-        
+           
+            System.out.println("A"+Avatar);
+            if (Avatar != 0) {
+                Tablero T = new Tablero(Avatar);
+                T.setVisible(true);
+                this.dispose();
+            }
+            else{
+                //VALIDACION 
+            }
+
         } else {
             //sonido("/Sonidos/error.wav");
             val.setText("(!) Debe escoger un avatar antes de jugar.");
 
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
@@ -244,7 +313,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_aMouseEntered
 
     private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
-       a.setIcon(bi);
+        a.setIcon(bi);
     }//GEN-LAST:event_aMouseExited
 
     private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
@@ -256,12 +325,24 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_cMouseEntered
 
     private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
-       c.setIcon(man);
+        c.setIcon(man);
     }//GEN-LAST:event_cMouseExited
 
     private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
         b.setIcon(girl2);
     }//GEN-LAST:event_bMouseEntered
+
+    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
+ Avatar = 2;
+    }//GEN-LAST:event_bMouseClicked
+
+    private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
+      Avatar = 1;
+    }//GEN-LAST:event_aMouseClicked
+
+    private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
+         Avatar = 3;
+    }//GEN-LAST:event_cMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
