@@ -11,6 +11,7 @@ public class Tablero extends javax.swing.JFrame {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
         setLocationRelativeTo(null);
+        FondoAleatorio();
         GenerarCamino();
         dadoLabel.setText("");
     }
@@ -26,9 +27,30 @@ public class Tablero extends javax.swing.JFrame {
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        USER = new javax.swing.JLabel();
         dadoLabel = new javax.swing.JLabel();
+        huecoBTn2 = new javax.swing.JButton();
+        huecoBTn1 = new javax.swing.JButton();
+        huecoBTn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        P17 = new javax.swing.JLabel();
+        P16 = new javax.swing.JLabel();
+        P15 = new javax.swing.JLabel();
+        P14 = new javax.swing.JLabel();
+        P13 = new javax.swing.JLabel();
+        P12 = new javax.swing.JLabel();
+        P11 = new javax.swing.JLabel();
+        P10 = new javax.swing.JLabel();
+        P9 = new javax.swing.JLabel();
+        P8 = new javax.swing.JLabel();
+        P7 = new javax.swing.JLabel();
+        P6 = new javax.swing.JLabel();
+        P5 = new javax.swing.JLabel();
+        P4 = new javax.swing.JLabel();
+        P3 = new javax.swing.JLabel();
+        P2 = new javax.swing.JLabel();
+        P1 = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -64,10 +86,35 @@ public class Tablero extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 80, 110));
 
         dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         dadoLabel.setText("9");
         jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 390, 47, 53));
+
+        huecoBTn2.setText("Hueco");
+        huecoBTn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                huecoBTn2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(huecoBTn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
+
+        huecoBTn1.setText("Hueco");
+        huecoBTn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                huecoBTn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(huecoBTn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, -1, -1));
+
+        huecoBTn.setText("Hueco");
+        huecoBTn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                huecoBTnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(huecoBTn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, -1, -1));
 
         jButton1.setText("Tirar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,8 +124,59 @@ public class Tablero extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 95, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1150, -1));
+        P17.setText("17");
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 70, 50));
+
+        P16.setText("16");
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 70, 50));
+
+        P15.setText("15");
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, 70, 50));
+
+        P14.setText("14");
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 70, 50));
+
+        P13.setText("13");
+        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 70, 50));
+
+        P12.setText("12");
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 70, 50));
+
+        P11.setText("11");
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 70, 50));
+
+        P10.setText("10");
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 70, 50));
+
+        P9.setText("9");
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 70, 50));
+
+        P8.setText("8");
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 70, 50));
+
+        P7.setText("7");
+        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 70, 50));
+
+        P6.setText("6");
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 190, 70, 50));
+
+        P5.setText("4");
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 290, 70, 50));
+
+        P4.setText("4");
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 70, 50));
+
+        P3.setText("3");
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 420, 70, 50));
+
+        P2.setText("2");
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, 70, 50));
+
+        P1.setText("Pregunta 1");
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 510, 70, 50));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1150, 650));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
@@ -94,7 +192,7 @@ public class Tablero extends javax.swing.JFrame {
             .addGroup(panelRound1Layout.createSequentialGroup()
                 .addComponent(panelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -125,6 +223,40 @@ public class Tablero extends javax.swing.JFrame {
         dadoLabel.setText(Integer.toString(dado));
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void huecoBTnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTnActionPerformed
+        Send_ToAhorcado();
+    }//GEN-LAST:event_huecoBTnActionPerformed
+
+    private void huecoBTn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTn1ActionPerformed
+        Send_ToAhorcado();
+    }//GEN-LAST:event_huecoBTn1ActionPerformed
+
+    private void huecoBTn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huecoBTn2ActionPerformed
+        Send_ToAhorcado();
+    }//GEN-LAST:event_huecoBTn2ActionPerformed
+
+    public void FondoAleatorio(){
+       int  f=ran.nextInt(4);
+        switch(f){
+            case 0:
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png")));
+                break;
+            case 1:
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (1).png")));
+                break;
+            case 2:
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (2).png")));
+                break;
+            case 3:
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (3).png")));
+                break;
+        }
+    }
+    public void Send_ToAhorcado(){
+         Ahorcado a = new Ahorcado();
+        a.setVisible(true);
+        this.dispose();
+    }
     public void GenerarCamino() {
         
         String []Categorias={"Ingles","Conocimiento General","Matematicas","Ciencia","Razonamiento Abstracto","Sociales"};
@@ -315,9 +447,30 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnEXIT;
+    private javax.swing.JLabel P1;
+    private javax.swing.JLabel P10;
+    private javax.swing.JLabel P11;
+    private javax.swing.JLabel P12;
+    private javax.swing.JLabel P13;
+    private javax.swing.JLabel P14;
+    private javax.swing.JLabel P15;
+    private javax.swing.JLabel P16;
+    private javax.swing.JLabel P17;
+    private javax.swing.JLabel P2;
+    private javax.swing.JLabel P3;
+    private javax.swing.JLabel P4;
+    private javax.swing.JLabel P5;
+    private javax.swing.JLabel P6;
+    private javax.swing.JLabel P7;
+    private javax.swing.JLabel P8;
+    private javax.swing.JLabel P9;
+    private javax.swing.JLabel USER;
     private javax.swing.JLabel dadoLabel;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JButton huecoBTn;
+    private javax.swing.JButton huecoBTn1;
+    private javax.swing.JButton huecoBTn2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
