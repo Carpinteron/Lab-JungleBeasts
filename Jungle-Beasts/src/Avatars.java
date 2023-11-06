@@ -41,6 +41,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
             b.setEnabled(true);//2
             a.setIcon(bi);//1
             b.setIcon(girl);//2
+            val.setText("");
 
         } else if (e.getSource() == a) {
             AvatarJugador1.avatar = 2;
@@ -52,6 +53,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
              b.setEnabled(true);
             c.setIcon(man);
             b.setIcon(girl);
+            val.setText("");
         } else if (e.getSource() == b) {
             AvatarJugador1.avatar = 3;
             cb1.setIcon(null);
@@ -63,6 +65,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
              a.setEnabled(true);
            a.setIcon(bi);
             c.setIcon(man);
+            val.setText("");
         }
     }
 
@@ -74,6 +77,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         panelRound2 = new custom.PanelRound();
         BtnEXIT = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        val = new javax.swing.JLabel();
         c = new javax.swing.JButton();
         a = new javax.swing.JButton();
         b = new javax.swing.JButton();
@@ -126,6 +130,10 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
             }
         });
         panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 630, -1, -1));
+
+        val.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        val.setForeground(new java.awt.Color(255, 0, 0));
+        panelRound1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 560, -1));
 
         c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/c.png"))); // NOI18N
         c.setBorderPainted(false);
@@ -210,9 +218,17 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Tablero T = new Tablero();
+        if (AvatarJugador1.avatar != 0) {
+            Tablero T = new Tablero();
         T.setVisible(true);
         this.dispose();
+        
+        } else {
+            //sonido("/Sonidos/error.wav");
+            val.setText("(!) Debe escoger un avatar antes de jugar.");
+
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void bActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bActionPerformed
@@ -291,5 +307,6 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel jLabel1;
     private custom.PanelRound panelRound1;
     private custom.PanelRound panelRound2;
+    private javax.swing.JLabel val;
     // End of variables declaration//GEN-END:variables
 }
