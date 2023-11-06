@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -141,6 +143,12 @@ public class Tablero extends javax.swing.JFrame {
 
         P20.setText("17");
         jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 70, 50));
+
+        P19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P19MouseClicked(evt);
+            }
+        });
         jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 50, 40));
 
         P18.setText("16");
@@ -157,6 +165,12 @@ public class Tablero extends javax.swing.JFrame {
 
         P14.setText("12");
         jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 460, 70, 50));
+
+        P13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P13MouseClicked(evt);
+            }
+        });
         jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 350, 60, 30));
 
         P12.setText("11");
@@ -173,6 +187,12 @@ public class Tablero extends javax.swing.JFrame {
 
         P8.setText("7");
         jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 120, 70, 50));
+
+        P7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P7MouseClicked(evt);
+            }
+        });
         jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 90, 60, 30));
 
         P6.setText("6");
@@ -239,29 +259,27 @@ public class Tablero extends javax.swing.JFrame {
     boolean acerto = true;
 
     public void mover() {
-    if (CatgActual.dato.equalsIgnoreCase("fin")) {
-        System.out.println("Gano");
-    } else {
-        if (CatgActual.dato.equalsIgnoreCase("inicio")) {
-            if (!acerto) {
-                if (CatgActual.prev != null && CatgActual.prev.prev != null && CatgActual.prev.prev.dato == null) {
-                    CatgActual = Camino.retroceder(1, CatgActual);
+        if (CatgActual.dato.equalsIgnoreCase("fin")) {
+            System.out.println("Gano");
+        } else {
+            if (CatgActual.dato.equalsIgnoreCase("inicio")) {
+                if (!acerto) {
+                    if (CatgActual.prev != null && CatgActual.prev.prev != null && CatgActual.prev.prev.dato == null) {
+                        CatgActual = Camino.retroceder(1, CatgActual);
+                    }
+                } else {
+                    CatgActual = Camino.avanzar(dado, CatgActual);
                 }
             } else {
-                CatgActual = Camino.avanzar(dado, CatgActual);
-            }
-        } else {
-            if (acerto) {
-                CatgActual = Camino.avanzar(dado, CatgActual);
-            } else {
-                CatgActual = Camino.retroceder(2, CatgActual);
+                if (acerto) {
+                    CatgActual = Camino.avanzar(dado, CatgActual);
+                } else {
+                    CatgActual = Camino.retroceder(2, CatgActual);
+                }
             }
         }
     }
-}
 
-
-    
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dado = ran.nextInt(6) + 1;
@@ -272,6 +290,18 @@ public class Tablero extends javax.swing.JFrame {
 
         System.out.println("CatgActual: " + CatgActual.dato);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void P19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P19MouseClicked
+        Send_ToAhorcado();
+    }//GEN-LAST:event_P19MouseClicked
+
+    private void P13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P13MouseClicked
+        Send_ToAhorcado();
+    }//GEN-LAST:event_P13MouseClicked
+
+    private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
+        Send_ToAhorcado();
+    }//GEN-LAST:event_P7MouseClicked
 
     public void FondoAleatorio() {
         int f = ran.nextInt(4);
@@ -363,6 +393,16 @@ public class Tablero extends javax.swing.JFrame {
             this.siguiente = null;
             this.prev = null;
         }
+    }
+
+    static class ListaEnlazadaSimple {
+
+        Nodo head; // El primer nodo de la lista
+
+        public ListaEnlazadaSimple() {
+            head = null;
+        }
+
     }
 
     static class ListaEnlazadaDoble {
@@ -494,6 +534,68 @@ public class Tablero extends javax.swing.JFrame {
             System.out.println();
         }
 
+    }
+
+    public class Pregunta {
+
+        private String enunciado;
+        private String respuestaCorrecta;
+        private String[] respuestasIncorrectas;
+        private boolean respondida;
+
+        public Pregunta(String enunciado, String respuestaCorrecta, String[] respuestasIncorrectas) {
+            this.enunciado = enunciado;
+            this.respuestaCorrecta = respuestaCorrecta;
+            this.respuestasIncorrectas = respuestasIncorrectas;
+            this.respondida = false;
+        }
+    }
+
+    public class Categoria {
+
+        private String nombre;
+        private ListaEnlazadaSimple preguntas = new ListaEnlazadaSimple();
+
+        public Categoria(String nombre) {
+            this.nombre = nombre;
+            this.preguntas = preguntas;
+        }
+
+        public void agregarPregunta(Pregunta pregunta) {
+            //preguntas.add(pregunta);
+        }
+
+        // Agrega otros métodos para acceder y gestionar las preguntas de la categoría
+    }
+
+    public class MultilistaPreguntas {
+
+      
+        private ListaEnlazadaSimple categorias = new ListaEnlazadaSimple();
+
+
+        public MultilistaPreguntas() {
+            categorias = categorias;
+        }
+
+        public void agregarCategoria(Categoria categoria) {
+          //  categorias.add(categoria);
+        }
+
+        // Agrega otros métodos para acceder y gestionar las categorías de preguntas
+    }
+
+    static class Multilista {
+
+        String dato;
+        Nodo siguiente;
+        Nodo prev;
+
+        public Multilista(String dato) {
+            this.dato = dato;
+            this.siguiente = null;
+            this.prev = null;
+        }
     }
 
     public static void main(String args[]) {
