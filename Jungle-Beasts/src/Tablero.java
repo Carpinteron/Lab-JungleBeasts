@@ -34,6 +34,7 @@ public class Tablero extends javax.swing.JFrame {
             case 2:
                 USER.setIcon(B);
                 break;
+                
             case 3:
                 USER.setIcon(C);
                 break;
