@@ -44,7 +44,6 @@ public class Tablero extends javax.swing.JFrame {
             case 2:
                 USER.setIcon(B);
                 break;
-
             case 3:
                 USER.setIcon(C);
                 break;
@@ -77,6 +76,8 @@ public class Tablero extends javax.swing.JFrame {
     private void initComponents() {
 
         blurBackground1 = new org.example.Custom.BlurBackground();
+        BARRA = new javax.swing.JPanel();
+        BtnEXIT = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         dadoLabel = new javax.swing.JLabel();
@@ -102,8 +103,6 @@ public class Tablero extends javax.swing.JFrame {
         P7 = new javax.swing.JLabel();
         USER = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
-        BARRA = new javax.swing.JPanel();
-        BtnEXIT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -111,6 +110,50 @@ public class Tablero extends javax.swing.JFrame {
 
         blurBackground1.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/FONDO_VERDE.png"))); // NOI18N
         blurBackground1.setRadius(55);
+
+        BARRA.setBackground(new java.awt.Color(255, 255, 255));
+        BARRA.setForeground(new java.awt.Color(255, 255, 255));
+        BARRA.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                BARRAMouseDragged(evt);
+            }
+        });
+        BARRA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BARRAMousePressed(evt);
+            }
+        });
+
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXITActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BARRALayout = new javax.swing.GroupLayout(BARRA);
+        BARRA.setLayout(BARRALayout);
+        BARRALayout.setHorizontalGroup(
+            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        BARRALayout.setVerticalGroup(
+            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BARRALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BtnEXIT)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        blurBackground1.add(BARRA);
+        BARRA.setBounds(0, 0, 1180, 47);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -205,50 +248,6 @@ public class Tablero extends javax.swing.JFrame {
 
         blurBackground1.add(jPanel1);
         jPanel1.setBounds(30, 50, 1130, 600);
-
-        BARRA.setBackground(new java.awt.Color(255, 255, 255));
-        BARRA.setForeground(new java.awt.Color(255, 255, 255));
-        BARRA.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                BARRAMouseDragged(evt);
-            }
-        });
-        BARRA.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                BARRAMousePressed(evt);
-            }
-        });
-
-        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
-        BtnEXIT.setBorder(null);
-        BtnEXIT.setBorderPainted(false);
-        BtnEXIT.setContentAreaFilled(false);
-        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEXITActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout BARRALayout = new javax.swing.GroupLayout(BARRA);
-        BARRA.setLayout(BARRALayout);
-        BARRALayout.setHorizontalGroup(
-            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        BARRALayout.setVerticalGroup(
-            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BARRALayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnEXIT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        blurBackground1.add(BARRA);
-        BARRA.setBounds(0, 0, 1180, 0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -420,14 +419,152 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
-    static class ListaEnlazadaSimple {
+    static class ListaEnlazada {
 
         Nodo head; // El primer nodo de la lista
 
-        public ListaEnlazadaSimple() {
+        public ListaEnlazada() {
             head = null;
         }
 
+        public void agregarAlInicio(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            nuevoNodo.siguiente = head;
+            head = nuevoNodo;
+        }
+
+        public void agregarAlFinal(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            // Si la lista está vacía, el nuevo nodo será la cabeza
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo nodoActual = head;
+                while (nodoActual.siguiente != null) {
+                    nodoActual = nodoActual.siguiente;
+                }
+                nodoActual.siguiente = nuevoNodo;
+            }
+        }
+
+        public void mostrarLista() {
+            Nodo nodoActual = head;
+            while (nodoActual != null) {
+                System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+            System.out.println("null");
+        }
+
+        public int buscarPosicionporDato(String dato) {
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (nodoActual.dato.equals(dato)) {
+                    return indice; // Se encontró el dato en esta posición
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return -1; // El dato no se encontró en la lista
+        }
+
+        public int contarRepeticiones(String elemento) {
+            int contador = 0;
+            Nodo actual = head;
+            while (actual != null) {
+                if (actual.dato.equals(elemento)) {
+                    contador++;
+                }
+                actual = actual.siguiente;
+            }
+            return contador;
+        }
+
+        public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
+            if (posicion < 0) {
+                return false; // Posición inválida
+            }
+
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    nodoActual.dato = nuevoDato; // Modifica el dato del nodo en la posición deseada
+                    return true; // Nodo encontrado y modificado
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return false; // La posición está más allá del final de la lista
+        }
+
+        public void insertar(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            if (head == null) {
+                // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
+                head = nuevoNodo;
+            } else {
+                // Si la lista no está vacía, recorremos la lista hasta el último nodo
+                // y luego enlazamos el último nodo con el nuevo nodo
+                Nodo actual = head;
+                while (actual.siguiente != null) {
+                    actual = actual.siguiente;
+                }
+                actual.siguiente = nuevoNodo;
+            }
+        }
+
+        public String buscarPorPosicion(int posicion) {
+            if (posicion < 0) {
+                return null; // Posición inválida
+            }
+
+            Nodo nodoActual = head;
+            int indice = 0;
+
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    return nodoActual.dato; // Encontramos el nodo en la posición deseada
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return null; // La posición está más allá del final de la lista
+        }
+
+        public void eliminarNodo(String valor) {
+            Nodo temp = head;
+            Nodo previo = null;
+
+            // Si el nodo a eliminar es la cabeza
+            if (temp != null && temp.dato.equals(valor)) {
+                head = temp.siguiente;
+                return;
+            }
+
+            // Buscar el nodo a eliminar
+            while (temp != null && !temp.dato.equals(valor)) {
+                previo = temp;
+                temp = temp.siguiente;
+            }
+
+            // Si no se encuentra el valor en la lista
+            if (temp == null) {
+                System.out.println("El valor no se encontró en la lista enlazada.");
+                return;
+            }
+
+            // Eliminar el nodo encontrado
+            previo.siguiente = temp.siguiente;
+        }
     }
 
     static class ListaEnlazadaDoble {
@@ -561,71 +698,57 @@ public class Tablero extends javax.swing.JFrame {
 
     }
 
-    public class Pregunta {
+//    public class Pregunta {
+//
+//        private String enunciado;
+//        private String respuestaCorrecta;
+//        private String[] respuestasIncorrectas;
+//        private boolean respondida;
+//
+//        public Pregunta(String enunciado, String respuestaCorrecta, String[] respuestasIncorrectas) {
+//            this.enunciado = enunciado;
+//            this.respuestaCorrecta = respuestaCorrecta;
+//            this.respuestasIncorrectas = respuestasIncorrectas;
+//            this.respondida = false;
+//        }
+//    }
+//
+//    public class Categoria {
+//
+//        private String nombre;
+////        private ListaEnlazadaSimple preguntas = new ListaEnlazadaSimple();
+//
+//        public Categoria(String nombre) {
+//            this.nombre = nombre;
+//            this.preguntas = preguntas;
+//        }
+//
+//        public void agregarPregunta(Pregunta pregunta) {
+//            //preguntas.add(pregunta);
+//        }
+//
+//        // Agrega otros métodos para acceder y gestionar las preguntas de la categoría
+//    }
 
-        private String enunciado;
-        private String respuestaCorrecta;
-        private String[] respuestasIncorrectas;
-        private boolean respondida;
+//    public class MultilistaPreguntas {
+//
+//      
+//        private ListaEnlazadaSimple categorias = new ListaEnlazadaSimple();
+//
+//
+//        public MultilistaPreguntas() {
+//            categorias = categorias;
+//        }
+//
+//        public void agregarCategoria(Categoria categoria) {
+//          //  categorias.add(categoria);
+//        }
+//
+//        // Agrega otros métodos para acceder y gestionar las categorías de preguntas
+//    }
 
-        public Pregunta(String enunciado, String respuestaCorrecta, String[] respuestasIncorrectas) {
-            this.enunciado = enunciado;
-            this.respuestaCorrecta = respuestaCorrecta;
-            this.respuestasIncorrectas = respuestasIncorrectas;
-            this.respondida = false;
-        }
-    }
+   
 
-    public class Categoria {
-
-        private String nombre;
-        private ListaEnlazadaSimple preguntas = new ListaEnlazadaSimple();
-
-        public Categoria(String nombre) {
-            this.nombre = nombre;
-            this.preguntas = preguntas;
-        }
-
-        public void agregarPregunta(Pregunta pregunta) {
-            //preguntas.add(pregunta);
-        }
-
-        // Agrega otros métodos para acceder y gestionar las preguntas de la categoría
-    }
-
-    public class MultilistaPreguntas {
-
-      
-        private ListaEnlazadaSimple categorias = new ListaEnlazadaSimple();
-
-
-        public MultilistaPreguntas() {
-            categorias = categorias;
-        }
-
-        public void agregarCategoria(Categoria categoria) {
-          //  categorias.add(categoria);
-        }
-
-        // Agrega otros métodos para acceder y gestionar las categorías de preguntas
-    }
-
-    static class Multilista {
-
-        String dato;
-        Nodo siguiente;
-        Nodo prev;
-
-        public Multilista(String dato) {
-            this.dato = dato;
-            this.siguiente = null;
-            this.prev = null;
-        }
-    }
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
