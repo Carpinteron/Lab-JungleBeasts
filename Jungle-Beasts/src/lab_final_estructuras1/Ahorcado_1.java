@@ -49,12 +49,12 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         imgs[4] = new ImageIcon(getClass().getResource("/IMAGENES/im5"+String.valueOf(user)+".png"));
         imgs[5] = new ImageIcon(getClass().getResource("/IMAGENES/im6"+String.valueOf(user)+".png"));
 
-        imgs[6] = new ImageIcon(getClass().getResource("/IMAGENES/fallo0.png"));
-        imgs[7] = new ImageIcon(getClass().getResource("/IMAGENES/fallo1.png"));
-        imgs[8] = new ImageIcon(getClass().getResource("/IMAGENES/fallo2.png"));
-        imgs[9] = new ImageIcon(getClass().getResource("/IMAGENES/fallo3.png"));
-        imgs[10] = new ImageIcon(getClass().getResource("/IMAGENES/fallo4.png"));
-        imgs[11] = new ImageIcon(getClass().getResource("/IMAGENES/fallo5.png"));
+        imgs[6] = new ImageIcon(getClass().getResource("/IMAGENES/5vidas.png"));
+        imgs[7] = new ImageIcon(getClass().getResource("/IMAGENES/4vidas.png"));
+        imgs[8] = new ImageIcon(getClass().getResource("/IMAGENES/3vidas.png"));
+        imgs[9] = new ImageIcon(getClass().getResource("/IMAGENES/2vidas.png"));
+        imgs[10] = new ImageIcon(getClass().getResource("/IMAGENES/1vida.png"));
+        imgs[11] = new ImageIcon(getClass().getResource("/IMAGENES/0vidas.png"));
         //botones para las letras
         btns[1] = button_1;
         btns[2] = button_2;
@@ -306,6 +306,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_1.setBorderPainted(false);
         button_1.setContentAreaFilled(false);
         button_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_1ActionPerformed(evt);
@@ -318,6 +319,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_2.setBorderPainted(false);
         button_2.setContentAreaFilled(false);
         button_2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_2ActionPerformed(evt);
@@ -330,6 +332,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_3.setBorderPainted(false);
         button_3.setContentAreaFilled(false);
         button_3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_3ActionPerformed(evt);
@@ -342,6 +345,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_4.setBorderPainted(false);
         button_4.setContentAreaFilled(false);
         button_4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_4ActionPerformed(evt);
@@ -354,6 +358,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_5.setBorderPainted(false);
         button_5.setContentAreaFilled(false);
         button_5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_5ActionPerformed(evt);
@@ -366,6 +371,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_6.setBorderPainted(false);
         button_6.setContentAreaFilled(false);
         button_6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_6ActionPerformed(evt);
@@ -378,6 +384,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_7.setBorderPainted(false);
         button_7.setContentAreaFilled(false);
         button_7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_7ActionPerformed(evt);
@@ -390,6 +397,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_8.setBorderPainted(false);
         button_8.setContentAreaFilled(false);
         button_8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_8ActionPerformed(evt);
@@ -402,6 +410,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_9.setBorderPainted(false);
         button_9.setContentAreaFilled(false);
         button_9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_9ActionPerformed(evt);
@@ -414,6 +423,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_10.setBorderPainted(false);
         button_10.setContentAreaFilled(false);
         button_10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_10ActionPerformed(evt);
@@ -426,6 +436,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_11.setBorderPainted(false);
         button_11.setContentAreaFilled(false);
         button_11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_11.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_11ActionPerformed(evt);
@@ -438,6 +449,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_12.setBorderPainted(false);
         button_12.setContentAreaFilled(false);
         button_12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_12.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_12ActionPerformed(evt);
@@ -450,6 +462,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_13.setBorderPainted(false);
         button_13.setContentAreaFilled(false);
         button_13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_13.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_13ActionPerformed(evt);
@@ -462,6 +475,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_14.setBorderPainted(false);
         button_14.setContentAreaFilled(false);
         button_14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_14.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_14ActionPerformed(evt);
@@ -474,6 +488,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_15.setBorderPainted(false);
         button_15.setContentAreaFilled(false);
         button_15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_15.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_15ActionPerformed(evt);
@@ -486,6 +501,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_16.setBorderPainted(false);
         button_16.setContentAreaFilled(false);
         button_16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_16.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         blurBackground1.add(button_16);
         button_16.setBounds(570, 480, 66, 70);
 
@@ -493,6 +509,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_17.setBorderPainted(false);
         button_17.setContentAreaFilled(false);
         button_17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_17.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_17ActionPerformed(evt);
@@ -505,6 +522,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_18.setBorderPainted(false);
         button_18.setContentAreaFilled(false);
         button_18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_18.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_18ActionPerformed(evt);
@@ -517,6 +535,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_19.setBorderPainted(false);
         button_19.setContentAreaFilled(false);
         button_19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_19.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_19ActionPerformed(evt);
@@ -529,6 +548,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_20.setBorderPainted(false);
         button_20.setContentAreaFilled(false);
         button_20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_20.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_20ActionPerformed(evt);
@@ -541,6 +561,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_21.setBorderPainted(false);
         button_21.setContentAreaFilled(false);
         button_21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_21.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_21ActionPerformed(evt);
@@ -553,6 +574,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_22.setBorderPainted(false);
         button_22.setContentAreaFilled(false);
         button_22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_22.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_22ActionPerformed(evt);
@@ -565,6 +587,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_23.setBorderPainted(false);
         button_23.setContentAreaFilled(false);
         button_23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_23.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_23ActionPerformed(evt);
@@ -577,6 +600,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_24.setBorderPainted(false);
         button_24.setContentAreaFilled(false);
         button_24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_24.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_24ActionPerformed(evt);
@@ -589,6 +613,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_25.setBorderPainted(false);
         button_25.setContentAreaFilled(false);
         button_25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_25.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_25ActionPerformed(evt);
@@ -601,6 +626,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_26.setBorderPainted(false);
         button_26.setContentAreaFilled(false);
         button_26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_26.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_26ActionPerformed(evt);
@@ -613,6 +639,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         button_27.setBorderPainted(false);
         button_27.setContentAreaFilled(false);
         button_27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_27.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/hoja-abc.png"))); // NOI18N
         button_27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_27ActionPerformed(evt);
@@ -621,7 +648,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         blurBackground1.add(button_27);
         button_27.setBounds(730, 560, 66, 70);
         blurBackground1.add(errores);
-        errores.setBounds(440, 240, 690, 34);
+        errores.setBounds(440, 240, 270, 110);
         blurBackground1.add(DIBUJO);
         DIBUJO.setBounds(70, 30, 290, 340);
 
