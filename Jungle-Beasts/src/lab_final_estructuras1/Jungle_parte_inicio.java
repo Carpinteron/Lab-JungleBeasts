@@ -40,6 +40,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
 
         FONDO_REDONDO = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
+        BtnEXIT = new javax.swing.JButton();
         inicio = new javax.swing.JButton();
         info = new javax.swing.JButton();
         cred = new javax.swing.JButton();
@@ -64,19 +65,35 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
 
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXITActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BARRALayout = new javax.swing.GroupLayout(BARRA);
         BARRA.setLayout(BARRALayout);
         BARRALayout.setHorizontalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1180, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
+                .addContainerGap(1130, Short.MAX_VALUE)
+                .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         BARRALayout.setVerticalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addComponent(BtnEXIT))
         );
 
         FONDO_REDONDO.add(BARRA);
-        BARRA.setBounds(0, 0, 1180, 40);
+        BARRA.setBounds(0, 0, 1180, 41);
 
         inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/j.png"))); // NOI18N
         inicio.setBorderPainted(false);
@@ -96,7 +113,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(inicio);
-        inicio.setBounds(10, 390, 216, 79);
+        inicio.setBounds(10, 390, 216, 78);
 
         info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cj.png"))); // NOI18N
         info.setBorderPainted(false);
@@ -116,7 +133,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(info);
-        info.setBounds(0, 470, 216, 79);
+        info.setBounds(0, 470, 216, 78);
 
         cred.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cr.png"))); // NOI18N
         cred.setBorderPainted(false);
@@ -136,7 +153,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(cred);
-        cred.setBounds(0, 550, 216, 79);
+        cred.setBounds(0, 550, 216, 78);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,6 +218,10 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
         this.setLocation(x - xmouse, y - ymouse); //Establece la poscion de la ventana en funcion de la posicion original del mouse.
     }//GEN-LAST:event_BARRAMouseDragged
 
+    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BtnEXITActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -238,6 +259,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BARRA;
+    private javax.swing.JButton BtnEXIT;
     private org.example.Custom.BlurBackground FONDO_REDONDO;
     private javax.swing.JButton cred;
     private javax.swing.JButton info;
