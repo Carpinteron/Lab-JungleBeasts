@@ -248,7 +248,7 @@ public class Tablero extends javax.swing.JFrame {
         );
 
         blurBackground1.add(BARRA);
-        BARRA.setBounds(0, 0, 1180, 47);
+        BARRA.setBounds(0, 0, 1180, 0);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -347,7 +347,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void Send_ToAhorcado() {
-        Ahorcado a = new Ahorcado();
+        Ahorcado_1 a = new Ahorcado_1(user);
         a.setVisible(true);
         this.dispose();
     }
@@ -648,6 +648,7 @@ public class Tablero extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Tablero.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

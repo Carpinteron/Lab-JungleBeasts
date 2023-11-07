@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author almacen
  */
-public class Ahorcado extends javax.swing.JFrame {
+public class Ahorcado_1 extends javax.swing.JFrame {
 
     int xmouse, ymouse;
     public ImageIcon imgs[];
@@ -26,24 +26,27 @@ public class Ahorcado extends javax.swing.JFrame {
     public int err;
     public int err2;
     public String res[];
-    
-    public Ahorcado() {
+    private int user;
+    public Ahorcado_1(int Avatar) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
-        setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
-        BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
         
+        BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
+        setBackground(new Color(0,0,0));
         imgs = new ImageIcon[12];
         btns = new JButton[28];
         msgs = new String[8];
+        
+        this.user = Avatar;
+        
 
         //imagen del joven que se va a ahorcar por que ella no lo ama xd xd
         imgs[0] = new ImageIcon(getClass().getResource("/IMAGENES/im1.png"));
-        imgs[1] = new ImageIcon(getClass().getResource("/IMAGENES/im2.png"));
-        imgs[2] = new ImageIcon(getClass().getResource("/IMAGENES/im3.png"));
-        imgs[3] = new ImageIcon(getClass().getResource("/IMAGENES/im4.png"));
-        imgs[4] = new ImageIcon(getClass().getResource("/IMAGENES/im5.png"));
-        imgs[5] = new ImageIcon(getClass().getResource("/IMAGENES/im6.png"));
+        imgs[1] = new ImageIcon(getClass().getResource("/IMAGENES/im2"+String.valueOf(user)+".png"));
+        imgs[2] = new ImageIcon(getClass().getResource("/IMAGENES/im3"+String.valueOf(user)+".png"));
+        imgs[3] = new ImageIcon(getClass().getResource("/IMAGENES/im4"+String.valueOf(user)+".png"));
+        imgs[4] = new ImageIcon(getClass().getResource("/IMAGENES/im5"+String.valueOf(user)+".png"));
+        imgs[5] = new ImageIcon(getClass().getResource("/IMAGENES/im6"+String.valueOf(user)+".png"));
 
         imgs[6] = new ImageIcon(getClass().getResource("/IMAGENES/fallo0.png"));
         imgs[7] = new ImageIcon(getClass().getResource("/IMAGENES/fallo1.png"));
@@ -191,6 +194,7 @@ public class Ahorcado extends javax.swing.JFrame {
         }
 
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -204,19 +208,9 @@ public class Ahorcado extends javax.swing.JFrame {
         blurBackground1 = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
         BtnEXIT = new javax.swing.JButton();
-        PANEL_DE_FONDO = new javax.swing.JPanel();
-        PARTE_DE_ATRAS_PALABRA_Y_ERROR = new javax.swing.JPanel();
-        PANEL_PALABRA = new javax.swing.JPanel();
         TEX_PALABRA = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        errores = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        PANEL_DEBAJO_DE_DIBUJO = new javax.swing.JPanel();
-        DIBUJO = new javax.swing.JLabel();
-        PANEL_TECLADO = new javax.swing.JPanel();
-        button_2 = new javax.swing.JButton();
         button_1 = new javax.swing.JButton();
+        button_2 = new javax.swing.JButton();
         button_3 = new javax.swing.JButton();
         button_4 = new javax.swing.JButton();
         button_5 = new javax.swing.JButton();
@@ -229,6 +223,7 @@ public class Ahorcado extends javax.swing.JFrame {
         button_12 = new javax.swing.JButton();
         button_13 = new javax.swing.JButton();
         button_14 = new javax.swing.JButton();
+        button_15 = new javax.swing.JButton();
         button_16 = new javax.swing.JButton();
         button_17 = new javax.swing.JButton();
         button_18 = new javax.swing.JButton();
@@ -241,14 +236,16 @@ public class Ahorcado extends javax.swing.JFrame {
         button_25 = new javax.swing.JButton();
         button_26 = new javax.swing.JButton();
         button_27 = new javax.swing.JButton();
-        button_15 = new javax.swing.JButton();
+        errores = new javax.swing.JLabel();
+        DIBUJO = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        blurBackground1.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/FONDO_VERDE.png"))); // NOI18N
+        blurBackground1.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/simple.png"))); // NOI18N
         blurBackground1.setRadius(55);
 
         BARRA.setBackground(new java.awt.Color(255, 255, 255));
@@ -286,485 +283,358 @@ public class Ahorcado extends javax.swing.JFrame {
         );
         BARRALayout.setVerticalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BARRALayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnEXIT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(BtnEXIT))
         );
 
         blurBackground1.add(BARRA);
-        BARRA.setBounds(0, 0, 1180, 40);
+        BARRA.setBounds(0, 0, 1180, 30);
 
-        PANEL_DE_FONDO.setBackground(new java.awt.Color(51, 102, 0));
-
-        PARTE_DE_ATRAS_PALABRA_Y_ERROR.setBackground(new java.awt.Color(51, 102, 0));
-
-        PANEL_PALABRA.setBackground(new java.awt.Color(51, 102, 0));
-
+        TEX_PALABRA.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         TEX_PALABRA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TEX_PALABRAActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PANEL_PALABRALayout = new javax.swing.GroupLayout(PANEL_PALABRA);
-        PANEL_PALABRA.setLayout(PANEL_PALABRALayout);
-        PANEL_PALABRALayout.setHorizontalGroup(
-            PANEL_PALABRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_PALABRALayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(TEX_PALABRA, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
-                .addGap(32, 32, 32))
-        );
-        PANEL_PALABRALayout.setVerticalGroup(
-            PANEL_PALABRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TEX_PALABRA, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-        );
-
-        jPanel1.setBackground(new java.awt.Color(51, 102, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(errores, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                .addGap(50, 50, 50))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(errores, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addGap(29, 29, 29))
-        );
-
-        jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Palabra oculta");
-
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Errores");
-
-        javax.swing.GroupLayout PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout = new javax.swing.GroupLayout(PARTE_DE_ATRAS_PALABRA_Y_ERROR);
-        PARTE_DE_ATRAS_PALABRA_Y_ERROR.setLayout(PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout);
-        PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.setHorizontalGroup(
-            PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createSequentialGroup()
-                .addGap(0, 48, Short.MAX_VALUE)
-                .addComponent(PANEL_PALABRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.setVerticalGroup(
-            PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PARTE_DE_ATRAS_PALABRA_Y_ERRORLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PANEL_PALABRA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-
-        PANEL_DEBAJO_DE_DIBUJO.setBackground(new java.awt.Color(51, 102, 0));
-
-        javax.swing.GroupLayout PANEL_DEBAJO_DE_DIBUJOLayout = new javax.swing.GroupLayout(PANEL_DEBAJO_DE_DIBUJO);
-        PANEL_DEBAJO_DE_DIBUJO.setLayout(PANEL_DEBAJO_DE_DIBUJOLayout);
-        PANEL_DEBAJO_DE_DIBUJOLayout.setHorizontalGroup(
-            PANEL_DEBAJO_DE_DIBUJOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_DEBAJO_DE_DIBUJOLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(DIBUJO, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-        PANEL_DEBAJO_DE_DIBUJOLayout.setVerticalGroup(
-            PANEL_DEBAJO_DE_DIBUJOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_DEBAJO_DE_DIBUJOLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DIBUJO, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        PANEL_TECLADO.setBackground(new java.awt.Color(51, 102, 0));
-
-        button_2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_2.setText("B");
-        button_2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_2ActionPerformed(evt);
-            }
-        });
+        blurBackground1.add(TEX_PALABRA);
+        TEX_PALABRA.setBounds(440, 110, 510, 60);
 
         button_1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_1.setText("A");
+        button_1.setBorderPainted(false);
+        button_1.setContentAreaFilled(false);
+        button_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_1ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_1);
+        button_1.setBounds(70, 400, 70, 70);
+
+        button_2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_2.setBorderPainted(false);
+        button_2.setContentAreaFilled(false);
+        button_2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_2ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_2);
+        button_2.setBounds(156, 400, 70, 70);
 
         button_3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_3.setText("C");
+        button_3.setBorderPainted(false);
+        button_3.setContentAreaFilled(false);
+        button_3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_3ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_3);
+        button_3.setBounds(240, 400, 66, 70);
 
         button_4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_4.setText("D");
+        button_4.setBorderPainted(false);
+        button_4.setContentAreaFilled(false);
+        button_4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_4ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_4);
+        button_4.setBounds(320, 400, 66, 70);
 
         button_5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_5.setText("E");
+        button_5.setBorderPainted(false);
+        button_5.setContentAreaFilled(false);
+        button_5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_5ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_5);
+        button_5.setBounds(400, 400, 69, 70);
 
         button_6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_6.setText("F");
+        button_6.setBorderPainted(false);
+        button_6.setContentAreaFilled(false);
+        button_6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_6ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_6);
+        button_6.setBounds(490, 400, 66, 70);
 
         button_7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_7.setText("G");
+        button_7.setBorderPainted(false);
+        button_7.setContentAreaFilled(false);
+        button_7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_7ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_7);
+        button_7.setBounds(570, 400, 60, 70);
 
         button_8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_8.setText("H");
+        button_8.setBorderPainted(false);
+        button_8.setContentAreaFilled(false);
+        button_8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_8ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_8);
+        button_8.setBounds(650, 400, 66, 60);
 
         button_9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_9.setText("I");
+        button_9.setBorderPainted(false);
+        button_9.setContentAreaFilled(false);
+        button_9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_9ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_9);
+        button_9.setBounds(730, 400, 66, 70);
 
         button_10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_10.setText("J");
+        button_10.setBorderPainted(false);
+        button_10.setContentAreaFilled(false);
+        button_10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_10ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_10);
+        button_10.setBounds(70, 480, 70, 70);
 
         button_11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_11.setText("K");
+        button_11.setBorderPainted(false);
+        button_11.setContentAreaFilled(false);
+        button_11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_11ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_11);
+        button_11.setBounds(150, 480, 80, 70);
 
         button_12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_12.setText("L");
+        button_12.setBorderPainted(false);
+        button_12.setContentAreaFilled(false);
+        button_12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_12ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_12);
+        button_12.setBounds(240, 480, 66, 70);
 
         button_13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_13.setText("M");
+        button_13.setBorderPainted(false);
+        button_13.setContentAreaFilled(false);
+        button_13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_13ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_13);
+        button_13.setBounds(320, 480, 70, 70);
 
         button_14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_14.setText("N");
+        button_14.setBorderPainted(false);
+        button_14.setContentAreaFilled(false);
+        button_14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_14ActionPerformed(evt);
             }
         });
-
-        button_16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_16.setText("O");
-
-        button_17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_17.setText("P");
-        button_17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_17ActionPerformed(evt);
-            }
-        });
-
-        button_18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_18.setText("Q");
-        button_18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_18ActionPerformed(evt);
-            }
-        });
-
-        button_19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_19.setText("R");
-        button_19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_19ActionPerformed(evt);
-            }
-        });
-
-        button_20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_20.setText("S");
-        button_20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_20ActionPerformed(evt);
-            }
-        });
-
-        button_21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_21.setText("T");
-        button_21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_21ActionPerformed(evt);
-            }
-        });
-
-        button_22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_22.setText("U");
-        button_22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_22ActionPerformed(evt);
-            }
-        });
-
-        button_23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_23.setText("V");
-        button_23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_23ActionPerformed(evt);
-            }
-        });
-
-        button_24.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_24.setText("W");
-        button_24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_24ActionPerformed(evt);
-            }
-        });
-
-        button_25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_25.setText("X");
-        button_25.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_25ActionPerformed(evt);
-            }
-        });
-
-        button_26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_26.setText("Y");
-        button_26.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_26ActionPerformed(evt);
-            }
-        });
-
-        button_27.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_27.setText("Z");
-        button_27.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_27ActionPerformed(evt);
-            }
-        });
+        blurBackground1.add(button_14);
+        button_14.setBounds(400, 480, 66, 70);
 
         button_15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button_15.setText("Ñ");
+        button_15.setBorderPainted(false);
+        button_15.setContentAreaFilled(false);
+        button_15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_15ActionPerformed(evt);
             }
         });
+        blurBackground1.add(button_15);
+        button_15.setBounds(486, 480, 70, 70);
 
-        javax.swing.GroupLayout PANEL_TECLADOLayout = new javax.swing.GroupLayout(PANEL_TECLADO);
-        PANEL_TECLADO.setLayout(PANEL_TECLADOLayout);
-        PANEL_TECLADOLayout.setHorizontalGroup(
-            PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(button_8, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(button_20, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                            .addComponent(button_14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(button_26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(button_21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANEL_TECLADOLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(button_27, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(29, 29, 29)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                                .addComponent(button_10, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_12, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                                .addComponent(button_4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button_6, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(button_22, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_16, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(button_18, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                            .addComponent(button_24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(435, 435, 435))))
-        );
-        PANEL_TECLADOLayout.setVerticalGroup(
-            PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_1)
-                    .addComponent(button_2)
-                    .addComponent(button_5)
-                    .addComponent(button_4)
-                    .addComponent(button_3)
-                    .addComponent(button_6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_7)
-                    .addComponent(button_8)
-                    .addComponent(button_11)
-                    .addComponent(button_10)
-                    .addComponent(button_9)
-                    .addComponent(button_12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button_18)
-                    .addGroup(PANEL_TECLADOLayout.createSequentialGroup()
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_13)
-                            .addComponent(button_14)
-                            .addComponent(button_16)
-                            .addComponent(button_17)
-                            .addComponent(button_15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_20)
-                            .addComponent(button_19)
-                            .addComponent(button_21)
-                            .addComponent(button_22)
-                            .addComponent(button_23)
-                            .addComponent(button_24))))
-                .addGap(12, 12, 12)
-                .addGroup(PANEL_TECLADOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_26)
-                    .addComponent(button_25)
-                    .addComponent(button_27))
-                .addGap(11, 11, 11))
-        );
+        button_16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_16.setBorderPainted(false);
+        button_16.setContentAreaFilled(false);
+        button_16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        blurBackground1.add(button_16);
+        button_16.setBounds(570, 480, 66, 70);
 
-        javax.swing.GroupLayout PANEL_DE_FONDOLayout = new javax.swing.GroupLayout(PANEL_DE_FONDO);
-        PANEL_DE_FONDO.setLayout(PANEL_DE_FONDOLayout);
-        PANEL_DE_FONDOLayout.setHorizontalGroup(
-            PANEL_DE_FONDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                .addGroup(PANEL_DE_FONDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(PANEL_DEBAJO_DE_DIBUJO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(193, 193, 193)
-                        .addComponent(PARTE_DE_ATRAS_PALABRA_Y_ERROR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(PANEL_TECLADO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        PANEL_DE_FONDOLayout.setVerticalGroup(
-            PANEL_DE_FONDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(PANEL_DE_FONDOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(PARTE_DE_ATRAS_PALABRA_Y_ERROR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(PANEL_DE_FONDOLayout.createSequentialGroup()
-                        .addComponent(PANEL_DEBAJO_DE_DIBUJO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addComponent(PANEL_TECLADO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-        );
+        button_17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_17.setBorderPainted(false);
+        button_17.setContentAreaFilled(false);
+        button_17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_17ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_17);
+        button_17.setBounds(650, 480, 69, 70);
 
-        blurBackground1.add(PANEL_DE_FONDO);
-        PANEL_DE_FONDO.setBounds(10, 10, 1160, 640);
+        button_18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_18.setBorderPainted(false);
+        button_18.setContentAreaFilled(false);
+        button_18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_18ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_18);
+        button_18.setBounds(730, 480, 66, 70);
+
+        button_19.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_19.setBorderPainted(false);
+        button_19.setContentAreaFilled(false);
+        button_19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_19ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_19);
+        button_19.setBounds(70, 560, 70, 80);
+
+        button_20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_20.setBorderPainted(false);
+        button_20.setContentAreaFilled(false);
+        button_20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_20ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_20);
+        button_20.setBounds(160, 560, 66, 70);
+
+        button_21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_21.setBorderPainted(false);
+        button_21.setContentAreaFilled(false);
+        button_21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_21ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_21);
+        button_21.setBounds(240, 560, 66, 70);
+
+        button_22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_22.setBorderPainted(false);
+        button_22.setContentAreaFilled(false);
+        button_22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_22ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_22);
+        button_22.setBounds(320, 560, 70, 70);
+
+        button_23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_23.setBorderPainted(false);
+        button_23.setContentAreaFilled(false);
+        button_23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_23ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_23);
+        button_23.setBounds(399, 560, 80, 70);
+
+        button_24.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_24.setBorderPainted(false);
+        button_24.setContentAreaFilled(false);
+        button_24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_24ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_24);
+        button_24.setBounds(490, 560, 66, 70);
+
+        button_25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_25.setBorderPainted(false);
+        button_25.setContentAreaFilled(false);
+        button_25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_25ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_25);
+        button_25.setBounds(570, 560, 60, 70);
+
+        button_26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_26.setBorderPainted(false);
+        button_26.setContentAreaFilled(false);
+        button_26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_26ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_26);
+        button_26.setBounds(650, 560, 66, 70);
+
+        button_27.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button_27.setBorderPainted(false);
+        button_27.setContentAreaFilled(false);
+        button_27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_27ActionPerformed(evt);
+            }
+        });
+        blurBackground1.add(button_27);
+        button_27.setBounds(730, 560, 66, 70);
+        blurBackground1.add(errores);
+        errores.setBounds(440, 240, 212, 34);
+        blurBackground1.add(DIBUJO);
+        DIBUJO.setBounds(70, 30, 290, 340);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/gifahorcado.gif"))); // NOI18N
+        blurBackground1.add(jLabel1);
+        jLabel1.setBounds(0, 30, 1180, 610);
 
         getContentPane().add(blurBackground1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 664));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void BARRAMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMouseDragged
         int x = evt.getXOnScreen(); //Obttiene la posicion horizontal actual en pantalla.
@@ -776,14 +646,6 @@ public class Ahorcado extends javax.swing.JFrame {
         xmouse = evt.getX(); // Obtiene la posicion horizontal del punto donde se hizo clic.
         ymouse = evt.getY(); // Obtiene la posicion vertical del punto donde se hizo clic.
     }//GEN-LAST:event_BARRAMousePressed
-
-    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_BtnEXITActionPerformed
-
-    private void TEX_PALABRAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEX_PALABRAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TEX_PALABRAActionPerformed
 
     private void button_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_2ActionPerformed
 
@@ -889,6 +751,10 @@ public class Ahorcado extends javax.swing.JFrame {
 
     }//GEN-LAST:event_button_15ActionPerformed
 
+    private void TEX_PALABRAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEX_PALABRAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TEX_PALABRAActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -906,20 +772,19 @@ public class Ahorcado extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ahorcado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ahorcado_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ahorcado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ahorcado_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ahorcado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ahorcado_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ahorcado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ahorcado_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ahorcado().setVisible(true);
             }
         });
     }
@@ -928,11 +793,6 @@ public class Ahorcado extends javax.swing.JFrame {
     private javax.swing.JPanel BARRA;
     private javax.swing.JButton BtnEXIT;
     private javax.swing.JLabel DIBUJO;
-    private javax.swing.JPanel PANEL_DEBAJO_DE_DIBUJO;
-    private javax.swing.JPanel PANEL_DE_FONDO;
-    private javax.swing.JPanel PANEL_PALABRA;
-    private javax.swing.JPanel PANEL_TECLADO;
-    private javax.swing.JPanel PARTE_DE_ATRAS_PALABRA_Y_ERROR;
     private javax.swing.JTextField TEX_PALABRA;
     private org.example.Custom.BlurBackground blurBackground1;
     private javax.swing.JButton button_1;
@@ -964,7 +824,5 @@ public class Ahorcado extends javax.swing.JFrame {
     private javax.swing.JButton button_9;
     private javax.swing.JLabel errores;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
