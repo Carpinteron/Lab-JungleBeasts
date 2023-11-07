@@ -30,9 +30,10 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     public Ahorcado_1(int Avatar) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
-        
+        setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
+        //setUndecorated(true);
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
-        setBackground(new Color(0,0,0));
+       
         imgs = new ImageIcon[12];
         btns = new JButton[28];
         msgs = new String[8];
@@ -250,6 +251,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
 
         BARRA.setBackground(new java.awt.Color(255, 255, 255));
         BARRA.setForeground(new java.awt.Color(255, 255, 255));
+        BARRA.setOpaque(false);
         BARRA.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 BARRAMouseDragged(evt);
@@ -283,13 +285,13 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         );
         BARRALayout.setVerticalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtnEXIT))
+            .addGroup(BARRALayout.createSequentialGroup()
+                .addComponent(BtnEXIT)
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         blurBackground1.add(BARRA);
-        BARRA.setBounds(0, 0, 1180, 30);
+        BARRA.setBounds(0, 0, 1180, 40);
 
         TEX_PALABRA.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
         TEX_PALABRA.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +300,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
             }
         });
         blurBackground1.add(TEX_PALABRA);
-        TEX_PALABRA.setBounds(440, 110, 510, 60);
+        TEX_PALABRA.setBounds(440, 110, 700, 60);
 
         button_1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         button_1.setBorderPainted(false);
@@ -619,7 +621,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         blurBackground1.add(button_27);
         button_27.setBounds(730, 560, 66, 70);
         blurBackground1.add(errores);
-        errores.setBounds(440, 240, 212, 34);
+        errores.setBounds(440, 240, 690, 34);
         blurBackground1.add(DIBUJO);
         DIBUJO.setBounds(70, 30, 290, 340);
 
