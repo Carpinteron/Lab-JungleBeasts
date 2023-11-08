@@ -141,12 +141,42 @@ public class Tablero extends javax.swing.JFrame {
         GuardarPartidaenARchiv(sc, "Partida", General, "General");
         GuardarPartidaenARchiv(sc, "Partida", Abstracto, "Abstracto");
         GuardarPartidaenARchiv(sc, "Partida", Ciencias, "Ciencias");
+        GuardarPartidaenARchiv(sc, "Partida", Camino, "CaminoCategorias;");
         PosActuales.agregarAlFinal(CatgActual.dato);
         PosActuales.agregarAlFinal(String.valueOf(posicionActual));
         GuardarPartidaenARchiv(sc, "Partida", PosActuales, "PosACtuales 1-CatActual   2-CasillaActual;");
     }
 
     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazada lista, String nombre) {
+        File archivoTemporal = new File(file_name + "_temp.txt");
+        try {
+            BufferedWriter pw = new BufferedWriter(new FileWriter(file_name, true));
+
+            Nodo nodoActual = lista.head;
+            int c = 0;
+            String linea = nombre;
+
+            while (nodoActual != null) {
+
+                linea += nodoActual.dato;
+                nodoActual = nodoActual.siguiente;
+
+                if (nodoActual != null) {
+                    linea += ";"; // Agregar un punto y coma para separar los datos
+                }
+            }
+// Escribe el nuevo registro en el archivo
+            pw.write(linea);
+            pw.newLine();
+            pw.close(); // Cierra el archivo
+
+            pw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazadaDoble lista, String nombre) {
         File archivoTemporal = new File(file_name + "_temp.txt");
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter(file_name, true));
