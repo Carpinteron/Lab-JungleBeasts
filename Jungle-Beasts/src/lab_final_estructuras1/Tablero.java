@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 public class Tablero extends javax.swing.JFrame {
@@ -923,6 +924,7 @@ public class Tablero extends javax.swing.JFrame {
         }
 
     }
+
     // Clase Nodo (para las casillas-explorador)
     static class Nodo_2 {
 
@@ -936,8 +938,11 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 // Clase ListaEnlazada (para las casillas)
+
     static class ListaEnlazada_2 {
+
         Nodo_2 cabeza;
+
         // Método para insertar un nuevo nodo (JLabel) en la lista enlazada
         public void insertar(JLabel label) {
             Nodo_2 nuevoNodo = new Nodo_2(label);
@@ -974,10 +979,11 @@ public class Tablero extends javax.swing.JFrame {
         if (timer == null || !timer.isRunning()) {
             timer = new Timer(700, new ActionListener() {
                 int movimientos = 0;  // Variable para contar los movimientos
+                int aux = posicionActual+dado;
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (movimientos < dado) {
+                    if (movimientos < dado && aux <= 20) {
                         // Remover el ícono del JLabel anterior
                         Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
                         if (nodoAnterior != null) {
@@ -1007,15 +1013,20 @@ public class Tablero extends javax.swing.JFrame {
                         } else {
                             // Detener el temporizador si se alcanza el final de la lista
                             timer.stop();
-                            
+
                         }
                     } else {
-                        timer.stop();
-                        //System.out.println("pos: "+posicionActual);
+                        if (posicionActual <= 20) {
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
                             }
+                        } 
+                        if (aux > 20) {
+                            // El número del dado supera la cantidad de movimientos restantes
+                            JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
+                        }
+                        timer.stop();
                     }
                 }
             });
