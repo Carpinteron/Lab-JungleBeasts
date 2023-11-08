@@ -1,18 +1,25 @@
-
 package lab_final_estructuras1;
 
 import java.awt.Color;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class PreguntaPanel extends javax.swing.JPanel {
 
-  
     public PreguntaPanel() {
         initComponents();
-       //this.setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
+        //this.setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
-       // BARRA.setBackground(new Color(0, 0, 0, 0)); 
-       
+        // BARRA.setBackground(new Color(0, 0, 0, 0)); 
+
+    }
+    private int user;
+
+    public void SendtoTablero() {
+        Tablero a = new Tablero(user, false);
+        a.setVisible(true);
+        this.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -79,10 +86,23 @@ public class PreguntaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_BTNcActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        resetearArchivo("Partida");
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
 
+  public void resetearArchivo(String file_name) {
+        try {
+            // Abre el archivo en modo de escritura (sobrescribir)
+            BufferedWriter pw = new BufferedWriter(new FileWriter(file_name));
 
+            // No se agrega ningún contenido, por lo que el archivo se vacía
+            pw.close(); // Cierra el archivo
+
+            System.out.println("Archivo reseteado correctamente.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNa;
     private javax.swing.JButton BTNb;
