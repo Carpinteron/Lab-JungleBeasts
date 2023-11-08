@@ -15,7 +15,6 @@ public class PreguntaPanel extends javax.swing.JPanel {
 
     }
     private int user;
-
     public void SendtoTablero() {
         Tablero a = new Tablero(user, false);
         a.setVisible(true);
@@ -57,7 +56,7 @@ public class PreguntaPanel extends javax.swing.JPanel {
 
         BTNa.setText("jButton2");
         add(BTNa);
-        BTNa.setBounds(23, 359, 548, 134);
+        BTNa.setBounds(30, 360, 548, 134);
 
         BTNb.setText("jButton2");
         add(BTNb);

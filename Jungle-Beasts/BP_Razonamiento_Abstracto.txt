@@ -1,0 +1,16 @@
+Completa la serie:	A, C, E, __, __, I, K, __.	M, O, Q	G, I, K	B, D, F	L, M, N
+Si círculo es a cuadrado como triángulo es a __.	Hexágono	Rectángulo	Pentágono	Círculo	Pentágono
+Si el triángulo es a 3 como el cuadrado es a __.	5	4	6	2	4
+¿Cuál de las siguientes figuras no encaja en el conjunto?	Cuadrado	Círculo	Triángulo	Estrella	 Estrella
+Completa la secuencia: 2, 5, 10, 17, __.	22	26	24	21	21
+Si el cuadrado es a 16, ¿el triángulo es a?	9	12	15	18	15
+Adivinanza: Siempre sube y nunca baja, ¿qué es?	El sol	Una montaña	La edad	La temperatura	La edad
+Adivinanza: Puedes tenerme, sostenerme, e incluso soltarme, pero yo nunca puedo escapar de ti. ¿Qué soy?	Un sueño	Un pensamiento	Un teléfono	Un papel	Un pensamiento
+Adivinanza: Si me nombras, dejó de existir. ¿Qué soy?	El viento	El silencio	El agua	El cristal	El silencio
+En una serie de letras, cada letra es igual a la letra anterior más 2 posiciones en el alfabeto. Si la secuencia comienza con "A," ¿cuál es la cuarta letra en la serie?	C	D	E	B	D
+Si un tren eléctrico va a 100 km/h de norte a sur, y el viento viaja de sur a norte a 50 km/h. ¿Hacia qué lado viaja el humo?	Norte	Sur	Este	Ninguno de las anteriores	Ninguno de las anteriores
+¿Qué letra pasa de ser una consonante a una vocal con tan solo darle la vuelta?	p	n	g	e	n
+¿Que hacia arriba y hacia abajo pero siempre permanece en el mismo lugar?	Las escaleras	Elevador	Tiempo	Autopista
+Un oso camina 10km hacia el sur, 10 hacia el este y 10 hacia el norte, y de esta manera vuelve al sitio del que salio. ¿De que color es el oso?	Marron	Negro	Blanco	Blanco y negro	Blanco
+¿Que paso en londres ayer de 4 a 5 de la tarde?	El atardecer	Una hora	Eclipse solar	Una hora y media	Una hora}
+Le das una patada a una pelota, esta se aleja 5 metros, pero vuelve directamente a ti sin que nadie te la devuelva ¿Por que?	Patea fuerte	Rebota	Patea en una rampa de 2m	Patea hacia arriba	Patea hacia arriba
