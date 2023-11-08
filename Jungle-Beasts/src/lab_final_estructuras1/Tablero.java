@@ -139,6 +139,7 @@ public class Tablero extends javax.swing.JFrame {
         P13 = new javax.swing.JLabel();
         P19 = new javax.swing.JLabel();
         P7 = new javax.swing.JLabel();
+        retroceder = new javax.swing.JButton();
         USER = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
@@ -279,6 +280,14 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
         jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 90, 110));
+
+        retroceder.setText("retroceder ");
+        retroceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retrocederActionPerformed(evt);
+            }
+        });
+        jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 340, -1, -1));
         jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
@@ -351,6 +360,10 @@ public class Tablero extends javax.swing.JFrame {
     private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
         Send_ToAhorcado();
     }//GEN-LAST:event_P7MouseClicked
+
+    private void retrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrocederActionPerformed
+        retrocederDosCasillas();
+    }//GEN-LAST:event_retrocederActionPerformed
     Random ran = new Random();
     int CasillaActual = 0;
 
@@ -974,12 +987,90 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
+    private void retrocederDosCasillas() {
+        if (timer == null || !timer.isRunning()) {
+            timer = new Timer(700, new ActionListener() {
+                int movimientos = 0;
+                int retroceso = 2;
+                int aux = posicionActual + dado;
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (movimientos < retroceso && posicionActual >= 3) {
+                        // Eliminar el ícono del JLabel en las casillas anteriores
+                        Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                        if (nodoAnterior != null) {
+                            nodoAnterior.label.setIcon(null);
+                        }
+                        movimientos++;
+
+                        // Retroceder dos posiciones
+                        posicionActual -= 1; // Retroceso
+                        if (posicionActual >= retroceso) {
+                            // Establecer el ícono en la nueva posición después del retroceso
+                            Nodo_2 nodoEnPosicion = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                            if (nodoEnPosicion != null) {
+                                switch (user) {
+                                    case 1:
+                                        nodoEnPosicion.label.setIcon(A);
+                                        break;
+                                    case 2:
+                                        nodoEnPosicion.label.setIcon(B);
+                                        break;
+                                    case 3:
+                                        nodoEnPosicion.label.setIcon(C);
+                                        break;
+                                }
+                            }
+                        }
+                    } else {
+                        if (posicionActual <= 20) {
+                            // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
+                            if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
+                                Send_ToAhorcado();
+                            }
+                            if (posicionActual == 2) {
+                                Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                                if (nodoAnterior != null) {
+                                    nodoAnterior.label.setIcon(null);
+                                    posicionActual -= 1; // Retroceso
+                                    // Establecer el ícono en la nueva posición después del retroceso
+                                    Nodo_2 nodoEnPosicion = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                                    if (nodoEnPosicion != null) {
+                                        switch (user) {
+                                            case 1:
+                                                nodoEnPosicion.label.setIcon(A);
+                                                break;
+                                            case 2:
+                                                nodoEnPosicion.label.setIcon(B);
+                                                break;
+                                            case 3:
+                                                nodoEnPosicion.label.setIcon(C);
+                                                break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (aux > 20) {
+                            // El número del dado supera la cantidad de movimientos restantes
+                            JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
+                        }
+                        timer.stop();
+
+                    }
+                }
+            });
+            timer.start();
+        }
+    }
+
 // Método para mover el ícono en la lista de casillas
     private void mover_2() {
         if (timer == null || !timer.isRunning()) {
             timer = new Timer(700, new ActionListener() {
                 int movimientos = 0;  // Variable para contar los movimientos
-                int aux = posicionActual+dado;
+                int aux = posicionActual + dado;
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -1021,7 +1112,7 @@ public class Tablero extends javax.swing.JFrame {
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
                             }
-                        } 
+                        }
                         if (aux > 20) {
                             // El número del dado supera la cantidad de movimientos restantes
                             JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
@@ -1143,5 +1234,6 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton retroceder;
     // End of variables declaration//GEN-END:variables
 }
