@@ -24,7 +24,6 @@ public class Tablero extends javax.swing.JFrame {
     private int posicionActual = 0;
     private Timer timer;
     ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
-    
 
     public Tablero(int Avatar) {
         initComponents();
@@ -63,6 +62,7 @@ public class Tablero extends javax.swing.JFrame {
         generarpunto(General);
         generarpunto(Abstracto);
         generarpunto(Ciencias);
+        //Se insertan los jlabels (de la casilla o posicion del explorador) a la lista enlazada 2
         lista_casillas.insertar(USER);
         lista_casillas.insertar(P1);
         lista_casillas.insertar(P2);
@@ -334,9 +334,9 @@ public class Tablero extends javax.swing.JFrame {
         dadoLabel.setText(Integer.toString(dado));
 
         mover();
-
+        mover_2();//funcion para mover el explorador
         System.out.println("CatgActual: " + CatgActual.dato);
-        mover_2();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void P13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P13MouseClicked
@@ -923,24 +923,22 @@ public class Tablero extends javax.swing.JFrame {
         }
 
     }
-    // Clase Nodo
-
+    // Clase Nodo (para las casillas-explorador)
     static class Nodo_2 {
 
         JLabel label;
         Nodo_2 siguiente;
 
+        // Constructor de Nodo_2
         public Nodo_2(JLabel label) {
             this.label = label;
             this.siguiente = null;
         }
     }
-
-    // Clase ListaEnlazada
+// Clase ListaEnlazada (para las casillas)
     static class ListaEnlazada_2 {
-
         Nodo_2 cabeza;
-
+        // Método para insertar un nuevo nodo (JLabel) en la lista enlazada
         public void insertar(JLabel label) {
             Nodo_2 nuevoNodo = new Nodo_2(label);
             if (cabeza == null) {
@@ -954,6 +952,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
 
+        // Método para obtener el nodo (JLabel) en una posición específica de la lista enlazada
         public Nodo_2 obtenerNodoEnPosicion(int posicion) {
             if (posicion < 0 || cabeza == null) {
                 return null;
@@ -970,6 +969,7 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
+// Método para mover el ícono en la lista de casillas
     private void mover_2() {
         if (timer == null || !timer.isRunning()) {
             timer = new Timer(900, new ActionListener() {
@@ -1007,21 +1007,18 @@ public class Tablero extends javax.swing.JFrame {
                         } else {
                             // Detener el temporizador si se alcanza el final de la lista
                             timer.stop();
+                            // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
+                            if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
+                                Send_ToAhorcado();
+                            }
                         }
                     } else {
                         timer.stop();
-                        System.out.println("pos" + posicionActual);
-                        if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
-                            Send_ToAhorcado();
-                        }
                     }
-
                 }
             });
             timer.start();
-
         }
-
     }
 
 //    public class Pregunta {
