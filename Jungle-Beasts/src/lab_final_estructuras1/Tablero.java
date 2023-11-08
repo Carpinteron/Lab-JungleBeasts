@@ -47,8 +47,8 @@ public class Tablero extends javax.swing.JFrame {
             resetearArchivo("Partida");
 
         } else {
-         //   System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-           RecuperarPartida();
+            //   System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+            RecuperarPartida();
         }
 //        FondoAleatorio();
 //        GenerarCamino();
@@ -98,7 +98,7 @@ public class Tablero extends javax.swing.JFrame {
 //        Categ.agregarAlFinal(Matematicas);
 //        Categ.agregarAlFinal(General);
 //        Categ.agregarAlFinal(Abstracto);
-//        Categ.agregarAlFinal(Ciencias);
+//        Categ.agregarAlFinal(Cienciass);
         // Categ.mostrarSolounaLista(1);
     }
 
@@ -145,7 +145,7 @@ public class Tablero extends javax.swing.JFrame {
         GuardarPartidaenARchiv(sc, "Partida", Camino, "CaminoCategorias;");
         PosActuales.agregarAlFinal(CatgActual.dato);
         PosActuales.agregarAlFinal(String.valueOf(posicionActual));
-        GuardarPartidaenARchiv(sc, "Partida", PosActuales, "PosACtuales 1-CatActual   2-CasillaActual;");
+        GuardarPartidaenARchiv(sc, "Partida", PosActuales, "Posicion;");
     }
 
     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazada lista, String nombre) {
@@ -177,7 +177,7 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
-     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazadaDoble lista, String nombre) {
+    public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazadaDoble lista, String nombre) {
         File archivoTemporal = new File(file_name + "_temp.txt");
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter(file_name, true));
@@ -207,15 +207,59 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void RecuperarPartida() {
-        Scanner sc=new Scanner(System.in);
-        copiarRegistroALista("Partida",Ingles,"Ingles",sc);
+        Scanner sc = new Scanner(System.in);
+        copiarRegistroALista("Partida", Ingles, "Ingles", sc);
+        copiarRegistroALista("Partida", Matematicas, "Matematicas", sc);
+        copiarRegistroALista("Partida", General, "General", sc);
+        copiarRegistroALista("Partida", Abstracto, "Abstracto", sc);
+        copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
+       // copiarposiciones("Partida","Posicion;",sc);
+       // CatgActual.dato=cat;
+    }
+    String cat;
+    public void copiarposiciones(String file_name, String nameRegistro, Scanner sc) {
+        boolean hay = false;
+        int cont=0;
+        while (hay == false) {
+            try {
+                BufferedReader read = new BufferedReader(new FileReader(file_name));
+                String line = null; //definición de line
+                boolean Encontrado = false;
+                while ((line = read.readLine()) != null && Encontrado == false) {
+                    String[] campos = line.split(";");
+                    String name1 = campos[0];
+                   // if (nameRegistro.equalsIgnoreCase(name1)) {
+                   if(cont==6){
+                        Encontrado = true;
+
+                        cat= campos[1];
+                        posicionActual=Integer.parseInt(campos[2]);
+                        
+                        System.out.println("posiciones copiadas");
+                        System.out.println(" Categoria: "+CatgActual.dato+ " y  pos "+posicionActual);
+                        //lista.mostrarLista();
+                    }
+                   cont++;
+                }
+                if (Encontrado == false) {
+                    System.out.println("No se encontro el nombre ");
+                }
+                line = null;
+
+                read.close();
+                hay = true;
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                //nombre = sc.nextLine(); // Archivo
+            }
+        }
+        //resetearArchivo("Partida");
     }
 
-    public void copiarRegistroALista(String file_name, ListaEnlazada lista,String nameLista, Scanner sc){
-        
-     
+    public void copiarRegistroALista(String file_name, ListaEnlazada lista, String nameLista, Scanner sc) {
         boolean hay = false;
-      
+
         while (hay == false) {
             try {
                 BufferedReader read = new BufferedReader(new FileReader(file_name));
@@ -226,10 +270,10 @@ public class Tablero extends javax.swing.JFrame {
                     String name = campos[0].trim();
                     if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
-                        for(int c=1;c<=20;c++){
+                        for (int c = 1; c <= 20; c++) {
                             lista.agregarAlFinal(campos[c]);
                         }
-                       
+
                         System.out.println("Lista encontrada, lista copiada");
                         lista.mostrarLista();
                     }
@@ -238,7 +282,7 @@ public class Tablero extends javax.swing.JFrame {
                     System.out.println("No se encontro el nombre de la lista");
                 }
                 line = null;
-               
+
                 read.close();
                 hay = true;
             } catch (IOException ex) {
@@ -247,13 +291,13 @@ public class Tablero extends javax.swing.JFrame {
                 //nombre = sc.nextLine(); // Archivo
             }
         }
-          //resetearArchivo("Partida");
+        //resetearArchivo("Partida");
     }
-      
-    
-    public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista){
+
+    public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista) {
         resetearArchivo("Partida");
     }
+
     public void resetearArchivo(String file_name) {
         try {
             // Abre el archivo en modo de escritura (sobrescribir)
@@ -590,7 +634,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void Send_ToAhorcado() {
-        
+
         GuardarPartida();
         Ahorcado_1 a = new Ahorcado_1(user);
         a.setVisible(true);
@@ -599,7 +643,7 @@ public class Tablero extends javax.swing.JFrame {
 
     public void GenerarCamino() {
 
-        String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencia", "Razonamiento Abstracto", "Sociales"};
+        String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencias", "Razonamiento Abstracto", "Sociales"};
         for (int i = 0; i < 17; i++) {
             int r = ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
