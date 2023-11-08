@@ -649,7 +649,9 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_P19MouseClicked
 
     private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
-        Send_ToAhorcado();
+        //Send_ToAhorcado();
+        Send_ToPreguntas();        
+        
     }//GEN-LAST:event_P7MouseClicked
 
     private void retrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrocederActionPerformed
@@ -703,11 +705,20 @@ public class Tablero extends javax.swing.JFrame {
     public void Send_ToAhorcado() {
 
         GuardarPartida();
-        Ahorcado_1 a = new Ahorcado_1(user);
+       Ahorcado_1 a = new Ahorcado_1(user);
         a.setVisible(true);
         this.dispose();
     }
+    
+    public void Send_ToPreguntas() {
 
+        GuardarPartida();
+        PreguntaPanel b = new PreguntaPanel();
+        this.dispose();
+        b.setVisible(true);
+        
+    } 
+    
     public void GenerarCamino() {
 
         String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencias", "Razonamiento Abstracto", "Sociales"};

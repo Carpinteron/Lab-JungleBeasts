@@ -1,0 +1,21 @@
+¿Cuánto es la raíz cuadrada de 64?	4	8	9	3	8
+¿Cuál es el resultado de 7×9?	56	70	63	44	63
+¿Cuánto es el 20% de 150?	30	40	50	20	30
+Pregunta	"a"	"b"	"c"	"d"	Respuesta
+Si tienes 5 manzanas y das 3 a un amigo, ¿cuántas manzanas te quedan?	1	3	2	4	2
+Si Juan tiene el doble de la edad de María, y María tiene 10 años, ¿cuántos años tiene Juan?	10	30	15	20	20
+¿Cuál es el número primo más pequeño?	1	3	2	5	2
+Si un cuadrado tiene un lado de longitud de 5 unidades, ¿cuál es su perímetro?	10	30	25	20	20
+¿Cuál es el valor de 3² (3 al cuadrado)?	3	9	27	6	9
+¿Cuántos decimales tiene el número pi π?	Dos	Cien	Infinitos	Mil	Infinitos
+¿Cuántos grados son necesarios para que dos ángulos sean complementarios?	60 º	90 º	180 º	360 º	90 º
+¿Cómo se llaman los lados de un triángulo rectángulo?	Segmento y ángulo	Adyacente y opuesto	Tangente y coseno	Hipotenusa y catetos	Hipotenusa y catetos
+En la siguiente expresión: 8-2x2+6x3-3 ¿la respuesta correcta es?	51	12	19	56	19
+¿Cuáles son los números que faltan?	4	___	18	25	___	37	___	49	14	37	48
+Con un cordón de 40 cm se mide el largo de una ventana. Se sabe que la ventana tiene entre 2 y 3 m de largo. El largo de la ventana en cordones es	menor que 2	mayor o igual que 2 y menor que 3	mayor o igual que 5 y menor que 8	mayor que 8
+La gráfica muestra la altura de un globo respecto al tiempo de elevación. En relación con el globo, es correcto afirmar que	alcanza la altura máxima en 400 min.	el tiempo que el globo dura volando es 40 min.	La altura máxima que alcanza es 40 m.	gasta 80 min en hacer todo su recorrido.	Matematicas #15	
+(6 ? 3) + 4 - (2-1)=5. Para que el enunciado sea verdadero, se debe reemplazar el signo de interrogación entre el 6 y el 3 por	División	Multiplicación	Suma	Resta	Multiplicación
+En una tierra lejana se pueden cambiar tres peces por dos panes y un pan por cuatro libras de arroz. ¿Cuántas libras de arroz hay que dar por un pez?	3/5	8/3	1/2	3/4	8/3
+Si en un rectángulo se aumenta la longitud de uno de sus lados en 100 %, su área	aumenta en un 50 %	se duplica	no cambia	aumenta en 100 unidades	se duplica
+El sistema de comunicaciones de un hotel utiliza los dígitos 2, 3, 4 y 5 para asignar un número de extensión telefónica de 4 dígitos diferentes a cada habitación. ¿Cuántas habitaciones del hotel pueden tener extensión telefónica?	24	56	120	256	256
+Un colegio necesita enviar 5 estudiantes como representantes a un foro sobre la contaminación del medio ambiente. Se decidió que 2 estudiantes sean de grado décimo y 3 de grado undécimo. En décimo hay 5 estudiantes preparados para el foro y en undécimo hay 4. ¿Cuántos grupos diferentes pueden formarse para enviar al foro?	9	14	20	40	40
