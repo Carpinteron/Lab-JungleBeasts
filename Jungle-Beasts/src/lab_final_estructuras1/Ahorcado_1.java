@@ -34,7 +34,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         imgs = new ImageIcon[12];
         btns = new JButton[28];
         msgs = new String[8];
-
+        
         this.user = Avatar;
 
         //imagen del joven que se va a ahorcar por que ella no lo ama xd xd
@@ -99,6 +99,8 @@ public class Ahorcado_1 extends javax.swing.JFrame {
             });
         }
         iniciar();
+        
+       
     }
 
     public void iniciar() {
@@ -136,6 +138,9 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         Icon cara = new ImageIcon(getClass().getResource("/IMAGENES/cara.png"));//icono de la copa
         JButton bt = (JButton) e.getSource();
         char c[];
+        resultado r = new resultado();
+        resultados rr = new resultados();
+        rr.setVisible(false);
         //busca la letra en la palabra despues de haber sido presionada
         for (int i = 1; i < 28; i++) {
             if (bt == btns[i]) {
@@ -170,7 +175,11 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                     //al ser correcta se muestra un mensaje y se reinicia el juego
 
                     if (gano) {
-                        JOptionPane.showMessageDialog(this, "Felicitaciones ganaste!!\n Ya puedes seguir disfrutando del juego", "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cp);
+                        rr.setVisible(true);
+                        rr.reaccion.setEnabled(true);
+                        rr.texto.setEnabled(true);
+                        rr.respuesta.setText(null);
+                        //JOptionPane.showMessageDialog(this, "Felicitaciones ganaste!!\n Ya puedes seguir disfrutando del juego", "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cp);
                         //iniciar();
                         try {
                             // Pausa de 3 segundos (3000 milisegundos)
@@ -191,7 +200,11 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                     errores.setIcon(imgs[++err2]);
                     //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAGE DE:
                     if (err == 5) {
-                        JOptionPane.showMessageDialog(this, "HAS PERDIDO\n Perdiste la respuesta era: \n" + msgs[ran], "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cara);
+                        rr.setVisible(true);
+                        rr.reaccion.setEnabled(false);
+                        rr.texto.setEnabled(false);
+                        rr.respuesta.setText(msgs[ran]);
+                        //JOptionPane.showMessageDialog(this, "HAS PERDIDO\n Perdiste la respuesta era: \n" + msgs[ran], "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cara);
                         iniciar();
                         return;
                     }

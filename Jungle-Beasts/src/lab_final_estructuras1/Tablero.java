@@ -323,56 +323,73 @@ public class Tablero extends javax.swing.JFrame {
         dadoLabel.setText("9");
         jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, 47, 53));
 
+        P1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P1.setText("Pregunta 1");
-        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 90, 110));
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 440, 130, 140));
 
+        P2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P2.setText("2");
-        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 90, 110));
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 130, 120));
 
+        P3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P3.setText("3");
-        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 90, 120));
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 130, 140));
 
+        P4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P4.setText("4");
-        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 90, 110));
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 130, 130));
 
+        P5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P5.setText("5");
-        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 90, 110));
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 130, 130));
 
+        P6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P6.setText("6");
-        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 120, 90, 110));
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, 130, 130));
 
+        P8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P8.setText("7");
-        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 90, 110));
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, 140, 130));
 
+        P9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P9.setText("8");
-        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 90, 110));
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, -10, 130, 130));
 
+        P10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P10.setText("9");
-        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 90, 110));
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 140, 130));
 
+        P11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P11.setText("10");
-        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 110));
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 130, 140));
 
+        P12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P12.setText("11");
-        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 90, 110));
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 130, 160));
 
+        P14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P14.setText("12");
-        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 90, 110));
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 140, 140));
 
+        P15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P15.setText("13");
-        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 90, 110));
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 130, 130));
 
+        P16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P16.setText("14");
-        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 90, 110));
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 130, 130));
 
+        P17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P17.setText("15");
-        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 90, 110));
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 130, 140));
 
+        P18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P18.setText("16");
-        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 90, 110));
+        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 130, 130));
 
+        P20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
         P20.setText("17");
-        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 110));
+        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 150));
 
         P13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

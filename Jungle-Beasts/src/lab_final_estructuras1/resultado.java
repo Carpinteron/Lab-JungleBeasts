@@ -13,6 +13,7 @@ public class resultado extends javax.swing.JPanel {
     /**
      * Creates new form resultado
      */
+  
     public resultado() {
         initComponents();
     }
@@ -26,23 +27,57 @@ public class resultado extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        BtnEXIT = new javax.swing.JButton();
+        reaccion = new javax.swing.JLabel();
+        respuesta = new javax.swing.JLabel();
+        texto = new javax.swing.JLabel();
+        tabla = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-feliz.gif"))); // NOI18N
-        jLabel2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-triste.gif"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 260, 260));
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXITActionPerformed(evt);
+            }
+        });
+        add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 540, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tablerohojas.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        reaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-feliz.gif"))); // NOI18N
+        reaccion.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-triste.gif"))); // NOI18N
+        reaccion.setEnabled(false);
+        add(reaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 200, 220));
+
+        respuesta.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        respuesta.setForeground(new java.awt.Color(255, 255, 255));
+        respuesta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        respuesta.setText("respuesta");
+        add(respuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, 430, -1));
+
+        texto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/ganaste.png"))); // NOI18N
+        texto.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/perdiste.png"))); // NOI18N
+        texto.setEnabled(false);
+        add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 580, 350));
+
+        tabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tablerohojas.png"))); // NOI18N
+        add(tabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+System.exit(0);
+    }//GEN-LAST:event_BtnEXITActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton BtnEXIT;
+    public javax.swing.JLabel reaccion;
+    javax.swing.JLabel respuesta;
+    private javax.swing.JLabel tabla;
+    public javax.swing.JLabel texto;
     // End of variables declaration//GEN-END:variables
 }
