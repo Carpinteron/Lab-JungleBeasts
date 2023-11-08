@@ -1,4 +1,3 @@
-
 package lab_final_estructuras1;
 
 import java.awt.Color;
@@ -12,14 +11,16 @@ public class resultados extends javax.swing.JFrame {
     /**
      * Creates new form resultados
      */
-     int xmouse, ymouse;
+    int xmouse, ymouse;
+
     public resultados() {
         initComponents();
         setLocationRelativeTo(null);
+        setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
+        BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
+
 //        setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         //setUndecorated(true);
-        
-    
     }
 
     /**
@@ -34,12 +35,15 @@ public class resultados extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         blurBackground2 = new org.example.Custom.BlurBackground();
-        BtnEXIT = new javax.swing.JButton();
         reaccion = new javax.swing.JLabel();
         respuesta = new javax.swing.JLabel();
         texto = new javax.swing.JLabel();
+        BARRA = new javax.swing.JPanel();
+        BtnEXIT1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,43 +53,71 @@ public class resultados extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         blurBackground2.setBackground(new java.awt.Color(0, 0, 0));
-        blurBackground2.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/banner madera.jpg"))); // NOI18N
+        blurBackground2.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/banner.png"))); // NOI18N
         blurBackground2.setOpaque(true);
         blurBackground2.setRadius(55);
-
-        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
-        BtnEXIT.setBorder(null);
-        BtnEXIT.setBorderPainted(false);
-        BtnEXIT.setContentAreaFilled(false);
-        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEXITActionPerformed(evt);
-            }
-        });
-        blurBackground2.add(BtnEXIT);
-        BtnEXIT.setBounds(910, 70, 35, 35);
 
         reaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-feliz.gif"))); // NOI18N
         reaccion.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-triste.gif"))); // NOI18N
         reaccion.setEnabled(false);
         blurBackground2.add(reaccion);
-        reaccion.setBounds(140, 180, 203, 203);
+        reaccion.setBounds(180, 200, 210, 190);
 
         respuesta.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         respuesta.setForeground(new java.awt.Color(255, 255, 255));
         respuesta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         respuesta.setText("respuesta");
         blurBackground2.add(respuesta);
-        respuesta.setBounds(330, 380, 560, 30);
+        respuesta.setBounds(250, 430, 460, 30);
 
         texto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/ganaste.png"))); // NOI18N
         texto.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/perdiste.png"))); // NOI18N
         texto.setEnabled(false);
         blurBackground2.add(texto);
-        texto.setBounds(270, 70, 666, 375);
+        texto.setBounds(160, 200, 666, 270);
 
-        jPanel1.add(blurBackground2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 620));
+        BARRA.setBackground(new java.awt.Color(255, 255, 255));
+        BARRA.setForeground(new java.awt.Color(255, 255, 255));
+        BARRA.setOpaque(false);
+        BARRA.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                BARRAMouseDragged(evt);
+            }
+        });
+        BARRA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                BARRAMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BARRALayout = new javax.swing.GroupLayout(BARRA);
+        BARRA.setLayout(BARRALayout);
+        BARRALayout.setHorizontalGroup(
+            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1020, Short.MAX_VALUE)
+        );
+        BARRALayout.setVerticalGroup(
+            BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        blurBackground2.add(BARRA);
+        BARRA.setBounds(0, 0, 1020, 40);
+
+        BtnEXIT1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT1.setBorder(null);
+        BtnEXIT1.setBorderPainted(false);
+        BtnEXIT1.setContentAreaFilled(false);
+        BtnEXIT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXIT1ActionPerformed(evt);
+            }
+        });
+        blurBackground2.add(BtnEXIT1);
+        BtnEXIT1.setBounds(670, 480, 40, 40);
+
+        jPanel1.add(blurBackground2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 800, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,17 +127,28 @@ public class resultados extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnEXITActionPerformed
+    private void BtnEXIT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT1ActionPerformed
+
+        //resetearArchivo("Partida");
+        System.exit(0);
+    }//GEN-LAST:event_BtnEXIT1ActionPerformed
+
+    private void BARRAMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMouseDragged
+        int x = evt.getXOnScreen(); //Obttiene la posicion horizontal actual en pantalla.
+        int y = evt.getYOnScreen(); //Obtiene la posicion vertical actual en pantalla.
+        this.setLocation(x - xmouse, y - ymouse); //Establece la poscion de la ventana en funcion de la posicion original del mouse.
+    }//GEN-LAST:event_BARRAMouseDragged
+
+    private void BARRAMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMousePressed
+        xmouse = evt.getX(); // Obtiene la posicion horizontal del punto donde se hizo clic.
+        ymouse = evt.getY(); // Obtiene la posicion vertical del punto donde se hizo clic.
+    }//GEN-LAST:event_BARRAMousePressed
 
     /**
      * @param args the command line arguments
@@ -143,7 +186,8 @@ public class resultados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnEXIT;
+    private javax.swing.JPanel BARRA;
+    private javax.swing.JButton BtnEXIT1;
     private org.example.Custom.BlurBackground blurBackground2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
