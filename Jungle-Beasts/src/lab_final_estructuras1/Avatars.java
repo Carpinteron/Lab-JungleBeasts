@@ -331,7 +331,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
 
             System.out.println("A" + Avatar);
             if (Avatar != 0) {
-                Tablero T = new Tablero(Avatar);
+                Tablero T = new Tablero(Avatar,true);
                 T.setVisible(true);
                 this.dispose();
             } else {
