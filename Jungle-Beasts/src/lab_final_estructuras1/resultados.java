@@ -59,7 +59,6 @@ public class resultados extends javax.swing.JFrame {
 
         reaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-feliz.gif"))); // NOI18N
         reaccion.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/monstruo-triste.gif"))); // NOI18N
-        reaccion.setEnabled(false);
         blurBackground2.add(reaccion);
         reaccion.setBounds(180, 200, 210, 190);
 
@@ -70,9 +69,8 @@ public class resultados extends javax.swing.JFrame {
         blurBackground2.add(respuesta);
         respuesta.setBounds(250, 430, 460, 30);
 
-        texto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/ganaste.png"))); // NOI18N
+        texto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/ganador (2).png"))); // NOI18N
         texto.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/perdiste.png"))); // NOI18N
-        texto.setEnabled(false);
         blurBackground2.add(texto);
         texto.setBounds(160, 200, 666, 270);
 
