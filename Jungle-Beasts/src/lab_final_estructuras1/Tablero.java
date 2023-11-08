@@ -972,7 +972,7 @@ public class Tablero extends javax.swing.JFrame {
 // Método para mover el ícono en la lista de casillas
     private void mover_2() {
         if (timer == null || !timer.isRunning()) {
-            timer = new Timer(900, new ActionListener() {
+            timer = new Timer(700, new ActionListener() {
                 int movimientos = 0;  // Variable para contar los movimientos
 
                 @Override
@@ -1007,13 +1007,15 @@ public class Tablero extends javax.swing.JFrame {
                         } else {
                             // Detener el temporizador si se alcanza el final de la lista
                             timer.stop();
+                            
+                        }
+                    } else {
+                        timer.stop();
+                        //System.out.println("pos: "+posicionActual);
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
                             }
-                        }
-                    } else {
-                        timer.stop();
                     }
                 }
             });
