@@ -105,7 +105,8 @@ public class Tablero extends javax.swing.JFrame {
     //EStas listas alamecenaran las categorias 
     ListaEnlazadaDoble Camino = new ListaEnlazadaDoble();
     ListaEnlazadaDoble Casillas = new ListaEnlazadaDoble();
-    ListaEnlazada PosActuales = new ListaEnlazada();
+    ListaEnlazada PosActuales1 = new ListaEnlazada();
+    ListaEnlazada PosActuales2 = new ListaEnlazada();
 
     //Que guarden los numero de pregunta de fora aleatoria
     ListaEnlazada Ingles = new ListaEnlazada(); //0
@@ -143,9 +144,10 @@ public class Tablero extends javax.swing.JFrame {
         GuardarPartidaenARchiv(sc, "Partida", Abstracto, "Abstracto");
         GuardarPartidaenARchiv(sc, "Partida", Ciencias, "Ciencias");
         GuardarPartidaenARchiv(sc, "Partida", Camino, "CaminoCategorias;");
-        PosActuales.agregarAlFinal(CatgActual.dato);
-        PosActuales.agregarAlFinal(String.valueOf(posicionActual));
-        GuardarPartidaenARchiv(sc, "Partida", PosActuales, "Posicion;");
+        PosActuales1.agregarAlFinal(CatgActual.dato);
+        PosActuales2.agregarAlFinal(String.valueOf(posicionActual));
+        GuardarPartidaenARchiv(sc, "Partida", PosActuales1, "Posicion1;"); //string
+        GuardarPartidaenARchiv(sc, "Partida", PosActuales2, "Posicion2;");//int
     }
 
     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazada lista, String nombre) {
@@ -213,47 +215,50 @@ public class Tablero extends javax.swing.JFrame {
         copiarRegistroALista("Partida", General, "General", sc);
         copiarRegistroALista("Partida", Abstracto, "Abstracto", sc);
         copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
+        copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
+        posicionActual=copiarposiciones("Partida","Posicion2",sc);
+        System.out.println("o "+posicionActual);
        // copiarposiciones("Partida","Posicion;",sc);
        // CatgActual.dato=cat;
     }
     String cat;
-    public void copiarposiciones(String file_name, String nameRegistro, Scanner sc) {
+    public int copiarposiciones(String file_name, String nameRegistro, Scanner sc) {
         boolean hay = false;
-        int cont=0;
         while (hay == false) {
             try {
+                int obj;
                 BufferedReader read = new BufferedReader(new FileReader(file_name));
                 String line = null; //definición de line
                 boolean Encontrado = false;
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
-                    String name1 = campos[0];
+                    String name= campos[0].trim();
+                    System.out.println("estos son los campos 0 en pos: "+ name);
                    // if (nameRegistro.equalsIgnoreCase(name1)) {
-                   if(cont==6){
+                   if(nameRegistro.equalsIgnoreCase(name.trim())){
                         Encontrado = true;
-
-                        cat= campos[1];
-                        posicionActual=Integer.parseInt(campos[2]);
-                        
-                        System.out.println("posiciones copiadas");
-                        System.out.println(" Categoria: "+CatgActual.dato+ " y  pos "+posicionActual);
+                        System.out.println("posicion2: " + campos[1]);
+                        //obj= Integer.parseInt(campos[1]);
+                        //return obj;
                         //lista.mostrarLista();
                     }
-                   cont++;
+                   
                 }
                 if (Encontrado == false) {
-                    System.out.println("No se encontro el nombre ");
+                    System.out.println("No se encontro el nombre copiar pos");
                 }
                 line = null;
-
+                
                 read.close();
                 hay = true;
+                return -1;
             } catch (IOException ex) {
                 System.out.println("No se encontro archivo");
                 hay = false;
                 //nombre = sc.nextLine(); // Archivo
             }
         }
+        return -1;
         //resetearArchivo("Partida");
     }
 
@@ -268,18 +273,19 @@ public class Tablero extends javax.swing.JFrame {
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
                     String name = campos[0].trim();
+                    System.out.println("estos son los campos[0] enlas: "+name);
                     if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
                         for (int c = 1; c <= 20; c++) {
                             lista.agregarAlFinal(campos[c]);
                         }
 
-                        System.out.println("Lista encontrada, lista copiada");
+                        System.out.println("Lista encontrada, lista copiada enlazada simple");
                         lista.mostrarLista();
                     }
                 }
                 if (Encontrado == false) {
-                    System.out.println("No se encontro el nombre de la lista");
+                    System.out.println("No se encontro el nombre de la lista enlazada simple");
                 }
                 line = null;
 
@@ -293,10 +299,46 @@ public class Tablero extends javax.swing.JFrame {
         }
         //resetearArchivo("Partida");
     }
+    
+   
+   int indice=1;
+   public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista, Scanner sc) {
+        boolean hay = false;
 
-    public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista) {
-        resetearArchivo("Partida");
+        while (hay == false) {
+            try {
+                BufferedReader read = new BufferedReader(new FileReader(file_name));
+                String line = null; //definición de line
+                boolean Encontrado = false;
+                while ((line = read.readLine()) != null && Encontrado == false) {
+                    String[] campos = line.split(";");
+                    String name = campos[0].trim();
+                    System.out.println("estos son los campos[0] enlad: "+name);
+                    if (nameLista.equalsIgnoreCase(name.trim())) {
+                        Encontrado = true;
+                        lista.add_alFinal(campos[indice]);
+                        lista.imprimir();
+                        indice++;
+                        System.out.println("Lista encontrada, lista copiada enlazada doble");
+                        
+                    }
+                }
+                if (Encontrado == false) {
+                    System.out.println("No se encontro el nombre de la lista enlazada doble");
+                }
+                line = null;
+
+                read.close();
+                hay = true;
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                //nombre = sc.nextLine(); // Archivo
+            }
+        }
+        //resetearArchivo("Partida");
     }
+    
 
     public void resetearArchivo(String file_name) {
         try {
