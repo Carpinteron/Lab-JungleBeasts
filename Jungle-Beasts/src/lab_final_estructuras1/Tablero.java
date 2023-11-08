@@ -2,11 +2,15 @@ package lab_final_estructuras1;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.Timer;
 
 public class Tablero extends javax.swing.JFrame {
 
@@ -15,8 +19,12 @@ public class Tablero extends javax.swing.JFrame {
     ImageIcon B = new ImageIcon(CL.getResource("IMG/chica110.png"));//CHICA=2
     ImageIcon C = new ImageIcon(CL.getResource("IMG/chico110.png")); //CHICO=3
     private int user;
-
     int xmouse, ymouse;
+    //variables para el movimiento del explorador
+    private int posicionActual = 0;
+    private Timer timer;
+    ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
+    
 
     public Tablero(int Avatar) {
         initComponents();
@@ -55,15 +63,34 @@ public class Tablero extends javax.swing.JFrame {
         generarpunto(General);
         generarpunto(Abstracto);
         generarpunto(Ciencias);
+        lista_casillas.insertar(USER);
+        lista_casillas.insertar(P1);
+        lista_casillas.insertar(P2);
+        lista_casillas.insertar(P3);
+        lista_casillas.insertar(P4);
+        lista_casillas.insertar(P5);
+        lista_casillas.insertar(P6);
+        lista_casillas.insertar(P7);
+        lista_casillas.insertar(P8);
+        lista_casillas.insertar(P9);
+        lista_casillas.insertar(P10);
+        lista_casillas.insertar(P11);
+        lista_casillas.insertar(P12);
+        lista_casillas.insertar(P13);
+        lista_casillas.insertar(P14);
+        lista_casillas.insertar(P15);
+        lista_casillas.insertar(P16);
+        lista_casillas.insertar(P17);
+        lista_casillas.insertar(P18);
+        lista_casillas.insertar(P19);
+        lista_casillas.insertar(P20);
 
 //        Categ.agregarAlFinal(Ingles);
 //        Categ.agregarAlFinal(Matematicas);
 //        Categ.agregarAlFinal(General);
 //        Categ.agregarAlFinal(Abstracto);
 //        Categ.agregarAlFinal(Ciencias);
-        
-       // Categ.mostrarSolounaLista(1);
-
+        // Categ.mostrarSolounaLista(1);
     }
 
     //EStas listas alamecenaran las categorias 
@@ -77,8 +104,7 @@ public class Tablero extends javax.swing.JFrame {
     ListaEnlazada Abstracto = new ListaEnlazada();//3
     ListaEnlazada Ciencias = new ListaEnlazada();//3
 
-   // ListaEnlazadaMulti Categ = new ListaEnlazadaMulti();
-
+    // ListaEnlazadaMulti Categ = new ListaEnlazadaMulti();
     int dado;
     Nodo CatgActual;
 
@@ -182,76 +208,76 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, 47, 53));
 
         P1.setText("Pregunta 1");
-        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 500, 70, 50));
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 460, 90, 110));
 
         P2.setText("2");
-        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 70, 50));
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 480, 90, 110));
 
         P3.setText("3");
-        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 70, 50));
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 90, 120));
 
         P4.setText("4");
-        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 300, 70, 50));
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 90, 110));
 
         P5.setText("5");
-        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 290, 70, 50));
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 230, 90, 110));
 
         P6.setText("6");
-        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 180, 70, 50));
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 120, 90, 110));
 
         P8.setText("7");
-        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 100, 70, 50));
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 50, 90, 110));
 
         P9.setText("8");
-        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 70, 50));
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 90, 110));
 
         P10.setText("9");
-        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 70, 50));
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 90, 110));
 
         P11.setText("10");
-        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 70, 50));
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 90, 110));
 
         P12.setText("11");
-        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 70, 50));
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 90, 110));
 
         P14.setText("12");
-        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 70, 50));
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 90, 110));
 
         P15.setText("13");
-        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 70, 50));
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 90, 110));
 
         P16.setText("14");
-        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 530, 70, 50));
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 90, 110));
 
         P17.setText("15");
-        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 70, 50));
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, 90, 110));
 
         P18.setText("16");
-        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 70, 50));
+        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 90, 110));
 
         P20.setText("17");
-        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 70, 50));
+        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 110));
 
         P13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 P13MouseClicked(evt);
             }
         });
-        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 80, 70));
+        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 90, 110));
 
         P19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 P19MouseClicked(evt);
             }
         });
-        jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 80, 60));
+        jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 90, 110));
 
         P7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 P7MouseClicked(evt);
             }
         });
-        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 50, 70, 70));
+        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 90, 110));
         jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
@@ -298,6 +324,10 @@ public class Tablero extends javax.swing.JFrame {
         ymouse = evt.getY(); // Obtiene la posicion vertical del punto donde se hizo clic.
     }//GEN-LAST:event_BARRAMousePressed
 
+    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_BtnEXITActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
@@ -306,11 +336,8 @@ public class Tablero extends javax.swing.JFrame {
         mover();
 
         System.out.println("CatgActual: " + CatgActual.dato);
+        mover_2();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void P13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P13MouseClicked
         Send_ToAhorcado();
@@ -600,7 +627,6 @@ public class Tablero extends javax.swing.JFrame {
 //        }
 //
 //    }
-
     class ListaEnlazada {
 
         Nodo head; // El primer nodo de la lista
@@ -894,6 +920,106 @@ public class Tablero extends javax.swing.JFrame {
                 actual = actual.siguiente;
             }
             System.out.println();
+        }
+
+    }
+    // Clase Nodo
+
+    static class Nodo_2 {
+
+        JLabel label;
+        Nodo_2 siguiente;
+
+        public Nodo_2(JLabel label) {
+            this.label = label;
+            this.siguiente = null;
+        }
+    }
+
+    // Clase ListaEnlazada
+    static class ListaEnlazada_2 {
+
+        Nodo_2 cabeza;
+
+        public void insertar(JLabel label) {
+            Nodo_2 nuevoNodo = new Nodo_2(label);
+            if (cabeza == null) {
+                cabeza = nuevoNodo;
+            } else {
+                Nodo_2 temp = cabeza;
+                while (temp.siguiente != null) {
+                    temp = temp.siguiente;
+                }
+                temp.siguiente = nuevoNodo;
+            }
+        }
+
+        public Nodo_2 obtenerNodoEnPosicion(int posicion) {
+            if (posicion < 0 || cabeza == null) {
+                return null;
+            }
+
+            Nodo_2 temp = cabeza;
+            int contador = 0;
+            while (temp != null && contador < posicion) {
+                temp = temp.siguiente;
+                contador++;
+            }
+
+            return temp;
+        }
+    }
+
+    private void mover_2() {
+        if (timer == null || !timer.isRunning()) {
+            timer = new Timer(900, new ActionListener() {
+                int movimientos = 0;  // Variable para contar los movimientos
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (movimientos < dado) {
+                        // Remover el ícono del JLabel anterior
+                        Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                        if (nodoAnterior != null) {
+                            nodoAnterior.label.setIcon(null);
+                        }
+
+                        // Incrementar la posición
+                        posicionActual++;
+
+                        // Establecer el ícono en el JLabel actual
+                        Nodo_2 nodoEnPosicion = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+
+                        if (nodoEnPosicion != null) {
+                            // Establecer el ícono según el jugador
+                            switch (user) {
+                                case 1:
+                                    nodoEnPosicion.label.setIcon(A);
+                                    break;
+                                case 2:
+                                    nodoEnPosicion.label.setIcon(B);
+                                    break;
+                                case 3:
+                                    nodoEnPosicion.label.setIcon(C);
+                                    break;
+                            }
+                            movimientos++;
+                        } else {
+                            // Detener el temporizador si se alcanza el final de la lista
+                            timer.stop();
+                        }
+                    } else {
+                        timer.stop();
+                        System.out.println("pos" + posicionActual);
+                        if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
+                            Send_ToAhorcado();
+                        }
+                    }
+
+                }
+            });
+            timer.start();
+
         }
 
     }
