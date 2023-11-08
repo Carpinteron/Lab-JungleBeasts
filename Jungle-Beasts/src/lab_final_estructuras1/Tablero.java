@@ -45,17 +45,7 @@ public class Tablero extends javax.swing.JFrame {
         if (started == true) {
             IniciarDesdeCero();
             resetearArchivo("Partida");
-
-        } else {
-            //   System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-            RecuperarPartida();
-        }
-//        FondoAleatorio();
-//        GenerarCamino();
-        dadoLabel.setText("");
-
-        System.out.println("");
-        switch (user) {
+            switch (user) {
             case 1:
                 USER.setIcon(A);
                 break;
@@ -67,6 +57,15 @@ public class Tablero extends javax.swing.JFrame {
                 break;
 
         }
+        } else {
+
+            RecuperarPartida();
+
+        }
+        dadoLabel.setText("");
+
+        System.out.println("");
+        
 
         Point J = USER.getLocation();
         USER.setLocation(J);
@@ -216,12 +215,38 @@ public class Tablero extends javax.swing.JFrame {
         copiarRegistroALista("Partida", Abstracto, "Abstracto", sc);
         copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
-        posicionActual=copiarposiciones("Partida","Posicion2",sc);
-        System.out.println("o "+posicionActual);
-       // copiarposiciones("Partida","Posicion;",sc);
-       // CatgActual.dato=cat;
+        posicionActual = copiarposiciones("Partida", "Posicion2", sc) + 1;
+        System.out.println("o " + posicionActual);
+        // copiarposiciones("Partida","Posicion;",sc);
+        // CatgActual.dato=cat;
+
+        lista_casillas.insertar(USER);
+        lista_casillas.insertar(P1);
+        lista_casillas.insertar(P2);
+        lista_casillas.insertar(P3);
+        lista_casillas.insertar(P4);
+        lista_casillas.insertar(P5);
+        lista_casillas.insertar(P6);
+        lista_casillas.insertar(P7);
+        lista_casillas.insertar(P8);
+        lista_casillas.insertar(P9);
+        lista_casillas.insertar(P10);
+        lista_casillas.insertar(P11);
+        lista_casillas.insertar(P12);
+        lista_casillas.insertar(P13);
+        lista_casillas.insertar(P14);
+        lista_casillas.insertar(P15);
+        lista_casillas.insertar(P16);
+        lista_casillas.insertar(P17);
+        lista_casillas.insertar(P18);
+        lista_casillas.insertar(P19);
+        lista_casillas.insertar(P20);
+        Nodo_2 nodo0 = lista_casillas.obtenerNodoEnPosicion(0);
+        nodo0.label.setIcon(null);
+        SetEnPos(posicionActual);
     }
     String cat;
+
     public int copiarposiciones(String file_name, String nameRegistro, Scanner sc) {
         boolean hay = false;
         while (hay == false) {
@@ -232,23 +257,24 @@ public class Tablero extends javax.swing.JFrame {
                 boolean Encontrado = false;
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
-                    String name= campos[0].trim();
-                    System.out.println("estos son los campos 0 en pos: "+ name);
-                   // if (nameRegistro.equalsIgnoreCase(name1)) {
-                   if(nameRegistro.equalsIgnoreCase(name.trim())){
+                    String name = campos[0].trim();
+                    System.out.println("estos son los campos 0 en pos: " + name);
+                    // if (nameRegistro.equalsIgnoreCase(name1)) {
+                    if (nameRegistro.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
                         System.out.println("posicion2: " + campos[1]);
                         //obj= Integer.parseInt(campos[1]);
                         //return obj;
                         //lista.mostrarLista();
+                        return Integer.parseInt(campos[1]);
                     }
-                   
+
                 }
                 if (Encontrado == false) {
                     System.out.println("No se encontro el nombre copiar pos");
                 }
                 line = null;
-                
+
                 read.close();
                 hay = true;
                 return -1;
@@ -273,7 +299,7 @@ public class Tablero extends javax.swing.JFrame {
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
                     String name = campos[0].trim();
-                    System.out.println("estos son los campos[0] enlas: "+name);
+                    System.out.println("estos son los campos[0] enlas: " + name);
                     if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
                         for (int c = 1; c <= 20; c++) {
@@ -299,10 +325,10 @@ public class Tablero extends javax.swing.JFrame {
         }
         //resetearArchivo("Partida");
     }
-    
-   
-   int indice=1;
-   public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista, Scanner sc) {
+
+    int indice = 1;
+
+    public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista, Scanner sc) {
         boolean hay = false;
 
         while (hay == false) {
@@ -313,14 +339,14 @@ public class Tablero extends javax.swing.JFrame {
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
                     String name = campos[0].trim();
-                    System.out.println("estos son los campos[0] enlad: "+name);
+                    System.out.println("estos son los campos[0] enlad: " + name);
                     if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
                         lista.add_alFinal(campos[indice]);
                         lista.imprimir();
                         indice++;
                         System.out.println("Lista encontrada, lista copiada enlazada doble");
-                        
+
                     }
                 }
                 if (Encontrado == false) {
@@ -338,7 +364,6 @@ public class Tablero extends javax.swing.JFrame {
         }
         //resetearArchivo("Partida");
     }
-    
 
     public void resetearArchivo(String file_name) {
         try {
@@ -607,9 +632,9 @@ public class Tablero extends javax.swing.JFrame {
         dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
         dadoLabel.setText(Integer.toString(dado));
-
+         mover_2();//funcion para mover el explorador
         mover();
-        mover_2();//funcion para mover el explorador
+       
         System.out.println("CatgActual: " + CatgActual.dato);
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1258,7 +1283,7 @@ public class Tablero extends javax.swing.JFrame {
 
     private void retrocederDosCasillas() {
         if (timer == null || !timer.isRunning()) {
-            timer = new Timer(700, new ActionListener() {
+            timer = new Timer(400, new ActionListener() {
                 int movimientos = 0;
                 int retroceso = 2;
                 int aux = posicionActual + dado;
@@ -1296,14 +1321,6 @@ public class Tablero extends javax.swing.JFrame {
                         if (posicionActual <= 20) {
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
-                                try {
-                                    // Pausa de 3 segundos (3000 milisegundos)
-                                    Thread.sleep(3000);
-                                } catch (InterruptedException ex) {
-                                    // Manejo de excepciones si se interrumpe el hilo
-                                    ex.printStackTrace();
-                                }
-
                                 Send_ToAhorcado();
                             }
                             if (posicionActual == 2) {
@@ -1342,10 +1359,29 @@ public class Tablero extends javax.swing.JFrame {
         }
     }
 
+    public void SetEnPos(int posicionActual) {
+        Nodo_2 nodoEnPosicion = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+        System.out.println("label q quiero: " + posicionActual);
+        if (nodoEnPosicion != null) {
+            // Establecer el ícono según el jugador
+            switch (user) {
+                case 1:
+                    nodoEnPosicion.label.setIcon(A);
+                    break;
+                case 2:
+                    nodoEnPosicion.label.setIcon(B);
+                    break;
+                case 3:
+                    nodoEnPosicion.label.setIcon(C);
+                    break;
+            }
+        }
+    }
 // Método para mover el ícono en la lista de casillas
+
     private void mover_2() {
         if (timer == null || !timer.isRunning()) {
-            timer = new Timer(700, new ActionListener() {
+            timer = new Timer(500, new ActionListener() {
                 int movimientos = 0;  // Variable para contar los movimientos
                 int aux = posicionActual + dado;
 
