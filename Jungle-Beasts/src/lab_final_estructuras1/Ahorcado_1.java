@@ -138,7 +138,6 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         Icon cara = new ImageIcon(getClass().getResource("/IMAGENES/cara.png"));//icono de la copa
         JButton bt = (JButton) e.getSource();
         char c[];
-        resultado r = new resultado();
         resultados rr = new resultados();
         rr.setVisible(false);
         //busca la letra en la palabra despues de haber sido presionada
