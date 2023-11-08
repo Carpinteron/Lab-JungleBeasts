@@ -349,23 +349,6 @@ public class Tablero extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void VerficarHueco() {
-
-        if (CatgActual.dato.equalsIgnoreCase("ahorcado")) {
-            try {
-                // Pausa de 3 segundos (3000 milisegundos)
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                // Manejo de excepciones si se interrumpe el hilo
-                e.printStackTrace();
-            }
-
-            Send_ToAhorcado();
-        }
-    }
-//        if(USER.getBounds().intersects(P13.getBounds())|USER.getBounds().intersects(P7.getBounds())|USER.getBounds().intersects(P19.getBounds())){
-//           
-//        }
 
     private void P13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P13MouseClicked
         Send_ToAhorcado();
@@ -526,22 +509,21 @@ public class Tablero extends javax.swing.JFrame {
 
         return true; // Las listas son iguales
 
-
-}
+    }
 
     //Listas 
     static class Nodo {
 
-    String dato;
-    Nodo siguiente;
-    Nodo prev;
+        String dato;
+        Nodo siguiente;
+        Nodo prev;
 
-    public Nodo(String dato) {
-        this.dato = dato;
-        this.siguiente = null;
-        this.prev = null;
+        public Nodo(String dato) {
+            this.dato = dato;
+            this.siguiente = null;
+            this.prev = null;
+        }
     }
-}
 
 //    static class NOdo {
 //
@@ -661,353 +643,353 @@ public class Tablero extends javax.swing.JFrame {
 //        }
 //
 //    }
-class ListaEnlazada {
+    class ListaEnlazada {
 
-    Nodo head; // El primer nodo de la lista
+        Nodo head; // El primer nodo de la lista
 
-    public ListaEnlazada() {
-        head = null;
-    }
+        public ListaEnlazada() {
+            head = null;
+        }
 
-    public void agregarAlInicio(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
-        nuevoNodo.siguiente = head;
-        head = nuevoNodo;
-    }
-
-    public void agregarAlFinal(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
-
-        // Si la lista está vacía, el nuevo nodo será la cabeza
-        if (head == null) {
+        public void agregarAlInicio(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            nuevoNodo.siguiente = head;
             head = nuevoNodo;
-        } else {
+        }
+
+        public void agregarAlFinal(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            // Si la lista está vacía, el nuevo nodo será la cabeza
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo nodoActual = head;
+                while (nodoActual.siguiente != null) {
+                    nodoActual = nodoActual.siguiente;
+                }
+                nodoActual.siguiente = nuevoNodo;
+            }
+        }
+
+        public boolean buscardato(String dato) {
             Nodo nodoActual = head;
-            while (nodoActual.siguiente != null) {
+            boolean seEncontro = false;
+
+            if (head == null) {
+                return false;
+            }
+            while (nodoActual != null) {
+
+                if (nodoActual.dato.equalsIgnoreCase(dato)) {
+                    return true;
+                }
                 nodoActual = nodoActual.siguiente;
             }
-            nodoActual.siguiente = nuevoNodo;
-        }
-    }
-
-    public boolean buscardato(String dato) {
-        Nodo nodoActual = head;
-        boolean seEncontro = false;
-
-        if (head == null) {
             return false;
-        }
-        while (nodoActual != null) {
 
-            if (nodoActual.dato.equalsIgnoreCase(dato)) {
-                return true;
+        }
+
+        public void insertar(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+
+            if (head == null) {
+                // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
+                head = nuevoNodo;
+            } else {
+                // Si la lista no está vacía, recorremos la lista hasta el último nodo
+                // y luego enlazamos el último nodo con el nuevo nodo
+                Nodo actual = head;
+                while (actual.siguiente != null) {
+                    actual = actual.siguiente;
+                }
+                actual.siguiente = nuevoNodo;
             }
-            nodoActual = nodoActual.siguiente;
         }
-        return false;
 
-    }
+        public void mostrarLista() {
+            Nodo nodoActual = head;
+            while (nodoActual != null) {
+                System.out.print(nodoActual.dato + " -> ");
+                nodoActual = nodoActual.siguiente;
+            }
+            System.out.println("null");
+        }
 
-    public void insertar(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
+        public int buscarPosicionporDato(String dato) {
+            Nodo nodoActual = head;
+            int indice = 0;
 
-        if (head == null) {
-            // Si la lista está vacía, el nuevo nodo se convierte en la cabeza
-            head = nuevoNodo;
-        } else {
-            // Si la lista no está vacía, recorremos la lista hasta el último nodo
-            // y luego enlazamos el último nodo con el nuevo nodo
+            while (nodoActual != null) {
+                if (nodoActual.dato.equals(dato)) {
+                    return indice; // Se encontró el dato en esta posición
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
+            }
+
+            return -1; // El dato no se encontró en la lista
+        }
+
+        public int contarRepeticiones(String elemento) {
+            int contador = 0;
             Nodo actual = head;
-            while (actual.siguiente != null) {
+            while (actual != null) {
+                if (actual.dato.equals(elemento)) {
+                    contador++;
+                }
                 actual = actual.siguiente;
             }
-            actual.siguiente = nuevoNodo;
+            return contador;
         }
-    }
 
-    public void mostrarLista() {
-        Nodo nodoActual = head;
-        while (nodoActual != null) {
-            System.out.print(nodoActual.dato + " -> ");
-            nodoActual = nodoActual.siguiente;
-        }
-        System.out.println("null");
-    }
-
-    public int buscarPosicionporDato(String dato) {
-        Nodo nodoActual = head;
-        int indice = 0;
-
-        while (nodoActual != null) {
-            if (nodoActual.dato.equals(dato)) {
-                return indice; // Se encontró el dato en esta posición
+        public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
+            if (posicion < 0) {
+                return false; // Posición inválida
             }
-            nodoActual = nodoActual.siguiente;
-            indice++;
-        }
 
-        return -1; // El dato no se encontró en la lista
-    }
+            Nodo nodoActual = head;
+            int indice = 0;
 
-    public int contarRepeticiones(String elemento) {
-        int contador = 0;
-        Nodo actual = head;
-        while (actual != null) {
-            if (actual.dato.equals(elemento)) {
-                contador++;
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    nodoActual.dato = nuevoDato; // Modifica el dato del nodo en la posición deseada
+                    return true; // Nodo encontrado y modificado
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
             }
-            actual = actual.siguiente;
-        }
-        return contador;
-    }
 
-    public boolean modificarDatoEnPosicion(int posicion, String nuevoDato) {
-        if (posicion < 0) {
-            return false; // Posición inválida
+            return false; // La posición está más allá del final de la lista
         }
 
-        Nodo nodoActual = head;
-        int indice = 0;
-
-        while (nodoActual != null) {
-            if (indice == posicion) {
-                nodoActual.dato = nuevoDato; // Modifica el dato del nodo en la posición deseada
-                return true; // Nodo encontrado y modificado
+        public String buscarPorPosicion(int posicion) {
+            if (posicion < 0) {
+                return null; // Posición inválida
             }
-            nodoActual = nodoActual.siguiente;
-            indice++;
-        }
 
-        return false; // La posición está más allá del final de la lista
-    }
+            Nodo nodoActual = head;
+            int indice = 0;
 
-    public String buscarPorPosicion(int posicion) {
-        if (posicion < 0) {
-            return null; // Posición inválida
-        }
-
-        Nodo nodoActual = head;
-        int indice = 0;
-
-        while (nodoActual != null) {
-            if (indice == posicion) {
-                return nodoActual.dato; // Encontramos el nodo en la posición deseada
+            while (nodoActual != null) {
+                if (indice == posicion) {
+                    return nodoActual.dato; // Encontramos el nodo en la posición deseada
+                }
+                nodoActual = nodoActual.siguiente;
+                indice++;
             }
-            nodoActual = nodoActual.siguiente;
-            indice++;
+
+            return null; // La posición está más allá del final de la lista
         }
 
-        return null; // La posición está más allá del final de la lista
+        public void eliminarNodo(String valor) {
+            Nodo temp = head;
+            Nodo previo = null;
+
+            // Si el nodo a eliminar es la cabeza
+            if (temp != null && temp.dato.equals(valor)) {
+                head = temp.siguiente;
+                return;
+            }
+
+            // Buscar el nodo a eliminar
+            while (temp != null && !temp.dato.equals(valor)) {
+                previo = temp;
+                temp = temp.siguiente;
+            }
+
+            // Si no se encuentra el valor en la lista
+            if (temp == null) {
+                System.out.println("El valor no se encontró en la lista enlazada.");
+                return;
+            }
+
+            // Eliminar el nodo encontrado
+            previo.siguiente = temp.siguiente;
+        }
     }
 
-    public void eliminarNodo(String valor) {
-        Nodo temp = head;
-        Nodo previo = null;
+    static class ListaEnlazadaDoble {
 
-        // Si el nodo a eliminar es la cabeza
-        if (temp != null && temp.dato.equals(valor)) {
-            head = temp.siguiente;
-            return;
+        Nodo head; // El primer nodo de la lista
+
+        public ListaEnlazadaDoble() {
+            head = null;
         }
 
-        // Buscar el nodo a eliminar
-        while (temp != null && !temp.dato.equals(valor)) {
-            previo = temp;
-            temp = temp.siguiente;
+        public void add_alFinal(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo actual = head;
+                while (actual.siguiente != null) {
+                    actual = actual.siguiente;
+                }
+                actual.siguiente = nuevoNodo;
+                nuevoNodo.prev = actual;
+            }
         }
 
-        // Si no se encuentra el valor en la lista
-        if (temp == null) {
-            System.out.println("El valor no se encontró en la lista enlazada.");
-            return;
+        public void add_alComienzo(String dato) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
+            } else {
+                Nodo actual = head;
+                actual.prev = nuevoNodo;
+                nuevoNodo.siguiente = actual;
+                head = nuevoNodo;
+
+            }
         }
 
-        // Eliminar el nodo encontrado
-        previo.siguiente = temp.siguiente;
-    }
-}
+        public Nodo avanzar(int cant, Nodo desde) {
 
-static class ListaEnlazadaDoble {
-
-    Nodo head; // El primer nodo de la lista
-
-    public ListaEnlazadaDoble() {
-        head = null;
-    }
-
-    public void add_alFinal(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
-        if (head == null) {
-            head = nuevoNodo;
-        } else {
-            Nodo actual = head;
-            while (actual.siguiente != null) {
+            int i = 0;
+            Nodo actual = desde;
+            // Avanza "cant" nodos desde la posición "desde"
+            while (actual.siguiente != null & actual != null & i < cant) {
                 actual = actual.siguiente;
+                i++;
             }
-            actual.siguiente = nuevoNodo;
-            nuevoNodo.prev = actual;
+            return actual;
         }
-    }
-
-    public void add_alComienzo(String dato) {
-        Nodo nuevoNodo = new Nodo(dato);
-        if (head == null) {
-            head = nuevoNodo;
-        } else {
-            Nodo actual = head;
-            actual.prev = nuevoNodo;
-            nuevoNodo.siguiente = actual;
-            head = nuevoNodo;
-
-        }
-    }
-
-    public Nodo avanzar(int cant, Nodo desde) {
-
-        int i = 0;
-        Nodo actual = desde;
-        // Avanza "cant" nodos desde la posición "desde"
-        while (actual.siguiente != null & actual != null & i < cant) {
-            actual = actual.siguiente;
-            i++;
-        }
-        return actual;
-    }
 
 //      
-    public Nodo retroceder(int c, Nodo desde) {
-        int i = 0;
-        Nodo actual = desde;
-        // Avanza "cant" nodos desde la posición "desde"
-        while (actual.prev != null & actual != null & i < c) {
-            actual = actual.prev;
-            i++;
-        }
-        return actual;
-    }
-
-    public int buscarpos(String dato) {
-        Nodo actual = head;
-        int i = 0;
-        while (actual != null && !actual.dato.equals(dato)) {
-            actual = actual.siguiente;
-            i++;
-        }
-        return i;
-    }
-
-    public Nodo buscarNodo(int pos) {
-        if (pos < 0) {
-            throw new IllegalArgumentException("La posición no puede ser negativa.");
+        public Nodo retroceder(int c, Nodo desde) {
+            int i = 0;
+            Nodo actual = desde;
+            // Avanza "cant" nodos desde la posición "desde"
+            while (actual.prev != null & actual != null & i < c) {
+                actual = actual.prev;
+                i++;
+            }
+            return actual;
         }
 
-        Nodo actual = head;
-        int i = 0;
-        while (actual != null && i < pos) {
-            actual = actual.siguiente;
-            i++;
-        }
-
-        return actual;
-    }
-
-    public void add_afterPOS(String dato, int pos) {
-        Nodo nuevoNodo = new Nodo(dato);
-        if (head == null) {
-            head = nuevoNodo;
-        } else {
+        public int buscarpos(String dato) {
             Nodo actual = head;
             int i = 0;
-            while (actual.siguiente != null & i < pos) {
+            while (actual != null && !actual.dato.equals(dato)) {
+                actual = actual.siguiente;
+                i++;
+            }
+            return i;
+        }
+
+        public Nodo buscarNodo(int pos) {
+            if (pos < 0) {
+                throw new IllegalArgumentException("La posición no puede ser negativa.");
+            }
+
+            Nodo actual = head;
+            int i = 0;
+            while (actual != null && i < pos) {
                 actual = actual.siguiente;
                 i++;
             }
 
-            // Verificar si se encontró el nodo en la posición pos
-            if (actual != null) {
-                nuevoNodo.prev = actual;
-                nuevoNodo.siguiente = actual.siguiente;
+            return actual;
+        }
 
-                // Actualizar los punteros del nodo actual y del siguiente nodo
-                if (actual.siguiente != null) {
-                    actual.siguiente.prev = nuevoNodo;
-                }
-                actual.siguiente = nuevoNodo;
+        public void add_afterPOS(String dato, int pos) {
+            Nodo nuevoNodo = new Nodo(dato);
+            if (head == null) {
+                head = nuevoNodo;
             } else {
-                // Si no se encontró la posición pos, agrega el nuevo nodo al final
-                Nodo ultimo = head;
-                while (ultimo.siguiente != null) {
-                    ultimo = ultimo.siguiente;
+                Nodo actual = head;
+                int i = 0;
+                while (actual.siguiente != null & i < pos) {
+                    actual = actual.siguiente;
+                    i++;
                 }
-                ultimo.siguiente = nuevoNodo;
-                nuevoNodo.prev = ultimo;
+
+                // Verificar si se encontró el nodo en la posición pos
+                if (actual != null) {
+                    nuevoNodo.prev = actual;
+                    nuevoNodo.siguiente = actual.siguiente;
+
+                    // Actualizar los punteros del nodo actual y del siguiente nodo
+                    if (actual.siguiente != null) {
+                        actual.siguiente.prev = nuevoNodo;
+                    }
+                    actual.siguiente = nuevoNodo;
+                } else {
+                    // Si no se encontró la posición pos, agrega el nuevo nodo al final
+                    Nodo ultimo = head;
+                    while (ultimo.siguiente != null) {
+                        ultimo = ultimo.siguiente;
+                    }
+                    ultimo.siguiente = nuevoNodo;
+                    nuevoNodo.prev = ultimo;
+                }
+
             }
 
         }
 
-    }
-
-    public void imprimir() {
-        Nodo actual = head;
-        while (actual != null) {
-            System.out.print(actual.dato + " | ");
-            actual = actual.siguiente;
+        public void imprimir() {
+            Nodo actual = head;
+            while (actual != null) {
+                System.out.print(actual.dato + " | ");
+                actual = actual.siguiente;
+            }
+            System.out.println();
         }
-        System.out.println();
-    }
 
-}
+    }
 
 // Clase Nodo (para las casillas-explorador)
-static class Nodo_2 {
+    static class Nodo_2 {
 
-    JLabel label;
-    Nodo_2 siguiente;
+        JLabel label;
+        Nodo_2 siguiente;
 
-    // Constructor de Nodo_2
-    public Nodo_2(JLabel label) {
-        this.label = label;
-        this.siguiente = null;
+        // Constructor de Nodo_2
+        public Nodo_2(JLabel label) {
+            this.label = label;
+            this.siguiente = null;
+        }
     }
-}
 // Clase ListaEnlazada (para las casillas)
 
-static class ListaEnlazada_2 {
+    static class ListaEnlazada_2 {
 
-    Nodo_2 cabeza;
+        Nodo_2 cabeza;
 
-    // Método para insertar un nuevo nodo (JLabel) en la lista enlazada
-    public void insertar(JLabel label) {
-        Nodo_2 nuevoNodo = new Nodo_2(label);
-        if (cabeza == null) {
-            cabeza = nuevoNodo;
-        } else {
-            Nodo_2 temp = cabeza;
-            while (temp.siguiente != null) {
-                temp = temp.siguiente;
+        // Método para insertar un nuevo nodo (JLabel) en la lista enlazada
+        public void insertar(JLabel label) {
+            Nodo_2 nuevoNodo = new Nodo_2(label);
+            if (cabeza == null) {
+                cabeza = nuevoNodo;
+            } else {
+                Nodo_2 temp = cabeza;
+                while (temp.siguiente != null) {
+                    temp = temp.siguiente;
+                }
+                temp.siguiente = nuevoNodo;
             }
-            temp.siguiente = nuevoNodo;
+        }
+
+        // Método para obtener el nodo (JLabel) en una posición específica de la lista enlazada
+        public Nodo_2 obtenerNodoEnPosicion(int posicion) {
+            if (posicion < 0 || cabeza == null) {
+                return null;
+            }
+
+            Nodo_2 temp = cabeza;
+            int contador = 0;
+            while (temp != null && contador < posicion) {
+                temp = temp.siguiente;
+                contador++;
+            }
+
+            return temp;
         }
     }
 
-    // Método para obtener el nodo (JLabel) en una posición específica de la lista enlazada
-    public Nodo_2 obtenerNodoEnPosicion(int posicion) {
-        if (posicion < 0 || cabeza == null) {
-            return null;
-        }
-
-        Nodo_2 temp = cabeza;
-        int contador = 0;
-        while (temp != null && contador < posicion) {
-            temp = temp.siguiente;
-            contador++;
-        }
-
-        return temp;
-    }
-}
-
-private void retrocederDosCasillas() {
+    private void retrocederDosCasillas() {
         if (timer == null || !timer.isRunning()) {
             timer = new Timer(700, new ActionListener() {
                 int movimientos = 0;
@@ -1015,7 +997,7 @@ private void retrocederDosCasillas() {
                 int aux = posicionActual + dado;
 
                 @Override
-public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(ActionEvent e) {
                     if (movimientos < retroceso && posicionActual >= 3) {
                         // Eliminar el ícono del JLabel en las casillas anteriores
                         Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
@@ -1047,6 +1029,14 @@ public void actionPerformed(ActionEvent e) {
                         if (posicionActual <= 20) {
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
+                                try {
+                                    // Pausa de 3 segundos (3000 milisegundos)
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException ex) {
+                                    // Manejo de excepciones si se interrumpe el hilo
+                                    ex.printStackTrace();
+                                }
+
                                 Send_ToAhorcado();
                             }
                             if (posicionActual == 2) {
@@ -1093,7 +1083,7 @@ public void actionPerformed(ActionEvent e) {
                 int aux = posicionActual + dado;
 
                 @Override
-public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(ActionEvent e) {
                     if (movimientos < dado && aux <= 20) {
                         // Remover el ícono del JLabel anterior
                         Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
@@ -1204,27 +1194,23 @@ public void actionPerformed(ActionEvent e) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class  
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tablero.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Tablero.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

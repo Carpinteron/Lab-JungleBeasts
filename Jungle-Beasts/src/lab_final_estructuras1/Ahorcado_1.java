@@ -12,10 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author almacen
- */
 public class Ahorcado_1 extends javax.swing.JFrame {
 
     int xmouse, ymouse;
@@ -27,27 +23,27 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     public int err2;
     public String res[];
     private int user;
+
     public Ahorcado_1(int Avatar) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         //setUndecorated(true);
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
-       
+
         imgs = new ImageIcon[12];
         btns = new JButton[28];
         msgs = new String[8];
-        
+
         this.user = Avatar;
-        
 
         //imagen del joven que se va a ahorcar por que ella no lo ama xd xd
         imgs[0] = new ImageIcon(getClass().getResource("/IMAGENES/im1.png"));
-        imgs[1] = new ImageIcon(getClass().getResource("/IMAGENES/im2"+String.valueOf(user)+".png"));
-        imgs[2] = new ImageIcon(getClass().getResource("/IMAGENES/im3"+String.valueOf(user)+".png"));
-        imgs[3] = new ImageIcon(getClass().getResource("/IMAGENES/im4"+String.valueOf(user)+".png"));
-        imgs[4] = new ImageIcon(getClass().getResource("/IMAGENES/im5"+String.valueOf(user)+".png"));
-        imgs[5] = new ImageIcon(getClass().getResource("/IMAGENES/im6"+String.valueOf(user)+".png"));
+        imgs[1] = new ImageIcon(getClass().getResource("/IMAGENES/im2" + String.valueOf(user) + ".png"));
+        imgs[2] = new ImageIcon(getClass().getResource("/IMAGENES/im3" + String.valueOf(user) + ".png"));
+        imgs[3] = new ImageIcon(getClass().getResource("/IMAGENES/im4" + String.valueOf(user) + ".png"));
+        imgs[4] = new ImageIcon(getClass().getResource("/IMAGENES/im5" + String.valueOf(user) + ".png"));
+        imgs[5] = new ImageIcon(getClass().getResource("/IMAGENES/im6" + String.valueOf(user) + ".png"));
 
         imgs[6] = new ImageIcon(getClass().getResource("/IMAGENES/5vidas.png"));
         imgs[7] = new ImageIcon(getClass().getResource("/IMAGENES/4vidas.png"));
@@ -104,6 +100,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         }
         iniciar();
     }
+
     public void iniciar() {
         //ERRORES EN 0
         err = 0;
@@ -174,7 +171,18 @@ public class Ahorcado_1 extends javax.swing.JFrame {
 
                     if (gano) {
                         JOptionPane.showMessageDialog(this, "Felicitaciones ganaste!!\n Ya puedes seguir disfrutando del juego", "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cp);
-                        iniciar();
+                        //iniciar();
+                        try {
+                            // Pausa de 3 segundos (3000 milisegundos)
+                            Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                            // Manejo de excepciones si se interrumpe el hilo
+                            ex.printStackTrace();
+                        }
+
+                        Tablero a = new Tablero(user);
+                        a.setVisible(true);
+                        this.dispose();
                         return;
                     }
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
@@ -195,7 +203,6 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         }
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
