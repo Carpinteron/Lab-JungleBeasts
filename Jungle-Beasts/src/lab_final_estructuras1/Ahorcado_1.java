@@ -91,7 +91,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         msgs[3] = "Marsupial".toUpperCase();
         msgs[4] = "Computadora".toUpperCase();
         msgs[5] = "Rascacielos".toUpperCase();
-        msgs[6] = "Conocimiento ".toUpperCase();
+        msgs[6] = "Conocimiento".toUpperCase();
         msgs[7] = "Escapar".toUpperCase();
 
         //se asigna un evento a cada letra para comprobar que exista en la palabra a adivinar
