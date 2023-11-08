@@ -47,7 +47,8 @@ public class Tablero extends javax.swing.JFrame {
             resetearArchivo("Partida");
 
         } else {
-            RecuperarPartida();
+         //   System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+           RecuperarPartida();
         }
 //        FondoAleatorio();
 //        GenerarCamino();
@@ -206,9 +207,53 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void RecuperarPartida() {
-
+        Scanner sc=new Scanner(System.in);
+        copiarRegistroALista("Partida",Ingles,"Ingles",sc);
     }
 
+    public void copiarRegistroALista(String file_name, ListaEnlazada lista,String nameLista, Scanner sc){
+        
+     
+        boolean hay = false;
+      
+        while (hay == false) {
+            try {
+                BufferedReader read = new BufferedReader(new FileReader(file_name));
+                String line = null; //definición de line
+                boolean Encontrado = false;
+                while ((line = read.readLine()) != null && Encontrado == false) {
+                    String[] campos = line.split(";");
+                    String name = campos[0].trim();
+                    if (nameLista.equalsIgnoreCase(name.trim())) {
+                        Encontrado = true;
+                        for(int c=1;c<=20;c++){
+                            lista.agregarAlFinal(campos[c]);
+                        }
+                       
+                        System.out.println("Lista encontrada, lista copiada");
+                        lista.mostrarLista();
+                    }
+                }
+                if (Encontrado == false) {
+                    System.out.println("No se encontro el nombre de la lista");
+                }
+                line = null;
+               
+                read.close();
+                hay = true;
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                //nombre = sc.nextLine(); // Archivo
+            }
+        }
+          //resetearArchivo("Partida");
+    }
+      
+    
+    public void copiarRegistroALista(String file_name, ListaEnlazadaDoble lista, String nameLista){
+        resetearArchivo("Partida");
+    }
     public void resetearArchivo(String file_name) {
         try {
             // Abre el archivo en modo de escritura (sobrescribir)
