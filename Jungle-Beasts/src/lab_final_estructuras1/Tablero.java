@@ -385,7 +385,6 @@ public class Tablero extends javax.swing.JFrame {
 
         blurBackground1 = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
-        BtnEXIT = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         dadoLabel = new javax.swing.JLabel();
@@ -412,12 +411,13 @@ public class Tablero extends javax.swing.JFrame {
         retroceder = new javax.swing.JButton();
         USER = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
+        BtnEXIT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
-        blurBackground1.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/FONDO_VERDE.png"))); // NOI18N
+        blurBackground1.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/mapa imagen.png"))); // NOI18N
         blurBackground1.setRadius(55);
 
         BARRA.setBackground(new java.awt.Color(255, 255, 255));
@@ -433,32 +433,15 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
-        BtnEXIT.setBorder(null);
-        BtnEXIT.setBorderPainted(false);
-        BtnEXIT.setContentAreaFilled(false);
-        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEXITActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout BARRALayout = new javax.swing.GroupLayout(BARRA);
         BARRA.setLayout(BARRALayout);
         BARRALayout.setHorizontalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BARRALayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtnEXIT, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 1180, Short.MAX_VALUE)
         );
         BARRALayout.setVerticalGroup(
             BARRALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BARRALayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BtnEXIT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 47, Short.MAX_VALUE)
         );
 
         blurBackground1.add(BARRA);
@@ -580,8 +563,20 @@ public class Tablero extends javax.swing.JFrame {
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 1190, 630));
 
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXITActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 44, -1));
+
         blurBackground1.add(jPanel1);
-        jPanel1.setBounds(30, 50, 1130, 600);
+        jPanel1.setBounds(30, 30, 1130, 600);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
