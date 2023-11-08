@@ -4,10 +4,17 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,20 +27,30 @@ public class Tablero extends javax.swing.JFrame {
     ImageIcon B = new ImageIcon(CL.getResource("IMG/chica110.png"));//CHICA=2
     ImageIcon C = new ImageIcon(CL.getResource("IMG/chico110.png")); //CHICO=3
     private int user;
+    private boolean started;
     int xmouse, ymouse;
     //variables para el movimiento del explorador
     private int posicionActual = 0;
     private Timer timer;
     ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
 
-    public Tablero(int Avatar) {
+    public Tablero(int Avatar, boolean started) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
         this.user = Avatar;
-        FondoAleatorio();
-        GenerarCamino();
+        this.started = started;
+        Scanner sc = new Scanner(System.in);
+        if (started == true) {
+            IniciarDesdeCero();
+            resetearArchivo("Partida");
+
+        } else {
+            RecuperarPartida();
+        }
+//        FondoAleatorio();
+//        GenerarCamino();
         dadoLabel.setText("");
 
         System.out.println("");
@@ -50,19 +67,9 @@ public class Tablero extends javax.swing.JFrame {
 
         }
 
-        for (int i = 0; i < 20; i++) {
-            int a = i + 1;
-            Casillas.add_alFinal("P" + a);
-        }
-        Casillas.imprimir();
-
         Point J = USER.getLocation();
         USER.setLocation(J);
-        generarpunto(Ingles);
-        generarpunto(Matematicas);
-        generarpunto(General);
-        generarpunto(Abstracto);
-        generarpunto(Ciencias);
+
         //Se insertan los jlabels (de la casilla o posicion del explorador) a la lista enlazada 2
         lista_casillas.insertar(USER);
         lista_casillas.insertar(P1);
@@ -97,6 +104,7 @@ public class Tablero extends javax.swing.JFrame {
     //EStas listas alamecenaran las categorias 
     ListaEnlazadaDoble Camino = new ListaEnlazadaDoble();
     ListaEnlazadaDoble Casillas = new ListaEnlazadaDoble();
+    ListaEnlazada PosActuales = new ListaEnlazada();
 
     //Que guarden los numero de pregunta de fora aleatoria
     ListaEnlazada Ingles = new ListaEnlazada(); //0
@@ -108,6 +116,82 @@ public class Tablero extends javax.swing.JFrame {
     // ListaEnlazadaMulti Categ = new ListaEnlazadaMulti();
     int dado;
     Nodo CatgActual;
+
+    public void IniciarDesdeCero() {
+        FondoAleatorio();
+        GenerarCamino();
+        for (int i = 0; i < 20; i++) {
+            int a = i + 1;
+            Casillas.add_alFinal("P" + a);
+        }
+        Casillas.imprimir();
+
+        generarpunto(Ingles);
+        generarpunto(Matematicas);
+        generarpunto(General);
+        generarpunto(Abstracto);
+        generarpunto(Ciencias);
+
+    }
+
+    public void GuardarPartida() {
+        Scanner sc = new Scanner(System.in);
+        GuardarPartidaenARchiv(sc, "Partida", Ingles, "Ingles");
+        GuardarPartidaenARchiv(sc, "Partida", Matematicas, "Matematicas");
+        GuardarPartidaenARchiv(sc, "Partida", General, "General");
+        GuardarPartidaenARchiv(sc, "Partida", Abstracto, "Abstracto");
+        GuardarPartidaenARchiv(sc, "Partida", Ciencias, "Ciencias");
+        PosActuales.agregarAlFinal(CatgActual.dato);
+        PosActuales.agregarAlFinal(String.valueOf(posicionActual));
+        GuardarPartidaenARchiv(sc, "Partida", PosActuales, "PosACtuales 1-CatActual   2-CasillaActual;");
+    }
+
+    public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazada lista, String nombre) {
+        File archivoTemporal = new File(file_name + "_temp.txt");
+        try {
+            BufferedWriter pw = new BufferedWriter(new FileWriter(file_name, true));
+
+            Nodo nodoActual = lista.head;
+            int c = 0;
+            String linea = nombre;
+
+            while (nodoActual != null) {
+
+                linea += nodoActual.dato;
+                nodoActual = nodoActual.siguiente;
+
+                if (nodoActual != null) {
+                    linea += ";"; // Agregar un punto y coma para separar los datos
+                }
+            }
+// Escribe el nuevo registro en el archivo
+            pw.write(linea);
+            pw.newLine();
+            pw.close(); // Cierra el archivo
+
+            pw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Tablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void RecuperarPartida() {
+
+    }
+
+    public void resetearArchivo(String file_name) {
+        try {
+            // Abre el archivo en modo de escritura (sobrescribir)
+            BufferedWriter pw = new BufferedWriter(new FileWriter(file_name));
+
+            // No se agrega ningún contenido, por lo que el archivo se vacía
+            pw.close(); // Cierra el archivo
+
+            System.out.println("Archivo reseteado correctamente.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -323,6 +407,7 @@ public class Tablero extends javax.swing.JFrame {
 //        }
 //        
 //    }
+
     private void BARRAMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMouseDragged
         int x = evt.getXOnScreen(); //Obttiene la posicion horizontal actual en pantalla.
         int y = evt.getYOnScreen(); //Obtiene la posicion vertical actual en pantalla.
@@ -335,6 +420,8 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_BARRAMousePressed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+
+        resetearArchivo("Partida");
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
 
@@ -411,6 +498,8 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     public void Send_ToAhorcado() {
+        
+        GuardarPartida();
         Ahorcado_1 a = new Ahorcado_1(user);
         a.setVisible(true);
         this.dispose();
