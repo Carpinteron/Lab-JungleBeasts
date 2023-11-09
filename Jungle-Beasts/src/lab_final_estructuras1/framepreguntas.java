@@ -6,7 +6,9 @@ package lab_final_estructuras1;
 
 import java.awt.List;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -217,7 +219,7 @@ public class framepreguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_r2ActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-       // resetearArchivo("Partida");
+        resetearArchivo("Partida");
         System.exit(0);
     }//GEN-LAST:event_BtnEXITActionPerformed
 
@@ -338,7 +340,23 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    public void resetearArchivo(String file_name) {
+        try {
+            // Abre el archivo en modo de escritura (sobrescribir)
+            BufferedWriter pw = new BufferedWriter(new FileWriter(file_name));
 
+            // No se agrega ningún contenido, por lo que el archivo se vacía
+            pw.close(); // Cierra el archivo
+
+            System.out.println("Archivo reseteado correctamente.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNa1;
     private javax.swing.JButton BTNb1;
