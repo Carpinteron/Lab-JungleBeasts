@@ -3,6 +3,8 @@ package lab_final_estructuras1;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -41,6 +43,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
             System.err.println(e.getMessage());
         }
     }
+    private Clip clip3;
     //SUBRUTINA PARA APLICAR SONIDO
     private void sonido(String cadena) {
         try {
@@ -54,6 +57,42 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         }
     }
 
+    public void sonido3(JButton boton, String archivoSonido) {
+        boton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                super.mouseEntered(e);
+                try {
+                    clip3 = AudioSystem.getClip();
+                    URL url = getClass().getResource(archivoSonido);
+                    AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                    clip3.open(audioIn);
+                    clip3.start();
+                    boton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    clip3.stop();
+                    sonido("/Sonido/seleccion.wav");
+                    
+
+                }
+            });
+                } catch (Exception ex) {
+                    System.err.println(ex.getMessage());
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                super.mouseExited(e);
+                if (clip3 != null) {
+                    clip3.stop();
+                    clip3.close();
+                }
+            }
+        });
+    }
+    
+
     public Avatars() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
@@ -62,7 +101,11 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         this.b.addActionListener(this);
         this.c.addActionListener(this);
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
-        sonido2("/Sonido/music.wav");
+        //sonido2("/Sonido/music.wav");
+        //APLIOAR SONIDOS
+         sonido3(a,"/Sonido/jumanji.wav");
+         sonido3(b,"/Sonido/jumanji.wav");
+         sonido3(c,"/Sonido/jumanji.wav");
 
     }
     JButton btn;
@@ -362,7 +405,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
 
             System.out.println("A" + Avatar);
             if (Avatar != 0) {
-                clip2.stop();
+                sonido("/Sonido/boop.wav");
                 Tablero T = new Tablero(Avatar,true);
                 T.setVisible(true);
                 this.dispose();
