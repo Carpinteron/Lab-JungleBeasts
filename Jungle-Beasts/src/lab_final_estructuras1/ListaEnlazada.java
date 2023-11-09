@@ -217,6 +217,29 @@ public class ListaEnlazada {
             // Eliminar el nodo encontrado
             previo.siguiente = temp.siguiente;
         }
+        
+        
+         public int obtenerValor(int posicion) {
+        Nodo actual = head;
+        int contador = 0;
+
+        while (actual != null && contador < posicion) {
+            actual = actual.siguiente;
+            contador++;
+        }
+
+        if (actual != null) {
+            try {
+                return Integer.parseInt(actual.dato);
+            } catch (NumberFormatException e) {
+                return -1;
+            }
+        }
+
+        return -1;
+    }
+        
+        
 
 
 

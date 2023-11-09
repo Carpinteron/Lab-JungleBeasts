@@ -35,7 +35,7 @@ public class framepreguntas extends javax.swing.JFrame {
         this.Categoria = Categoria;
         
         
-        //int Numero = Matematicas.get(1);
+        
 
         
         
@@ -66,10 +66,10 @@ public class framepreguntas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         LabelPregunta = new javax.swing.JLabel();
-        BTNc = new javax.swing.JButton();
-        BTNd = new javax.swing.JButton();
-        BTNa = new javax.swing.JButton();
-        BTNb = new javax.swing.JButton();
+        r2 = new javax.swing.JButton();
+        r4 = new javax.swing.JButton();
+        r1 = new javax.swing.JButton();
+        r3 = new javax.swing.JButton();
         LabelIMG = new javax.swing.JLabel();
         BtnEXIT = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -91,26 +91,36 @@ public class framepreguntas extends javax.swing.JFrame {
         jPanel1.add(LabelPregunta);
         LabelPregunta.setBounds(26, 60, 660, 280);
 
-        BTNc.setText("jButton1");
-        BTNc.addActionListener(new java.awt.event.ActionListener() {
+        r2.setText("jButton1");
+        r2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNcActionPerformed(evt);
+                r2ActionPerformed(evt);
             }
         });
-        jPanel1.add(BTNc);
-        BTNc.setBounds(23, 511, 548, 134);
+        jPanel1.add(r2);
+        r2.setBounds(23, 511, 548, 134);
 
-        BTNd.setText("jButton2");
-        jPanel1.add(BTNd);
-        BTNd.setBounds(600, 510, 548, 134);
+        r4.setText("jButton2");
+        jPanel1.add(r4);
+        r4.setBounds(600, 510, 548, 134);
 
-        BTNa.setText("jButton2");
-        jPanel1.add(BTNa);
-        BTNa.setBounds(30, 360, 548, 134);
+        r1.setText("jButton2");
+        r1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(r1);
+        r1.setBounds(30, 360, 548, 134);
 
-        BTNb.setText("jButton2");
-        jPanel1.add(BTNb);
-        BTNb.setBounds(600, 360, 548, 134);
+        r3.setText("jButton2");
+        r3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(r3);
+        r3.setBounds(600, 360, 548, 134);
 
         LabelIMG.setText("jLabel2");
         jPanel1.add(LabelIMG);
@@ -202,9 +212,9 @@ public class framepreguntas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTNcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNcActionPerformed
+    private void r2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BTNcActionPerformed
+    }//GEN-LAST:event_r2ActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
        // resetearArchivo("Partida");
@@ -219,8 +229,18 @@ public class framepreguntas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
-    public static void Matematicas() {
- 
+    private void r1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_r1ActionPerformed
+
+    private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
+        
+    }//GEN-LAST:event_r3ActionPerformed
+     int num = 0;
+    public void Matematicas() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
             String line = null;
@@ -228,15 +248,27 @@ public class framepreguntas extends javax.swing.JFrame {
                 String temp[] = line.split("\t");
 
                 String a ,b,c,d,e,f;
-               
+                
+              if (cont == Numero )  {
+                
               a = temp[0];
               b = temp[1];   
               c = temp[2];       
               d = temp[3];       
-              b = temp[4];       
+              e = temp[4];       
               f = temp[5];    
               
+              r1.setText(b);
+                   
               
+                  
+                num += 1;  
+              }  else {
+                  cont += 1;
+              }
+              
+     
+
               
             }
 
@@ -305,13 +337,9 @@ public class framepreguntas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTNa;
     private javax.swing.JButton BTNa1;
-    private javax.swing.JButton BTNb;
     private javax.swing.JButton BTNb1;
-    private javax.swing.JButton BTNc;
     private javax.swing.JButton BTNc1;
-    private javax.swing.JButton BTNd;
     private javax.swing.JButton BTNd1;
     private javax.swing.JButton BtnEXIT;
     private javax.swing.JButton BtnEXIT1;
@@ -321,5 +349,9 @@ public class framepreguntas extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPregunta1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton r1;
+    private javax.swing.JButton r2;
+    private javax.swing.JButton r3;
+    private javax.swing.JButton r4;
     // End of variables declaration//GEN-END:variables
 }
