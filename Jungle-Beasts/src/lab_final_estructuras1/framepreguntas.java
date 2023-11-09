@@ -112,17 +112,24 @@ public class framepreguntas extends javax.swing.JFrame {
         BTNb1 = new javax.swing.JButton();
         LabelIMG1 = new javax.swing.JLabel();
         BtnEXIT1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
+        pre.setBackground(new java.awt.Color(204, 255, 204));
+        pre.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        pre.setForeground(new java.awt.Color(102, 0, 0));
         pre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         pre.setText("jLabel1");
         pre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(pre);
-        pre.setBounds(26, 60, 660, 280);
+        pre.setBounds(26, 60, 660, 270);
 
+        r2.setBackground(new java.awt.Color(102, 255, 153));
+        r2.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        r2.setForeground(new java.awt.Color(102, 51, 0));
         r2.setText("jButton1");
         r2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,8 +137,11 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r2);
-        r2.setBounds(23, 511, 548, 134);
+        r2.setBounds(80, 460, 430, 110);
 
+        r4.setBackground(new java.awt.Color(102, 255, 153));
+        r4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        r4.setForeground(new java.awt.Color(102, 51, 0));
         r4.setText("jButton2");
         r4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,8 +149,11 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r4);
-        r4.setBounds(600, 510, 548, 134);
+        r4.setBounds(660, 460, 430, 110);
 
+        r1.setBackground(new java.awt.Color(102, 255, 153));
+        r1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        r1.setForeground(new java.awt.Color(102, 51, 0));
         r1.setText("jButton2");
         r1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +161,11 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r1);
-        r1.setBounds(30, 360, 548, 134);
+        r1.setBounds(80, 330, 430, 110);
 
+        r3.setBackground(new java.awt.Color(102, 255, 153));
+        r3.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        r3.setForeground(new java.awt.Color(102, 51, 0));
         r3.setText("jButton2");
         r3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,11 +173,13 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r3);
-        r3.setBounds(600, 360, 548, 134);
+        r3.setBounds(650, 330, 430, 110);
 
+        LabelIMG.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        LabelIMG.setForeground(new java.awt.Color(102, 0, 0));
         LabelIMG.setText("jLabel2");
         jPanel1.add(LabelIMG);
-        LabelIMG.setBounds(710, 60, 440, 270);
+        LabelIMG.setBounds(770, 110, 270, 210);
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -225,6 +243,10 @@ public class framepreguntas extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 0, 0);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/prgts fondo.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(-3, -4, 1190, 670);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -238,7 +260,7 @@ public class framepreguntas extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addGap(0, 664, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -582,6 +604,7 @@ System.out.println(Numero);
     private javax.swing.JLabel LabelIMG;
     private javax.swing.JLabel LabelIMG1;
     private javax.swing.JLabel LabelPregunta1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel pre;
