@@ -270,8 +270,8 @@ public class framepreguntas extends javax.swing.JFrame {
      int num = 0;
     public void Matematicas() {
        
-        int Numero = Matematicas.obtenerValor(num);
-        int cont = 0;
+      int Numero = Matematicas.obtenerValor(num);
+         int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
             String line = null;
@@ -282,6 +282,7 @@ public class framepreguntas extends javax.swing.JFrame {
 
                 if (cont == Numero) {
 
+                    System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -294,6 +295,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
+                    br.close(); 
 
                     num += 1;
                 } else {
@@ -311,7 +313,7 @@ public class framepreguntas extends javax.swing.JFrame {
     
     public void General() {
        
-        int Numero = Matematicas.obtenerValor(num);
+        int Numero = General.obtenerValor(num);
         int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
@@ -322,7 +324,7 @@ public class framepreguntas extends javax.swing.JFrame {
                 String a, b, c, d, e, f;
 
                 if (cont == Numero) {
-
+System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -335,6 +337,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
+                    br.close(); 
 
                     num += 1;
                 } else {
@@ -352,7 +355,7 @@ public class framepreguntas extends javax.swing.JFrame {
     
     public void Biologia() {
        
-        int Numero = Matematicas.obtenerValor(num);
+        int Numero = Ciencias.obtenerValor(num);
         int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Cultura_General.txt"));
@@ -363,7 +366,7 @@ public class framepreguntas extends javax.swing.JFrame {
                 String a, b, c, d, e, f;
 
                 if (cont == Numero) {
-
+System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -376,6 +379,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
+                    br.close(); 
 
                     num += 1;
                 } else {
@@ -392,7 +396,7 @@ public class framepreguntas extends javax.swing.JFrame {
     
     public void Ingles() {
        
-        int Numero = Matematicas.obtenerValor(num);
+        int Numero = Ingles.obtenerValor(num);
         int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Ingles.txt"));
@@ -403,7 +407,7 @@ public class framepreguntas extends javax.swing.JFrame {
                 String a, b, c, d, e, f;
 
                 if (cont == Numero) {
-
+System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -416,6 +420,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
+                    br.close(); 
 
                     num += 1;
                 } else {
@@ -433,7 +438,7 @@ public class framepreguntas extends javax.swing.JFrame {
     
     public void Abstracto() {
        
-        int Numero = Matematicas.obtenerValor(num);
+        int Numero = Abstracto.obtenerValor(num);
         int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Razonamiento_Abstracto.txt"));
@@ -444,7 +449,7 @@ public class framepreguntas extends javax.swing.JFrame {
                 String a, b, c, d, e, f;
 
                 if (cont == Numero) {
-
+System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -457,6 +462,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
+                    br.close(); 
 
                     num += 1;
                 } else {
@@ -485,7 +491,7 @@ public class framepreguntas extends javax.swing.JFrame {
                 String a, b, c, d, e, f;
 
                 if (cont == Numero) {
-
+System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -498,7 +504,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-
+                    br.close(); 
                     num += 1;
                 } else {
                     cont += 1;
