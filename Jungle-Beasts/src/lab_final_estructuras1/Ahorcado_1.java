@@ -1,4 +1,3 @@
-
 package lab_final_estructuras1;
 
 import java.awt.Color;
@@ -7,6 +6,10 @@ import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,17 +27,46 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     public String res[];
     private int user;
 
+    //SUBRUTINA PARA APLICAR SONIDO
+    private void sonido(String cadena) {
+        try {
+            Clip clip = AudioSystem.getClip();
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            // System.err.println(e.getMessage());
+        }
+
+    }
+    //sonido mientras juega
+    private static Clip clip;
+
+    private void sonido2(String cadena) {
+        try {
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     public Ahorcado_1(int Avatar) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         //setUndecorated(true);
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
-
+        sonido2("/Sonido/Ahorcado.wav");
         imgs = new ImageIcon[12];
         btns = new JButton[28];
         msgs = new String[8];
-        
+
         this.user = Avatar;
 
         //imagen del joven que se va a ahorcar por que ella no lo ama xd xd
@@ -82,13 +114,12 @@ public class Ahorcado_1 extends javax.swing.JFrame {
 
         //palabras por advinar, para agregar una nueva palabra sera necesario declararla al inicio
         msgs[0] = "Ahorcado".toUpperCase();
-        msgs[1] = "Supercalifragilisticoespialidoso".toUpperCase();
-        msgs[2] = "Monstruo".toUpperCase();
-        msgs[3] = "Marsupial".toUpperCase();
-        msgs[4] = "Computadora".toUpperCase();
-        msgs[5] = "Rascacielos".toUpperCase();
-        msgs[6] = "Conocimiento".toUpperCase();
-        msgs[7] = "Escapar".toUpperCase();
+        msgs[1] = "Monstruo".toUpperCase();
+        msgs[2] = "Marsupial".toUpperCase();
+        msgs[3] = "Computadora".toUpperCase();
+        msgs[4] = "Rascacielos".toUpperCase();
+        msgs[5] = "Conocimiento".toUpperCase();
+        msgs[6] = "Escapar".toUpperCase();
 
         //se asigna un evento a cada letra para comprobar que exista en la palabra a adivinar
         for (int i = 1; i < 28; i++) {
@@ -99,8 +130,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
             });
         }
         iniciar();
-        
-       
+
     }
 
     public void iniciar() {
@@ -182,13 +212,14 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                         //iniciar();
                         try {
                             // Pausa de 3 segundos (3000 milisegundos)
+                            sonido("/Sonido/Victoriah.wav");
                             Thread.sleep(3000);
                         } catch (InterruptedException ex) {
                             // Manejo de excepciones si se interrumpe el hilo
                             ex.printStackTrace();
                         }
-
-                        Tablero a = new Tablero(user,false);
+                        
+                        Tablero a = new Tablero(user, false);
                         a.setVisible(true);
                         this.dispose();
                         return;
@@ -197,8 +228,11 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                 } else {
                     DIBUJO.setIcon(imgs[++err]);
                     errores.setIcon(imgs[++err2]);
+                    sonido("/Sonido/error.wav");
                     //SI SE LLEGA A LOS 5 ERRORES ENTONCES SE PIERDE EL JUEGO Y SE MANDA EL MENSAGE DE:
                     if (err == 5) {
+                        clip.stop();
+                        sonido("/Sonido/Game Over.wav");
                         rr.setVisible(true);
                         rr.reaccion.setEnabled(false);
                         rr.texto.setEnabled(false);
@@ -216,7 +250,6 @@ public class Ahorcado_1 extends javax.swing.JFrame {
 
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -687,14 +720,14 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-
+sonido("/Sonido/ficha.wav");
         resetearArchivo("Partida");
         fin f = new fin();
         f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
-     public void resetearArchivo(String file_name) {
+    public void resetearArchivo(String file_name) {
         try {
             // Abre el archivo en modo de escritura (sobrescribir)
             BufferedWriter pw = new BufferedWriter(new FileWriter(file_name));
