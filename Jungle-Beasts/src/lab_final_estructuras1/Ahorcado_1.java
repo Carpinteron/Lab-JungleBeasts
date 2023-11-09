@@ -224,6 +224,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         blurBackground1 = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
         BtnEXIT = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         TEX_PALABRA = new javax.swing.JTextField();
         button_1 = new javax.swing.JButton();
         button_2 = new javax.swing.JButton();
@@ -308,14 +309,23 @@ public class Ahorcado_1 extends javax.swing.JFrame {
         blurBackground1.add(BARRA);
         BARRA.setBounds(0, 0, 1180, 40);
 
-        TEX_PALABRA.setFont(new java.awt.Font("Consolas", 1, 24)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/ahorcado rama.png"))); // NOI18N
+        blurBackground1.add(jLabel2);
+        jLabel2.setBounds(440, 140, 740, 50);
+
+        TEX_PALABRA.setEditable(false);
+        TEX_PALABRA.setBackground(new java.awt.Color(155, 223, 170));
+        TEX_PALABRA.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        TEX_PALABRA.setForeground(new java.awt.Color(107, 57, 6));
+        TEX_PALABRA.setBorder(javax.swing.BorderFactory.createMatteBorder(4, 4, 4, 4, new java.awt.Color(107, 57, 6)));
+        TEX_PALABRA.setOpaque(true);
         TEX_PALABRA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TEX_PALABRAActionPerformed(evt);
             }
         });
         blurBackground1.add(TEX_PALABRA);
-        TEX_PALABRA.setBounds(440, 110, 700, 60);
+        TEX_PALABRA.setBounds(440, 100, 700, 60);
 
         button_1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         button_1.setBorderPainted(false);
@@ -883,5 +893,6 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     private javax.swing.JButton button_9;
     private javax.swing.JLabel errores;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
