@@ -132,6 +132,11 @@ public class framepreguntas extends javax.swing.JFrame {
         r2.setBounds(23, 511, 548, 134);
 
         r4.setText("jButton2");
+        r4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(r4);
         r4.setBounds(600, 510, 548, 134);
 
@@ -244,7 +249,8 @@ public class framepreguntas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void r2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r2ActionPerformed
-        // TODO add your handling code here:
+               res = c;
+Correcion();
     }//GEN-LAST:event_r2ActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
@@ -261,14 +267,25 @@ public class framepreguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
     private void r1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r1ActionPerformed
-        // TODO add your handling code here:
+       res = b;
+       Correcion();
     }//GEN-LAST:event_r1ActionPerformed
 
     private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
-       
+              res = d;
+              Correcion();
     }//GEN-LAST:event_r3ActionPerformed
+
+    private void r4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r4ActionPerformed
+               res = e;
+Correcion();
+    }//GEN-LAST:event_r4ActionPerformed
      int num = 0;
-    public void Matematicas() {
+    
+    String a, b, c, d, e, f;
+
+     
+     public void Matematicas() {
        
       int Numero = Matematicas.obtenerValor(num);
          int cont = 0;
@@ -278,7 +295,6 @@ public class framepreguntas extends javax.swing.JFrame {
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a, b, c, d, e, f;
 
                 if (cont == Numero) {
 
@@ -316,12 +332,12 @@ public class framepreguntas extends javax.swing.JFrame {
         int Numero = General.obtenerValor(num);
         int cont = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("BP_Cultura_General.txt"));
             String line = null;
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a, b, c, d, e, f;
+                
 
                 if (cont == Numero) {
 System.out.println(Numero);
@@ -353,18 +369,17 @@ System.out.println(Numero);
     }
     
     
-    public void Biologia() {
+    public void Ciencias() {
        
         int Numero = Ciencias.obtenerValor(num);
         int cont = 0;
         try {
-            BufferedReader br = new BufferedReader(new FileReader("BP_Cultura_General.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("BP_Ciencia(Biologia-Quimica-Fisica).txt"));
             String line = null;
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a, b, c, d, e, f;
-
+                
                 if (cont == Numero) {
 System.out.println(Numero);
                     a = temp[0];
@@ -404,7 +419,6 @@ System.out.println(Numero);
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a, b, c, d, e, f;
 
                 if (cont == Numero) {
 System.out.println(Numero);
@@ -446,7 +460,7 @@ System.out.println(Numero);
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a, b, c, d, e, f;
+              
 
                 if (cont == Numero) {
 System.out.println(Numero);
@@ -478,46 +492,23 @@ System.out.println(Numero);
     }
     
     
-    public void Ciencias() {
-       
-        int Numero = Matematicas.obtenerValor(num);
-        int cont = 0;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("BP_Ciencia(Biologia-Quimica-Fisica).txt"));
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                String temp[] = line.split("\t");
-
-                String a, b, c, d, e, f;
-
-                if (cont == Numero) {
-System.out.println(Numero);
-                    a = temp[0];
-                    b = temp[1];
-                    c = temp[2];
-                    d = temp[3];
-                    e = temp[4];
-                    f = temp[5];
-
-                    pre.setText(a);
-                    r1.setText(b);
-                    r2.setText(c);
-                    r3.setText(d);
-                    r4.setText(e);
-                    br.close(); 
-                    num += 1;
-                } else {
-                    cont += 1;
-                }
-
-            }
-
-            br.close();
-
-        } catch (IOException ex) {
-        }
-    }
  
+    
+    // Validacion respuesta correcta 
+    String res;
+     public void Correcion() {
+   
+         if (res.equalsIgnoreCase(f)){
+             System.out.println("es correcto");
+         }else {
+             System.out.println("esta malo");
+             System.out.println(f+res);
+         }
+            
+        
+     }
+    
+   
      
     /**
      * @param args the command line arguments
