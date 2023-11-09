@@ -228,6 +228,7 @@ public class Tablero extends javax.swing.JFrame {
         copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
         posicionActual = copiarposiciones("Partida", "Posicion2", sc) + 1;
         Camino.imprimir();
+        CasillaActual=posicionActual;
 
         // copiarposiciones("Partida","Posicion;",sc);
         // CatgActual.dato=cat;
@@ -252,7 +253,7 @@ public class Tablero extends javax.swing.JFrame {
         lista_casillas.insertar(P18);
         lista_casillas.insertar(P19);
         lista_casillas.insertar(P20);
-        Nodo_2 nodo0 = lista_casillas.obtenerNodoEnPosicion(0);
+       // Nodo_2 nodo0 = lista_casillas.obtenerNodoEnPosicion(0);
         USER.setIcon(null);
         System.out.println("o " + posicionActual);
         SetEnPos(posicionActual);
