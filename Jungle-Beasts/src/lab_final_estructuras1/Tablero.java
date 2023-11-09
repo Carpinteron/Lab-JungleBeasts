@@ -195,7 +195,7 @@ System.out.println("enre aqui");
     }
 
     public void GuardarPartidaenARchiv(Scanner sc, String file_name, ListaEnlazadaDoble lista, String nombre) {
-        File archivoTemporal = new File(file_name + "_temp.txt");
+        File archivoTemporal = new File(file_name);
         try {
             BufferedWriter pw = new BufferedWriter(new FileWriter(file_name, true));
 
