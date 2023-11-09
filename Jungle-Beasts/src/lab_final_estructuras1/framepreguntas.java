@@ -36,7 +36,7 @@ public class framepreguntas extends javax.swing.JFrame {
         Ciencias.copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         this.Categoria = Categoria;
         
-        
+        // matense
         System.out.println(Categoria);
         
                     switch (Categoria) {
