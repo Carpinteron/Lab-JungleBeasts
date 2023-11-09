@@ -170,7 +170,9 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void credActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_credActionPerformed
-
+creditos c = new creditos();
+c.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_credActionPerformed
 
     private void credMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_credMouseExited
