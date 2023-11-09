@@ -221,7 +221,11 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BARRAMouseDragged
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
+       
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     /**

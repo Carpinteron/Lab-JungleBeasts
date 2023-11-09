@@ -134,7 +134,7 @@ public class resultados extends javax.swing.JFrame {
     private void BtnEXIT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT1ActionPerformed
 
         //resetearArchivo("Partida");
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
     private void BARRAMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMouseDragged

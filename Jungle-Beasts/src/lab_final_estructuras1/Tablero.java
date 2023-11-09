@@ -385,6 +385,7 @@ public class Tablero extends javax.swing.JFrame {
         blurBackground1 = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        BtnEXIT = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         dadoLabel = new javax.swing.JLabel();
         P1 = new javax.swing.JLabel();
@@ -410,7 +411,6 @@ public class Tablero extends javax.swing.JFrame {
         retroceder = new javax.swing.JButton();
         USER = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
-        BtnEXIT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -449,119 +449,6 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Tirar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 430, 95, 40));
-
-        dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        dadoLabel.setText("9");
-        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, 47, 53));
-
-        P1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P1.setText("Pregunta 1");
-        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 440, 130, 140));
-
-        P2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P2.setText("2");
-        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 130, 120));
-
-        P3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P3.setText("3");
-        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 340, 130, 140));
-
-        P4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P4.setText("4");
-        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 130, 130));
-
-        P5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P5.setText("5");
-        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 130, 130));
-
-        P6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P6.setText("6");
-        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, 130, 130));
-
-        P8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P8.setText("7");
-        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 40, 140, 130));
-
-        P9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P9.setText("8");
-        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, -10, 130, 130));
-
-        P10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P10.setText("9");
-        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 140, 130));
-
-        P11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P11.setText("10");
-        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 130, 140));
-
-        P12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P12.setText("11");
-        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 130, 160));
-
-        P14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P14.setText("12");
-        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, 140, 140));
-
-        P15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P15.setText("13");
-        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 130, 130));
-
-        P16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P16.setText("14");
-        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, 130, 130));
-
-        P17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P17.setText("15");
-        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 130, 140));
-
-        P18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P18.setText("16");
-        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 130, 130));
-
-        P20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/tronco cortado.png"))); // NOI18N
-        P20.setText("17");
-        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 130, 150));
-
-        P13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                P13MouseClicked(evt);
-            }
-        });
-        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 90, 110));
-
-        P19.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                P19MouseClicked(evt);
-            }
-        });
-        jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 90, 110));
-
-        P7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                P7MouseClicked(evt);
-            }
-        });
-        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 10, 90, 110));
-
-        retroceder.setText("retroceder ");
-        retroceder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                retrocederActionPerformed(evt);
-            }
-        });
-        jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 340, -1, -1));
-        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
-
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 1190, 630));
-
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
         BtnEXIT.setBorderPainted(false);
@@ -574,8 +461,70 @@ public class Tablero extends javax.swing.JFrame {
         });
         jPanel1.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 44, -1));
 
+        jButton1.setText("Tirar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 430, 95, 40));
+
+        dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        dadoLabel.setText("9");
+        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, 47, 53));
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 130, 140));
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 130, 120));
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 130, 140));
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 130, 130));
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, 130, 130));
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 130, 130, 130));
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 140, 130));
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 130, 130));
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 140, 130));
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 130, 140));
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 130, 160));
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 140, 140));
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 130, 130));
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 130, 130));
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 130, 140));
+        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 130, 130));
+        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 150));
+
+        P13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P13MouseClicked(evt);
+            }
+        });
+        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 90, 110));
+
+        P19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P19MouseClicked(evt);
+            }
+        });
+        jPanel1.add(P19, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 90, 110));
+
+        P7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                P7MouseClicked(evt);
+            }
+        });
+        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 90, 110));
+
+        retroceder.setText("retroceder ");
+        retroceder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retrocederActionPerformed(evt);
+            }
+        });
+        jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 340, -1, -1));
+        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 2.png"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 630));
+
         blurBackground1.add(jPanel1);
-        jPanel1.setBounds(30, 30, 1130, 600);
+        jPanel1.setBounds(30, 10, 1130, 630);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -619,7 +568,9 @@ public class Tablero extends javax.swing.JFrame {
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
 
         resetearArchivo("Partida");
-        System.exit(0);
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -731,16 +682,16 @@ public class Tablero extends javax.swing.JFrame {
         int f = ran.nextInt(4);
         switch (f) {
             case 0:
-                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png")));
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 1.png")));
                 break;
             case 1:
-                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (1).png")));
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 2.png")));
                 break;
             case 2:
-                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (2).png")));
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 3.png")));
                 break;
             case 3:
-                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (3).png")));
+                fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/rfondo 4.png")));
                 break;
         }
     }
