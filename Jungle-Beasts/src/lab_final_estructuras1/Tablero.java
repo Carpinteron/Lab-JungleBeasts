@@ -717,7 +717,7 @@ public class Tablero extends javax.swing.JFrame {
 
          String[] Categorias = {"Ingles", "Matematicas", "Ciencias", "Abstracto", "General"};
         for (int i = 0; i < 17; i++) {
-            int r = ran.nextInt(6); // numero del 0 a 5
+            int r = ran.nextInt(5); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
 
         }
