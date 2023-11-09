@@ -188,7 +188,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                             ex.printStackTrace();
                         }
 
-                        Tablero a = new Tablero(user,false);
+                        Tablero a = new Tablero(user,false,true);
                         a.setVisible(true);
                         this.dispose();
                         return;

@@ -34,14 +34,19 @@ public class Tablero extends javax.swing.JFrame {
     private Timer timer;
     ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
 
-    public Tablero(int Avatar, boolean started) {
+        private boolean acerto;
+
+        
+    public Tablero(int Avatar, boolean started,boolean acerto) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
         this.user = Avatar;
         this.started = started;
+        this.acerto = acerto;
         Scanner sc = new Scanner(System.in);
+        System.out.println("entro"+started);
         if (started == true) {
             IniciarDesdeCero();
             resetearArchivo("Partida");
@@ -645,7 +650,7 @@ public class Tablero extends javax.swing.JFrame {
     Random ran = new Random();
     int CasillaActual = 0;
 
-    boolean acerto = true;
+    
 
     public void mover() {
         resultados rr = new resultados();
@@ -714,7 +719,7 @@ public class Tablero extends javax.swing.JFrame {
     public void Send_ToPreguntas() {
 
         GuardarPartida();
-        framepreguntas p = new framepreguntas(Camino.buscarNodo1(CatgActual));
+        framepreguntas p = new framepreguntas(Camino.buscarNodo1(CatgActual),false);
         //  framepreguntas p = new framepreguntas(user);
         p.setVisible(true);
         this.dispose();
@@ -1290,7 +1295,8 @@ public class Tablero extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
                         }
                         timer.stop();
-                        Send_ToPreguntas();
+                       
+                        
                     }
                 }
             });

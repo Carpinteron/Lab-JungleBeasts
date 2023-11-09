@@ -25,7 +25,7 @@ public class framepreguntas extends javax.swing.JFrame {
      * Creates new form framepreguntas
      */
    // private int user;
-    public framepreguntas(String Categoria) {
+    public framepreguntas(String Categoria, Boolean ver) {
          //public framepreguntas(int Avatar) {
         initComponents();
         Ingles.mostrarLista();
@@ -494,18 +494,25 @@ System.out.println(Numero);
     
  
     
-    // Validacion respuesta correcta 
+      // Validacion respuesta correcta 
     String res;
+   private Boolean ver;
+   private int user;
      public void Correcion() {
    
          if (res.equalsIgnoreCase(f)){
              System.out.println("es correcto");
+             ver = true;
          }else {
              System.out.println("esta malo");
              System.out.println(f+res);
+             ver = false;
+             
          }
+         Tablero a = new Tablero(user,false,ver);
+                 a.setVisible(true);
+                 this.dispose();
             
-        
      }
     
    
