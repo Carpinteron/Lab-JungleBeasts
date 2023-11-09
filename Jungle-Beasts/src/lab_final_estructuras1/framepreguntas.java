@@ -65,7 +65,7 @@ public class framepreguntas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        LabelPregunta = new javax.swing.JLabel();
+        pre = new javax.swing.JLabel();
         r2 = new javax.swing.JButton();
         r4 = new javax.swing.JButton();
         r1 = new javax.swing.JButton();
@@ -85,11 +85,11 @@ public class framepreguntas extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        LabelPregunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LabelPregunta.setText("jLabel1");
-        LabelPregunta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(LabelPregunta);
-        LabelPregunta.setBounds(26, 60, 660, 280);
+        pre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pre.setText("jLabel1");
+        pre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(pre);
+        pre.setBounds(26, 60, 660, 280);
 
         r2.setText("jButton1");
         r2.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +234,7 @@ public class framepreguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_r1ActionPerformed
 
     private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
-        
+        Matematicas();
     }//GEN-LAST:event_r3ActionPerformed
      int num = 0;
     public void Matematicas() {
@@ -258,10 +258,13 @@ public class framepreguntas extends javax.swing.JFrame {
               e = temp[4];       
               f = temp[5];    
               
+              pre.setText(a);
               r1.setText(b);
-                   
+              r2.setText(c);     
+              r3.setText(d);
+              r4.setText(e); 
               
-                  
+              
                 num += 1;  
               }  else {
                   cont += 1;
@@ -345,10 +348,10 @@ public class framepreguntas extends javax.swing.JFrame {
     private javax.swing.JButton BtnEXIT1;
     private javax.swing.JLabel LabelIMG;
     private javax.swing.JLabel LabelIMG1;
-    private javax.swing.JLabel LabelPregunta;
     private javax.swing.JLabel LabelPregunta1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel pre;
     private javax.swing.JButton r1;
     private javax.swing.JButton r2;
     private javax.swing.JButton r3;
