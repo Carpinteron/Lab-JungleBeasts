@@ -26,15 +26,14 @@ public class Tablero extends javax.swing.JFrame {
     ImageIcon A = new ImageIcon(CL.getResource("IMG/chic110.png"));//BIN =1
     ImageIcon B = new ImageIcon(CL.getResource("IMG/chica110.png"));//CHICA=2
     ImageIcon C = new ImageIcon(CL.getResource("IMG/chico110.png")); //CHICO=3
-    
-     ImageIcon dado1 = new ImageIcon(CL.getResource("IMG/dado 1.png"));
-     ImageIcon dado2 = new ImageIcon(CL.getResource("IMG/dado 2.png"));
-     ImageIcon dado3 = new ImageIcon(CL.getResource("IMG/dado 3.png"));
-     ImageIcon dado4 = new ImageIcon(CL.getResource("IMG/dado 4.png"));
-     ImageIcon dado5 = new ImageIcon(CL.getResource("IMG/dado 5.png"));
-     ImageIcon dado6 = new ImageIcon(CL.getResource("IMG/dado 6.png"));
-     
-     
+
+    ImageIcon dado1 = new ImageIcon(CL.getResource("IMG/dado 1.png"));
+    ImageIcon dado2 = new ImageIcon(CL.getResource("IMG/dado 2.png"));
+    ImageIcon dado3 = new ImageIcon(CL.getResource("IMG/dado 3.png"));
+    ImageIcon dado4 = new ImageIcon(CL.getResource("IMG/dado 4.png"));
+    ImageIcon dado5 = new ImageIcon(CL.getResource("IMG/dado 5.png"));
+    ImageIcon dado6 = new ImageIcon(CL.getResource("IMG/dado 6.png"));
+
     private int user;
     private boolean started;
     int xmouse, ymouse;
@@ -42,12 +41,10 @@ public class Tablero extends javax.swing.JFrame {
     private int posicionActual = 0;
     private Timer timer;
     ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
-    
 
-        private boolean acerto;
+    private boolean acerto;
 
-        
-    public Tablero(int Avatar, boolean started,boolean acerto) {
+    public Tablero(int Avatar, boolean started, boolean acerto) {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
@@ -56,7 +53,7 @@ public class Tablero extends javax.swing.JFrame {
         this.started = started;
         this.acerto = acerto;
         Scanner sc = new Scanner(System.in);
-        System.out.println("entro"+started);
+        System.out.println("entro" + started);
         if (started == true) {
             IniciarDesdeCero();
             resetearArchivo("Partida");
@@ -73,7 +70,7 @@ public class Tablero extends javax.swing.JFrame {
 
             }
         } else {
-System.out.println("enre aqui");
+            System.out.println("enre aqui");
             RecuperarPartida();
 
         }
@@ -113,8 +110,6 @@ System.out.println("enre aqui");
 //        Categ.agregarAlFinal(Abstracto);
 //        Categ.agregarAlFinal(Cienciass);
         // Categ.mostrarSolounaLista(1);
-        
-        
     }
 
     //EStas listas alamecenaran las categorias 
@@ -233,10 +228,9 @@ System.out.println("enre aqui");
         copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
         posicionActual = copiarposiciones("Partida", "Posicion2", sc) + 1;
         Camino.imprimir();
-        
+
         // copiarposiciones("Partida","Posicion;",sc);
         // CatgActual.dato=cat;
-
         lista_casillas.insertar(USER);
         lista_casillas.insertar(P1);
         lista_casillas.insertar(P2);
@@ -357,8 +351,8 @@ System.out.println("enre aqui");
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
                     String name = campos[0].trim();
-                    
-                     if (nameLista.equalsIgnoreCase(name.trim())) {
+
+                    if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
                         for (int c = 1; c <= 20; c++) {
                             lista.add_alFinal(campos[c]);
@@ -677,6 +671,7 @@ System.out.println("enre aqui");
             entre2 = true;
             acerto = false;
             mover();
+           // mover_2();
             retrocederDosCasillas();
             // Camino.retroceder(2, CatgActual);
         }
@@ -686,34 +681,33 @@ System.out.println("enre aqui");
     Random ran = new Random();
     int CasillaActual = 0;
 
-
     public void mover() {
-         switch(dado){
-        case 1:
-            dadoimg.setIcon(dado1);
-            break;
-        case 2:
-            dadoimg.setIcon(dado2);
-            break;
-        case 3:
-            dadoimg.setIcon(dado3);
-            break;
-        case 4:
-            dadoimg.setIcon(dado4);
-            break;
-        case 5:
-            dadoimg.setIcon(dado5);
-            break;
-        case 6:
-            dadoimg.setIcon(dado6);
-            break;
-    }
+        switch (dado) {
+            case 1:
+                dadoimg.setIcon(dado1);
+                break;
+            case 2:
+                dadoimg.setIcon(dado2);
+                break;
+            case 3:
+                dadoimg.setIcon(dado3);
+                break;
+            case 4:
+                dadoimg.setIcon(dado4);
+                break;
+            case 5:
+                dadoimg.setIcon(dado5);
+                break;
+            case 6:
+                dadoimg.setIcon(dado6);
+                break;
+        }
         resultados rr = new resultados();
-          rr.setVisible(false);
+        rr.setVisible(false);
         if (CatgActual == 21) {
-             
+
             System.out.println("Ganaste");
-            
+
             rr.setVisible(true);
             rr.reaccion.setEnabled(true);
             rr.texto.setEnabled(true);
@@ -774,7 +768,7 @@ System.out.println("enre aqui");
     public void Send_ToPreguntas() {
 
         GuardarPartida();
-        framepreguntas p = new framepreguntas(user, Camino.buscarNodo1(CatgActual),false);
+        framepreguntas p = new framepreguntas(user, Camino.buscarNodo1(CatgActual), false);
         //  framepreguntas p = new framepreguntas(user);
         p.setVisible(true);
         this.dispose();
@@ -1007,8 +1001,6 @@ System.out.println("enre aqui");
 //        }
 //
 //    }
-   
-            
     static class ListaEnlazadaDoble {
 
         Nodo head; // El primer nodo de la lista
@@ -1240,8 +1232,13 @@ System.out.println("enre aqui");
                     } else {
                         if (posicionActual <= 20) {
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
+                            // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
+                                return;
+                            } else {
+
+                                Send_ToPreguntas();
                             }
                             if (posicionActual == 2) {
                                 Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
@@ -1345,6 +1342,9 @@ System.out.println("enre aqui");
                             // Verificar si se llega a posiciones específicas (ahorcado) (7, 13, 19)
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
+                            } else {
+
+                                Send_ToPreguntas();
                             }
 
                         }
@@ -1353,7 +1353,6 @@ System.out.println("enre aqui");
                             JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
                         }
                         timer.stop();
-                        Send_ToPreguntas();
                     }
                 }
             });
