@@ -94,7 +94,9 @@ public class guia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void BARRAMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BARRAMouseDragged

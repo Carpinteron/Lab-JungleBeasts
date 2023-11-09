@@ -385,6 +385,7 @@ public class Tablero extends javax.swing.JFrame {
         blurBackground1 = new org.example.Custom.BlurBackground();
         BARRA = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        BtnEXIT = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         dadoLabel = new javax.swing.JLabel();
         P1 = new javax.swing.JLabel();
@@ -410,7 +411,6 @@ public class Tablero extends javax.swing.JFrame {
         retroceder = new javax.swing.JButton();
         USER = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
-        BtnEXIT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -448,6 +448,18 @@ public class Tablero extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
+        BtnEXIT.setBorder(null);
+        BtnEXIT.setBorderPainted(false);
+        BtnEXIT.setContentAreaFilled(false);
+        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEXITActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 44, -1));
 
         jButton1.setText("Tirar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -562,18 +574,6 @@ public class Tablero extends javax.swing.JFrame {
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Jungle beast (5)111.png"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -20, 1190, 630));
 
-        BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
-        BtnEXIT.setBorder(null);
-        BtnEXIT.setBorderPainted(false);
-        BtnEXIT.setContentAreaFilled(false);
-        BtnEXIT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnEXIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnEXITActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 44, -1));
-
         blurBackground1.add(jPanel1);
         jPanel1.setBounds(30, 30, 1130, 600);
 
@@ -619,7 +619,9 @@ public class Tablero extends javax.swing.JFrame {
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
 
         resetearArchivo("Partida");
-        System.exit(0);
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

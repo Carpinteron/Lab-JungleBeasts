@@ -351,7 +351,10 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_cb1ActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-        System.exit(0);
+       
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     /**

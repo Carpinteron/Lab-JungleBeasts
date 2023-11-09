@@ -689,7 +689,9 @@ public class Ahorcado_1 extends javax.swing.JFrame {
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
 
         resetearArchivo("Partida");
-        System.exit(0);
+        fin f = new fin();
+        f.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtnEXITActionPerformed
 
      public void resetearArchivo(String file_name) {
