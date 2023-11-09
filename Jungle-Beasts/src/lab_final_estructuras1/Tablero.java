@@ -232,6 +232,7 @@ System.out.println("enre aqui");
         copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
         posicionActual = copiarposiciones("Partida", "Posicion2", sc) + 1;
+        Camino.imprimir();
         
         // copiarposiciones("Partida","Posicion;",sc);
         // CatgActual.dato=cat;
@@ -356,15 +357,26 @@ System.out.println("enre aqui");
                 while ((line = read.readLine()) != null && Encontrado == false) {
                     String[] campos = line.split(";");
                     String name = campos[0].trim();
-                    System.out.println("estos son los campos[0] enlad: " + name);
-                    if (nameLista.equalsIgnoreCase(name.trim())) {
+                    
+                     if (nameLista.equalsIgnoreCase(name.trim())) {
                         Encontrado = true;
-                        lista.add_alFinal(campos[indice]);
-                        lista.imprimir();
-                        indice++;
-                        System.out.println("Lista encontrada, lista copiada enlazada doble");
+                        for (int c = 1; c <= 20; c++) {
+                            lista.add_alFinal(campos[c]);
+                        }
 
+                        System.out.println("Lista encontrada, lista copiada enlazada simple");
+                        lista.imprimir();
                     }
+//                   // System.out.println("estos son los campos[0] enlad: " + name);
+//                    if (nameLista.equalsIgnoreCase(name.trim())) {
+//                        Encontrado = true;
+//                        lista.add_alFinal(campos[indice]);
+//                        lista.imprimir();
+//                        indice++;
+//                        System.out.println("Lista encontrada, lista copiada enlazada doble");
+//                        lista.imprimir();
+//
+//                    }
                 }
                 if (Encontrado == false) {
                     System.out.println("No se encontro el nombre de la lista enlazada doble");
