@@ -646,9 +646,7 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_P19MouseClicked
 
     private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
-        //Send_ToAhorcado();
-        Send_ToPreguntas();
-
+       Send_ToAhorcado();
     }//GEN-LAST:event_P7MouseClicked
 
     boolean entre = false;
@@ -1334,7 +1332,7 @@ public class Tablero extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
                         }
                         timer.stop();
-
+                        Send_ToPreguntas();
                     }
                 }
             });
