@@ -19,16 +19,18 @@ import lab_final_estructuras1.ListaEnlazada;
  * @author Paula Nuñez
  */
 public class framepreguntas extends javax.swing.JFrame {
-    
+
     private String Categoria;
+
     /**
      * Creates new form framepreguntas
      */
-   // private int user;
+    // private int user;
     public framepreguntas(int Avatar, String Categoria, Boolean ver) {
-         //public framepreguntas(int Avatar) {
+        //public framepreguntas(int Avatar) {
         initComponents();
         Ingles.mostrarLista();
+         AvisoL.setText("");
         Ingles.copiarRegistroALista("Partida", Ingles, "Ingles", sc);
         Matematicas.copiarRegistroALista("Partida", Matematicas, "Matematicas", sc);
         General.copiarRegistroALista("Partida", General, "General", sc);
@@ -36,57 +38,53 @@ public class framepreguntas extends javax.swing.JFrame {
         Ciencias.copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         this.Categoria = Categoria;
         this.user = Avatar;
-        
-        
+
         System.out.println(Categoria);
-        
-                    switch (Categoria) {
 
-                case "Matematicas":
-                    Matematicas();
-                    System.out.println(1);
-                    break;
-                case "General":
-                    General();
-                                        System.out.println(2);
+        switch (Categoria) {
 
+            case "Matematicas":
+                Matematicas();
+                System.out.println(1);
+                break;
+            case "General":
+                General();
+                System.out.println(2);
 
-                case "Ciencias":
-                    Ciencias();
-                                        System.out.println(3);
+            case "Ciencias":
+                Ciencias();
+                System.out.println(3);
 
-                    break;
+                break;
 
-                case "Abstracto":
-                    Abstracto();
-                                        System.out.println(4);
+            case "Abstracto":
+                Abstracto();
+                System.out.println(4);
 
-                    break;
+                break;
 
-                case "Ingles":
-                    Ingles();
-                                        System.out.println(5);
+            case "Ingles":
+                Ingles();
+                System.out.println(5);
 
-                    break;
+                break;
 
-            }
-        
-     //   this.user = Avatar;
+        }
+
+        //   this.user = Avatar;
     }
 
-   
     ListaEnlazada Ingles = new ListaEnlazada(); // 0 
     Scanner sc = new Scanner(System.in);
     ListaEnlazada Matematicas = new ListaEnlazada(); // 1
     ListaEnlazada General = new ListaEnlazada(); // 2
     ListaEnlazada Abstracto = new ListaEnlazada(); // 3
     ListaEnlazada Ciencias = new ListaEnlazada(); // 4
-   
 
     private framepreguntas() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -97,6 +95,7 @@ public class framepreguntas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        AvisoL = new javax.swing.JLabel();
         pre = new javax.swing.JLabel();
         r2 = new javax.swing.JButton();
         r4 = new javax.swing.JButton();
@@ -118,6 +117,12 @@ public class framepreguntas extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
+        AvisoL.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        AvisoL.setForeground(new java.awt.Color(102, 0, 0));
+        AvisoL.setText("jLabel2");
+        jPanel1.add(AvisoL);
+        AvisoL.setBounds(100, 280, 270, 40);
+
         pre.setBackground(new java.awt.Color(204, 255, 204));
         pre.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         pre.setForeground(new java.awt.Color(102, 0, 0));
@@ -137,7 +142,7 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r2);
-        r2.setBounds(80, 460, 430, 110);
+        r2.setBounds(80, 460, 500, 110);
 
         r4.setBackground(new java.awt.Color(102, 255, 153));
         r4.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -149,7 +154,7 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r4);
-        r4.setBounds(660, 460, 430, 110);
+        r4.setBounds(590, 460, 520, 110);
 
         r1.setBackground(new java.awt.Color(102, 255, 153));
         r1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -161,7 +166,7 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r1);
-        r1.setBounds(80, 330, 430, 110);
+        r1.setBounds(80, 330, 500, 110);
 
         r3.setBackground(new java.awt.Color(102, 255, 153));
         r3.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -173,13 +178,13 @@ public class framepreguntas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(r3);
-        r3.setBounds(650, 330, 430, 110);
+        r3.setBounds(590, 330, 520, 110);
 
         LabelIMG.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         LabelIMG.setForeground(new java.awt.Color(102, 0, 0));
         LabelIMG.setText("jLabel2");
         jPanel1.add(LabelIMG);
-        LabelIMG.setBounds(770, 110, 270, 210);
+        LabelIMG.setBounds(800, 110, 270, 210);
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -272,8 +277,8 @@ public class framepreguntas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void r2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r2ActionPerformed
-               res = c;
-Correcion();
+        res = c;
+        Correcion();
     }//GEN-LAST:event_r2ActionPerformed
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
@@ -290,34 +295,32 @@ Correcion();
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
     private void r1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r1ActionPerformed
-       res = b;
-       Correcion();
+        res = b;
+        Correcion();
     }//GEN-LAST:event_r1ActionPerformed
 
     private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
-              res = d;
-              Correcion();
+        res = d;
+        Correcion();
     }//GEN-LAST:event_r3ActionPerformed
 
     private void r4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r4ActionPerformed
-               res = e;
-Correcion();
+        res = e;
+        Correcion();
     }//GEN-LAST:event_r4ActionPerformed
-     int num = 0;
-    
+    int num = 0;
+
     String a, b, c, d, e, f;
 
-     
-     public void Matematicas() {
-       
-      int Numero = Matematicas.obtenerValor(num);
-         int cont = 0;
+    public void Matematicas() {
+
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
             String line = null;
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
-
 
                 if (cont == Numero) {
 
@@ -334,7 +337,7 @@ Correcion();
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-                    br.close(); 
+                    br.close();
 
                     num += 1;
                 } else {
@@ -348,10 +351,9 @@ Correcion();
         } catch (IOException ex) {
         }
     }
-    
-    
+
     public void General() {
-       
+
         int Numero = General.obtenerValor(num);
         int cont = 0;
         try {
@@ -360,10 +362,8 @@ Correcion();
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                
-
                 if (cont == Numero) {
-System.out.println(Numero);
+                    System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -376,7 +376,7 @@ System.out.println(Numero);
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-                    br.close(); 
+                    br.close();
 
                     num += 1;
                 } else {
@@ -390,10 +390,9 @@ System.out.println(Numero);
         } catch (IOException ex) {
         }
     }
-    
-    
+
     public void Ciencias() {
-       
+
         int Numero = Ciencias.obtenerValor(num);
         int cont = 0;
         try {
@@ -402,9 +401,8 @@ System.out.println(Numero);
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                
                 if (cont == Numero) {
-System.out.println(Numero);
+                    System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -417,7 +415,7 @@ System.out.println(Numero);
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-                    br.close(); 
+                    br.close();
 
                     num += 1;
                 } else {
@@ -431,9 +429,9 @@ System.out.println(Numero);
         } catch (IOException ex) {
         }
     }
-    
+
     public void Ingles() {
-       
+
         int Numero = Ingles.obtenerValor(num);
         int cont = 0;
         try {
@@ -442,9 +440,8 @@ System.out.println(Numero);
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-
                 if (cont == Numero) {
-System.out.println(Numero);
+                    System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -457,7 +454,7 @@ System.out.println(Numero);
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-                    br.close(); 
+                    br.close();
 
                     num += 1;
                 } else {
@@ -471,10 +468,9 @@ System.out.println(Numero);
         } catch (IOException ex) {
         }
     }
-    
-    
+
     public void Abstracto() {
-       
+
         int Numero = Abstracto.obtenerValor(num);
         int cont = 0;
         try {
@@ -483,10 +479,8 @@ System.out.println(Numero);
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-              
-
                 if (cont == Numero) {
-System.out.println(Numero);
+                    System.out.println(Numero);
                     a = temp[0];
                     b = temp[1];
                     c = temp[2];
@@ -499,7 +493,7 @@ System.out.println(Numero);
                     r2.setText(c);
                     r3.setText(d);
                     r4.setText(e);
-                    br.close(); 
+                    br.close();
 
                     num += 1;
                 } else {
@@ -513,40 +507,44 @@ System.out.println(Numero);
         } catch (IOException ex) {
         }
     }
-    
-    
- 
-    
-      // Validacion respuesta correcta 
+
+    // Validacion respuesta correcta 
     String res;
-   private Boolean ver;
-   private int user;
-     public void Correcion() {
-         if (res.equalsIgnoreCase(f)){
-             System.out.println("es correcto");
-             ver = true;
-         }else {
-             System.out.println("esta malo");
-             System.out.println(f+res);
-             ver = false;
-             
-         }
-         Tablero a = new Tablero(user,false,ver);
-                 a.setVisible(true);
-                 this.dispose();
-            
-     }
-    
-   
-     
+    private Boolean ver;
+    private int user;
+
+    public void Correcion() {
+        if (res.equalsIgnoreCase(f)) {
+            System.out.println("Es correcto");
+            AvisoL.setText("");
+            AvisoL.setText("Es correcto");
+            ver = true;
+        } else {
+            System.out.println("No es correcto");
+            AvisoL.setText("");
+            AvisoL.setText("No es correcto");
+            System.out.println(f + res);
+            ver = false;
+
+        }
+        
+        try {
+            // Pausar el proceso durante el número de milisegundos especificado
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Tablero a = new Tablero(user, false, ver);
+        a.setVisible(true);
+        this.dispose();
+
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
- 
 
-        
-        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -577,8 +575,7 @@ System.out.println(Numero);
             }
         });
     }
-    
-    
+
     public void resetearArchivo(String file_name) {
         try {
             // Abre el archivo en modo de escritura (sobrescribir)
@@ -592,9 +589,10 @@ System.out.println(Numero);
             ex.printStackTrace();
         }
     }
-    
- 
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AvisoL;
     private javax.swing.JButton BTNa1;
     private javax.swing.JButton BTNb1;
     private javax.swing.JButton BTNc1;
