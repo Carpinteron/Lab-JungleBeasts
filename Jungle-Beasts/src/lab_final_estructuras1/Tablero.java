@@ -715,7 +715,7 @@ public class Tablero extends javax.swing.JFrame {
 
     public void GenerarCamino() {
 
-         String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencias", "Razonamiento Abstracto", "Sociales"};
+         String[] Categorias = {"Ingles", "Matematicas", "Ciencias", "Abstracto", "General"};
         for (int i = 0; i < 17; i++) {
             int r = ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);

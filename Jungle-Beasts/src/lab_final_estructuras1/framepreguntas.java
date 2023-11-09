@@ -37,9 +37,38 @@ public class framepreguntas extends javax.swing.JFrame {
         this.Categoria = Categoria;
         
         
+        System.out.println(Categoria);
         
+                    switch (Categoria) {
 
-        
+                case "Matematicas":
+                    Matematicas();
+                    System.out.println(1);
+                    break;
+                case "General":
+                    General();
+                                        System.out.println(2);
+
+
+                case "Ciencias":
+                    Ciencias();
+                                        System.out.println(3);
+
+                    break;
+
+                case "Abstracto":
+                    Abstracto();
+                                        System.out.println(4);
+
+                    break;
+
+                case "Ingles":
+                    Ingles();
+                                        System.out.println(5);
+
+                    break;
+
+            }
         
      //   this.user = Avatar;
     }
@@ -236,7 +265,7 @@ public class framepreguntas extends javax.swing.JFrame {
     }//GEN-LAST:event_r1ActionPerformed
 
     private void r3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r3ActionPerformed
-        Matematicas();
+       
     }//GEN-LAST:event_r3ActionPerformed
      int num = 0;
     public void Matematicas() {
@@ -249,32 +278,28 @@ public class framepreguntas extends javax.swing.JFrame {
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                String a ,b,c,d,e,f;
-                
-              if (cont == Numero )  {
-                
-              a = temp[0];
-              b = temp[1];   
-              c = temp[2];       
-              d = temp[3];       
-              e = temp[4];       
-              f = temp[5];    
-              
-              pre.setText(a);
-              r1.setText(b);
-              r2.setText(c);     
-              r3.setText(d);
-              r4.setText(e); 
-              
-              
-                num += 1;  
-              }  else {
-                  cont += 1;
-              }
-              
-     
+                String a, b, c, d, e, f;
 
-              
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
             }
 
             br.close();
@@ -283,30 +308,216 @@ public class framepreguntas extends javax.swing.JFrame {
         }
     }
     
+    
+    public void General() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String temp[] = line.split("\t");
+
+                String a, b, c, d, e, f;
+
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException ex) {
+        }
+    }
+    
+    
+    public void Biologia() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("BP_Cultura_General.txt"));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String temp[] = line.split("\t");
+
+                String a, b, c, d, e, f;
+
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException ex) {
+        }
+    }
+    
+    public void Ingles() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("BP_Ingles.txt"));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String temp[] = line.split("\t");
+
+                String a, b, c, d, e, f;
+
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException ex) {
+        }
+    }
+    
+    
+    public void Abstracto() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("BP_Razonamiento_Abstracto.txt"));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String temp[] = line.split("\t");
+
+                String a, b, c, d, e, f;
+
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException ex) {
+        }
+    }
+    
+    
+    public void Ciencias() {
+       
+        int Numero = Matematicas.obtenerValor(num);
+        int cont = 0;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("BP_Ciencia(Biologia-Quimica-Fisica).txt"));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                String temp[] = line.split("\t");
+
+                String a, b, c, d, e, f;
+
+                if (cont == Numero) {
+
+                    a = temp[0];
+                    b = temp[1];
+                    c = temp[2];
+                    d = temp[3];
+                    e = temp[4];
+                    f = temp[5];
+
+                    pre.setText(a);
+                    r1.setText(b);
+                    r2.setText(c);
+                    r3.setText(d);
+                    r4.setText(e);
+
+                    num += 1;
+                } else {
+                    cont += 1;
+                }
+
+            }
+
+            br.close();
+
+        } catch (IOException ex) {
+        }
+    }
+ 
      
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        
-
-//            switch () {
-//
-//                case 1:
-//                    Matematicas();
-//                    break;
-//                case 2:
-//                   
-//                    break;
-//                case 3:
-//                    
-//                    break;
-//                case 4:
-//                   
-//                    break;
-//
-//            }
+ 
 
         
         
