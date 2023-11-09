@@ -220,4 +220,7 @@ public class ListaEnlazada {
             // Eliminar el nodo encontrado
             previo.siguiente = temp.siguiente;
         }
-    }
+
+
+
+  }

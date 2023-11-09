@@ -4,9 +4,11 @@
  */
 package lab_final_estructuras1;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import lab_final_estructuras1.ListaEnlazada;
 
@@ -31,6 +33,11 @@ public class framepreguntas extends javax.swing.JFrame {
         Abstracto.copiarRegistroALista("Partida", Abstracto, "Abstracto", sc);
         Ciencias.copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         this.Categoria = Categoria;
+        
+        
+        //int Numero = Matematicas.get(1);
+
+        
         
      //   this.user = Avatar;
     }
@@ -227,7 +234,10 @@ public class framepreguntas extends javax.swing.JFrame {
               c = temp[2];       
               d = temp[3];       
               b = temp[4];       
-              f = temp[5];       
+              f = temp[5];    
+              
+              
+              
             }
 
             br.close();
