@@ -14,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class Ahorcado_1 extends javax.swing.JFrame {
 
@@ -204,26 +205,23 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                     //al ser correcta se muestra un mensaje y se reinicia el juego
 
                     if (gano) {
+                        this.dispose();
                         rr.setVisible(true);
                         rr.reaccion.setEnabled(true);
                         rr.texto.setEnabled(true);
                         rr.respuesta.setText(null);
-                        //JOptionPane.showMessageDialog(this, "Felicitaciones ganaste!!\n Ya puedes seguir disfrutando del juego", "Ahorcado", JOptionPane.INFORMATION_MESSAGE, cp);
-                        //iniciar();
-                        try {
-                            // Pausa de 3 segundos (3000 milisegundos)
-                            sonido("/Sonido/Victoriah.wav");
-                            Thread.sleep(3000);
-                        } catch (InterruptedException ex) {
-                            // Manejo de excepciones si se interrumpe el hilo
-                            ex.printStackTrace();
-                        }
-                        
-                        Tablero a = new Tablero(user, false,true);
-                        a.setVisible(true);
-                        this.dispose();
+
+                        int delay = 2200; //milisegundos
+                        ActionListener taskPerformer = new ActionListener() {
+                            public void actionPerformed(ActionEvent evt) {
+                                Tablero a = new Tablero(user, false,true);
+                                a.setVisible(true);
+                                rr.dispose();
+                            }
+                        };
+                        new Timer(delay, taskPerformer).start();
                         return;
-                    }
+                    }                   
                     //SI LA LETRA NO ESTA EN EL MENSAGE, SE INCREMENTA EL ERROR Y SE CAMBIA LA IMAGEN
                 } else {
                     DIBUJO.setIcon(imgs[++err]);

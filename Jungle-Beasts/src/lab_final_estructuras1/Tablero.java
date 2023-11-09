@@ -258,8 +258,7 @@ System.out.println("enre aqui");
         lista_casillas.insertar(P19);
         lista_casillas.insertar(P20);
         Nodo_2 nodo0 = lista_casillas.obtenerNodoEnPosicion(0);
-        nodo0.label.setIcon(null);
-        
+        USER.setIcon(null);
         System.out.println("o " + posicionActual);
         SetEnPos(posicionActual);
     }
@@ -1273,7 +1272,6 @@ System.out.println("enre aqui");
         System.out.println("label q quiero: " + posicionActual);
         if (nodoEnPosicion != null) {
             // Establecer el ícono según el jugador
-            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: "+user);
             switch (user) {
                 case 1:
                     nodoEnPosicion.label.setIcon(A);
