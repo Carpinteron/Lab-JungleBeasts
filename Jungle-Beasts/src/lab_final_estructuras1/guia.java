@@ -2,6 +2,10 @@
 package lab_final_estructuras1;
 
 import java.awt.Color;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class guia extends javax.swing.JFrame {
 
@@ -13,7 +17,19 @@ public class guia extends javax.swing.JFrame {
    
     }
   int xmouse, ymouse;
-   
+   //SUBRUTINA PARA APLICAR SONIDO
+    private void sonido(String cadena) {
+        try {
+            Clip clip = AudioSystem.getClip();
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            // System.err.println(e.getMessage());
+        }
+
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -94,6 +110,7 @@ public class guia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
+        sonido("/Sonido/ficha.wav");
         fin f = new fin();
         f.setVisible(true);
         this.dispose();
@@ -111,6 +128,7 @@ public class guia extends javax.swing.JFrame {
     }//GEN-LAST:event_BARRAMousePressed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        sonido("/Sonido/ficha.wav");
         Jungle_parte_inicio j=new Jungle_parte_inicio();
          j.setVisible(true);
         this.dispose();
