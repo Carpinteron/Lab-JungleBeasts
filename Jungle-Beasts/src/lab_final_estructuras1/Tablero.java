@@ -1,4 +1,3 @@
-
 package lab_final_estructuras1;
 
 import java.awt.Color;
@@ -47,17 +46,17 @@ public class Tablero extends javax.swing.JFrame {
             IniciarDesdeCero();
             resetearArchivo("Partida");
             switch (user) {
-            case 1:
-                USER.setIcon(A);
-                break;
-            case 2:
-                USER.setIcon(B);
-                break;
-            case 3:
-                USER.setIcon(C);
-                break;
+                case 1:
+                    USER.setIcon(A);
+                    break;
+                case 2:
+                    USER.setIcon(B);
+                    break;
+                case 3:
+                    USER.setIcon(C);
+                    break;
 
-        }
+            }
         } else {
 
             RecuperarPartida();
@@ -66,7 +65,6 @@ public class Tablero extends javax.swing.JFrame {
         dadoLabel.setText("");
 
         System.out.println("");
-        
 
         Point J = USER.getLocation();
         USER.setLocation(J);
@@ -117,7 +115,7 @@ public class Tablero extends javax.swing.JFrame {
 
     // ListaEnlazadaMulti Categ = new ListaEnlazadaMulti();
     int dado;
-    Nodo CatgActual;
+    int CatgActual;
 
     public void IniciarDesdeCero() {
         FondoAleatorio();
@@ -144,7 +142,7 @@ public class Tablero extends javax.swing.JFrame {
         GuardarPartidaenARchiv(sc, "Partida", Abstracto, "Abstracto");
         GuardarPartidaenARchiv(sc, "Partida", Ciencias, "Ciencias");
         GuardarPartidaenARchiv(sc, "Partida", Camino, "CaminoCategorias;");
-        PosActuales1.agregarAlFinal(CatgActual.dato);
+        PosActuales1.agregarAlFinal(String.valueOf(CatgActual));
         PosActuales2.agregarAlFinal(String.valueOf(posicionActual));
         GuardarPartidaenARchiv(sc, "Partida", PosActuales1, "Posicion1;"); //string
         GuardarPartidaenARchiv(sc, "Partida", PosActuales2, "Posicion2;");//int
@@ -628,10 +626,13 @@ public class Tablero extends javax.swing.JFrame {
         dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
         dadoLabel.setText(Integer.toString(dado));
-        mover_2();//funcion para mover el explorador
-        mover();
-       
-        System.out.println("CatgActual: " + CatgActual.dato);
+        acerto = true;
+        entre = false;
+        entre2 = true;
+        mover();//funcion para mover el explorador
+        mover_2();
+
+        System.out.println("CatgActual: " + CatgActual);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -646,39 +647,85 @@ public class Tablero extends javax.swing.JFrame {
 
     private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
         //Send_ToAhorcado();
-         Send_ToPreguntas();
+        Send_ToPreguntas();
 
     }//GEN-LAST:event_P7MouseClicked
 
+    boolean entre = false;
+     boolean entre2 = false;
     private void retrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrocederActionPerformed
-        retrocederDosCasillas();
+        //retrocederDosCasillas();
+         System.out.println("mi posicion actual antes es: " + posicionActual);
+        if (posicionActual == 1) {
+            System.out.println("entre soy 1");
+                Nodo_2 nodoAnterior = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                Camino.retroceder(1, CatgActual);
+                if (nodoAnterior != null) {
+                    entre2 = false;
+                    mover();
+                    nodoAnterior.label.setIcon(null);
+                    posicionActual -= 1; // Retroceso
+                    // Establecer el ícono en la nueva posición después del retroceso
+                    Nodo_2 nodoEnPosicion = lista_casillas.obtenerNodoEnPosicion(posicionActual);
+                    if (nodoEnPosicion != null) {
+                        switch (user) {
+                            case 1:
+                                nodoEnPosicion.label.setIcon(A);
+                                break;
+                            case 2:
+                                nodoEnPosicion.label.setIcon(B);
+                                break;
+                            case 3:
+                                nodoEnPosicion.label.setIcon(C);
+                                break;
+                        }
+                    }
+                }
+            }
+            else if (posicionActual != 1) {
+            System.out.println("entre soy diferente de 2");
+            entre = true;
+            entre2 = true;
+            acerto = false;
+            mover();
+            retrocederDosCasillas();
+            // Camino.retroceder(2, CatgActual);
+        } 
+
+     
     }//GEN-LAST:event_retrocederActionPerformed
     Random ran = new Random();
     int CasillaActual = 0;
-    
+
     boolean acerto = true;
 
-    
-    
     public void mover() {
-        if (CatgActual.dato.equalsIgnoreCase("fin")) {
-            System.out.println("Gano");
+       if (CatgActual == 21) {
+            System.out.println("Ganaste");
         } else {
-            if (CatgActual.dato.equalsIgnoreCase("inicio")) {
-                if (!acerto) {
-                    if (CatgActual.prev != null && CatgActual.prev.prev != null && CatgActual.prev.prev.dato == null) {
-                        CatgActual = Camino.retroceder(1, CatgActual);
-                    }
-                } else {
-                    CatgActual = Camino.avanzar(dado, CatgActual);
+            Nodo actual = Camino.buscarNodo(CatgActual);
+            if (CatgActual == 0 && !acerto && entre == false && entre2 == true) {
+                if (actual.prev != null && actual.prev.prev != null && actual.prev.prev.dato == null) {
+                    System.out.println("Retrocediendo 1 paso");
+                    System.out.println(Camino.retroceder(1, CatgActual));
+                    CatgActual--;
                 }
-            } else {
-                if (acerto) {
-                    CatgActual = Camino.avanzar(dado, CatgActual);
-                } else {
-                    CatgActual = Camino.retroceder(2, CatgActual);
-                }
+            } else if (acerto ) {
+                System.out.println("Avanzando " + dado + " pasos");
+                System.out.println(Camino.avanzar(dado, CatgActual));
+                CatgActual += dado;
             }
+            if (entre == true && entre2 == true ) {
+                System.out.println("Retrocediendo 2 pasos");
+                System.out.println(Camino.retroceder(2, CatgActual));
+                CatgActual -= 2;
+            }
+            if (entre2 == false) {
+                System.out.println("Retrocediendo 1 paso");
+                System.out.println(Camino.retroceder(1, CatgActual));
+                CatgActual -= 1;
+            }
+            System.out.println("Nueva posición: " + CatgActual);
         }
     }
 
@@ -707,19 +754,19 @@ public class Tablero extends javax.swing.JFrame {
         a.setVisible(true);
         this.dispose();
     }
-    
-     public void Send_ToPreguntas() {
+
+    public void Send_ToPreguntas() {
 
         GuardarPartida();
-        framepreguntas p = new framepreguntas(CatgActual.dato);
-      //  framepreguntas p = new framepreguntas(user);
+        framepreguntas p = new framepreguntas(Camino.buscarNodo1(CatgActual));
+        //  framepreguntas p = new framepreguntas(user);
         p.setVisible(true);
         this.dispose();
     }
 
     public void GenerarCamino() {
 
-        String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencias", "Razonamiento Abstracto", "Sociales"};
+         String[] Categorias = {"Ingles", "Conocimiento General", "Matematicas", "Ciencias", "Razonamiento Abstracto", "Sociales"};
         for (int i = 0; i < 17; i++) {
             int r = ran.nextInt(6); // numero del 0 a 5
             Camino.add_alFinal(Categorias[r]);
@@ -730,7 +777,7 @@ public class Tablero extends javax.swing.JFrame {
         Camino.add_afterPOS("Ahorcado", 12);// pos 13
         Camino.add_afterPOS("Ahorcado", 18); // pos 19
         Camino.add_alFinal("Fin");
-        CatgActual = Camino.head;
+        CatgActual = 0;
         Camino.imprimir();
     }
 //
@@ -944,11 +991,9 @@ public class Tablero extends javax.swing.JFrame {
 //        }
 //
 //    }
-
-
     static class ListaEnlazadaDoble {
 
-        Nodo head; // El primer nodo de la lista
+         Nodo head; // El primer nodo de la lista
 
         public ListaEnlazadaDoble() {
             head = null;
@@ -981,28 +1026,25 @@ public class Tablero extends javax.swing.JFrame {
             }
         }
 
-        public Nodo avanzar(int cant, Nodo desde) {
-
+        public String avanzar(int cant, int desde) {
             int i = 0;
-            Nodo actual = desde;
-            // Avanza "cant" nodos desde la posición "desde"
-            while (actual.siguiente != null & actual != null & i < cant) {
+            Nodo actual = buscarNodo(desde); // Encuentra el nodo correspondiente al número proporcionado
+            while (actual != null && i < cant) {
                 actual = actual.siguiente;
                 i++;
             }
-            return actual;
+            return actual.dato;
         }
 
 //      
-        public Nodo retroceder(int c, Nodo desde) {
+        public String retroceder(int cant, int desde) {
             int i = 0;
-            Nodo actual = desde;
-            // Avanza "cant" nodos desde la posición "desde"
-            while (actual.prev != null & actual != null & i < c) {
-                actual = actual.prev;
+            Nodo actual = buscarNodo(desde); // Encuentra el nodo correspondiente al número proporcionado
+            while (actual != null && i < cant) {
+                actual = actual.prev; // Movimiento hacia atrás (al nodo previo)
                 i++;
             }
-            return actual;
+            return actual.dato;
         }
 
         public int buscarpos(String dato) {
@@ -1028,6 +1070,20 @@ public class Tablero extends javax.swing.JFrame {
             }
 
             return actual;
+        }
+         public String buscarNodo1(int pos) {
+            if (pos < 0) {
+                throw new IllegalArgumentException("La posición no puede ser negativa.");
+            }
+
+            Nodo actual = head;
+            int i = 0;
+            while (actual != null && i < pos) {
+                actual = actual.siguiente;
+                i++;
+            }
+
+            return actual.dato;
         }
 
         public void add_afterPOS(String dato, int pos) {
@@ -1074,6 +1130,7 @@ public class Tablero extends javax.swing.JFrame {
             }
             System.out.println();
         }
+
 
     }
 
@@ -1270,12 +1327,14 @@ public class Tablero extends javax.swing.JFrame {
                             if (posicionActual == 7 || posicionActual == 13 || posicionActual == 19) {
                                 Send_ToAhorcado();
                             }
+
                         }
                         if (aux > 20) {
                             // El número del dado supera la cantidad de movimientos restantes
                             JOptionPane.showMessageDialog(null, "El número del dado es mayor que las posiciones restantes. ¡Intente de nuevo!");
                         }
                         timer.stop();
+
                     }
                 }
             });
@@ -1403,7 +1462,3 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JButton retroceder;
     // End of variables declaration//GEN-END:variables
 }
-
-
-
-
