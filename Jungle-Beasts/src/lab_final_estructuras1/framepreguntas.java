@@ -130,7 +130,7 @@ public class framepreguntas extends javax.swing.JFrame {
         pre.setText("jLabel1");
         pre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(pre);
-        pre.setBounds(26, 60, 660, 270);
+        pre.setBounds(66, 70, 1050, 260);
 
         r2.setBackground(new java.awt.Color(102, 255, 153));
         r2.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -184,7 +184,7 @@ public class framepreguntas extends javax.swing.JFrame {
         LabelIMG.setForeground(new java.awt.Color(102, 0, 0));
         LabelIMG.setText("jLabel2");
         jPanel1.add(LabelIMG);
-        LabelIMG.setBounds(800, 110, 270, 210);
+        LabelIMG.setBounds(430, 250, 270, 210);
 
         BtnEXIT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-cerca-35.png"))); // NOI18N
         BtnEXIT.setBorder(null);
@@ -339,7 +339,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r4.setText(e);
                     br.close();
 
-                    num += 1;
+                    Numero += 1;
                 } else {
                     cont += 1;
                 }
@@ -378,7 +378,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r4.setText(e);
                     br.close();
 
-                    num += 1;
+                    Numero += 1;
                 } else {
                     cont += 1;
                 }
@@ -417,7 +417,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r4.setText(e);
                     br.close();
 
-                    num += 1;
+                    Numero += 1;
                 } else {
                     cont += 1;
                 }
@@ -456,7 +456,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r4.setText(e);
                     br.close();
 
-                    num += 1;
+                    Numero += 1;
                 } else {
                     cont += 1;
                 }
@@ -495,7 +495,7 @@ public class framepreguntas extends javax.swing.JFrame {
                     r4.setText(e);
                     br.close();
 
-                    num += 1;
+                    Numero += 1;
                 } else {
                     cont += 1;
                 }
@@ -512,19 +512,37 @@ public class framepreguntas extends javax.swing.JFrame {
     String res;
     private Boolean ver;
     private int user;
-
+    resultados rr = new resultados();
+    
     public void Correcion() {
         if (res.equalsIgnoreCase(f)) {
             System.out.println("Es correcto");
             AvisoL.setText("");
             AvisoL.setText("Es correcto");
             ver = true;
+            
+            
+             this.dispose();
+             rr.setVisible(true);
+             rr.reaccion.setEnabled(true);
+             rr.texto.setEnabled(true);
+             rr.respuesta.setText(null);
+
+            
         } else {
             System.out.println("No es correcto");
             AvisoL.setText("");
             AvisoL.setText("No es correcto");
             System.out.println(f + res);
             ver = false;
+            
+            this.dispose();
+           rr.setVisible(true);
+           rr.reaccion.setEnabled(false);
+           rr.texto.setEnabled(false);
+           rr.respuesta.setText(null);
+            
+            
 
         }
         
