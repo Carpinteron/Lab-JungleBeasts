@@ -628,7 +628,7 @@ public class Tablero extends javax.swing.JFrame {
         dado = ran.nextInt(6) + 1;
         dadoLabel.setText("");
         dadoLabel.setText(Integer.toString(dado));
-         mover_2();//funcion para mover el explorador
+        mover_2();//funcion para mover el explorador
         mover();
        
         System.out.println("CatgActual: " + CatgActual.dato);
@@ -645,8 +645,9 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_P19MouseClicked
 
     private void P7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_P7MouseClicked
-        Send_ToAhorcado();
-        
+        //Send_ToAhorcado();
+         Send_ToPreguntas();
+
     }//GEN-LAST:event_P7MouseClicked
 
     private void retrocederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrocederActionPerformed
