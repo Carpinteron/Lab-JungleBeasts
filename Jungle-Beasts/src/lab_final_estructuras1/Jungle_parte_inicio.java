@@ -5,6 +5,12 @@
 package lab_final_estructuras1;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 
 /**
@@ -12,6 +18,7 @@ import javax.swing.ImageIcon;
  * @author almacen
  */
 public class Jungle_parte_inicio extends javax.swing.JFrame {
+
     ClassLoader CL = getClass().getClassLoader();
     ImageIcon j = new ImageIcon(CL.getResource("IMAGENES/j.png"));
     ImageIcon j1 = new ImageIcon(CL.getResource("IMAGENES/j1.png"));
@@ -22,11 +29,49 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
 
     int xmouse, ymouse;
     
+    //SUBRUTINA PARA APLICAR SONIDO
+    private void sonido(String cadena) {
+        try {
+            Clip clip = AudioSystem.getClip();
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            // System.err.println(e.getMessage());
+        }
+    }
+
+    public static Clip clip;
+    public static boolean sigo=false;
+    private void sonido2(String cadena) {
+        try {
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+            inicio.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    clip.stop();
+                }
+            });
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     public Jungle_parte_inicio() {
         initComponents();
         setLocationRelativeTo(null); //Establece la ubicacion de la ventana en el centro de la pantalla.
         setBackground(new Color(0, 0, 0, 0)); //Le establece el color del fondo de la ventana a transparente.
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
+        if (sigo==false){
+            sonido2("/Sonido/Welcome.wav");
+            
+        }
+        
+        
     }
 
     /**
@@ -170,9 +215,11 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void credActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_credActionPerformed
-creditos c = new creditos();
-c.setVisible(true);
-this.dispose();
+        sonido("/Sonido/boop.wav");
+        sigo=true;
+        creditos c = new creditos();
+        c.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_credActionPerformed
 
     private void credMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_credMouseExited
@@ -184,6 +231,8 @@ this.dispose();
     }//GEN-LAST:event_credMouseEntered
 
     private void infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoActionPerformed
+        sonido("/Sonido/boop.wav");
+        sigo=true;
         guia g = new guia();
         g.setVisible(true);
         this.dispose();
@@ -198,6 +247,8 @@ this.dispose();
     }//GEN-LAST:event_infoMouseEntered
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+        clip.stop();
+        sonido("/Sonido/boop.wav");
         Avatars A = new Avatars();
         A.setVisible(true);
         this.dispose();
@@ -223,11 +274,11 @@ this.dispose();
     }//GEN-LAST:event_BARRAMouseDragged
 
     private void BtnEXITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXITActionPerformed
-       
+sonido("/Sonido/ficha.wav");
         fin f = new fin();
         f.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_BtnEXITActionPerformed
 
     /**
