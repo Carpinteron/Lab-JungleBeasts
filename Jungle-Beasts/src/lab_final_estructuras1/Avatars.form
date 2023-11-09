@@ -38,7 +38,7 @@
     <Container class="org.example.Custom.BlurBackground" name="FONDO_REDONDO">
       <Properties>
         <Property name="image" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/IMAGENES/seleccion (2).png"/>
+          <Image iconType="3" name="/IMG/fondo seleccion.jpg"/>
         </Property>
         <Property name="radius" type="int" value="55"/>
       </Properties>

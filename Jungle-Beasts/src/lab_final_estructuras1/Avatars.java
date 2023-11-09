@@ -96,7 +96,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         setUndecorated(true);
         setResizable(false);
 
-        FONDO_REDONDO.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/seleccion (2).png"))); // NOI18N
+        FONDO_REDONDO.setImage(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo seleccion.jpg"))); // NOI18N
         FONDO_REDONDO.setRadius(55);
 
         BARRA.setBackground(new java.awt.Color(255, 255, 255));
