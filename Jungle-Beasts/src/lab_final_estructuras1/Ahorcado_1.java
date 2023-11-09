@@ -231,6 +231,7 @@ public class Ahorcado_1 extends javax.swing.JFrame {
                     if (err == 5) {
                         clip.stop();
                         sonido("/Sonido/Game Over.wav");
+                        this.dispose();
                         rr.setVisible(true);
                         rr.reaccion.setEnabled(false);
                         rr.texto.setEnabled(false);

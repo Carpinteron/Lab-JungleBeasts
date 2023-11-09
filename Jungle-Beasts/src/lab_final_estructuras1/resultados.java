@@ -1,6 +1,10 @@
 package lab_final_estructuras1;
 
 import java.awt.Color;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
  *
@@ -11,6 +15,19 @@ public class resultados extends javax.swing.JFrame {
     /**
      * Creates new form resultados
      */
+    //SUBRUTINA PARA APLICAR SONIDO
+    private void sonido(String cadena) {
+        try {
+            Clip clip = AudioSystem.getClip();
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            // System.err.println(e.getMessage());
+        }
+
+    }
     int xmouse, ymouse;
 
     public resultados() {
@@ -132,8 +149,9 @@ public class resultados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnEXIT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEXIT1ActionPerformed
-
-        //resetearArchivo("Partida");
+sonido("/Sonido/ficha.wav");
+        fin f = new fin();
+        f.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
