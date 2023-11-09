@@ -4,6 +4,10 @@
  */
 package lab_final_estructuras1;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 import lab_final_estructuras1.Tablero.Nodo;
 
 public class ListaEnlazada {
@@ -13,6 +17,52 @@ public class ListaEnlazada {
         public ListaEnlazada() {
             head = null;
         }
+        int[] preguntas;
+    public ListaEnlazada(int[] preguntas) {
+        int a= preguntas.length;
+        this.preguntas= new int[a];
+        for (int i = 0; i < a; i++) {
+           this.preguntas[i]=preguntas[i];
+        }
+        //creo que eso seria todo
+    }
+        public void copiarRegistroALista(String file_name, ListaEnlazada lista, String nameLista, Scanner sc) {
+        boolean hay = false;
+
+        while (hay == false) {
+            try {
+                BufferedReader read = new BufferedReader(new FileReader(file_name));
+                String line = null; //definición de line
+                boolean Encontrado = false;
+                while ((line = read.readLine()) != null && Encontrado == false) {
+                    String[] campos = line.split(";");
+                    String name = campos[0].trim();
+                    System.out.println("estos son los campos[0] enlas: " + name);
+                    if (nameLista.equalsIgnoreCase(name.trim())) {
+                        Encontrado = true;
+                        for (int c = 1; c <= 20; c++) {
+                            lista.agregarAlFinal(campos[c]);
+                        }
+
+                        System.out.println("Lista encontrada, lista copiada enlazada simple");
+                        lista.mostrarLista();
+                    }
+                }
+                if (Encontrado == false) {
+                    System.out.println("No se encontro el nombre de la lista enlazada simple");
+                }
+                line = null;
+
+                read.close();
+                hay = true;
+            } catch (IOException ex) {
+                System.out.println("No se encontro archivo");
+                hay = false;
+                //nombre = sc.nextLine(); // Archivo
+            }
+        }
+        //resetearArchivo("Partida");
+    }
 
         public void agregarAlInicio(String dato) {
             Nodo nuevoNodo = new Nodo(dato);

@@ -24,18 +24,25 @@ public class framepreguntas extends javax.swing.JFrame {
     public framepreguntas(String Categoria) {
          //public framepreguntas(int Avatar) {
         initComponents();
+        Ingles.mostrarLista();
+        Ingles.copiarRegistroALista("Partida", Ingles, "Ingles", sc);
+        Matematicas.copiarRegistroALista("Partida", Matematicas, "Matematicas", sc);
+        General.copiarRegistroALista("Partida", General, "General", sc);
+        Abstracto.copiarRegistroALista("Partida", Abstracto, "Abstracto", sc);
+        Ciencias.copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         this.Categoria = Categoria;
+        
      //   this.user = Avatar;
     }
 
-    
-    
-     // 0
-    ListaEnlazada Ingles = new ListaEnlazada();
-    ListaEnlazada matematica = new ListaEnlazada();
+   
+    ListaEnlazada Ingles = new ListaEnlazada(); // 0 
+    Scanner sc = new Scanner(System.in);
+    ListaEnlazada Matematicas = new ListaEnlazada(); // 1
     ListaEnlazada General = new ListaEnlazada(); // 2
     ListaEnlazada Abstracto = new ListaEnlazada(); // 3
     ListaEnlazada Ciencias = new ListaEnlazada(); // 4
+   
 
     private framepreguntas() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -205,7 +212,7 @@ public class framepreguntas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnEXIT1ActionPerformed
 
-    public static void Lectura_Nuevos() {
+    public static void Matematicas() {
  
         try {
             BufferedReader br = new BufferedReader(new FileReader("BP_Matematicas.txt"));
@@ -213,9 +220,14 @@ public class framepreguntas extends javax.swing.JFrame {
             while ((line = br.readLine()) != null) {
                 String temp[] = line.split("\t");
 
-                System.out.println(temp[0] + "     " + temp[1] + "      " + temp[2] + "           " + temp[3] + "        " + temp[4] + "      " + temp[5]);
+                String a ,b,c,d,e,f;
                
-                       
+              a = temp[0];
+              b = temp[1];   
+              c = temp[2];       
+              d = temp[3];       
+              b = temp[4];       
+              f = temp[5];       
             }
 
             br.close();
@@ -224,7 +236,7 @@ public class framepreguntas extends javax.swing.JFrame {
         }
     }
     
-    
+     
     /**
      * @param args the command line arguments
      */
@@ -235,7 +247,7 @@ public class framepreguntas extends javax.swing.JFrame {
 //            switch () {
 //
 //                case 1:
-//                   
+//                    Matematicas();
 //                    break;
 //                case 2:
 //                   
