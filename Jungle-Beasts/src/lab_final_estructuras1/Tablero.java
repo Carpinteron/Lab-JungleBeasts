@@ -26,6 +26,15 @@ public class Tablero extends javax.swing.JFrame {
     ImageIcon A = new ImageIcon(CL.getResource("IMG/chic110.png"));//BIN =1
     ImageIcon B = new ImageIcon(CL.getResource("IMG/chica110.png"));//CHICA=2
     ImageIcon C = new ImageIcon(CL.getResource("IMG/chico110.png")); //CHICO=3
+    
+     ImageIcon dado1 = new ImageIcon(CL.getResource("IMG/dado 1.png"));
+     ImageIcon dado2 = new ImageIcon(CL.getResource("IMG/dado 2.png"));
+     ImageIcon dado3 = new ImageIcon(CL.getResource("IMG/dado 3.png"));
+     ImageIcon dado4 = new ImageIcon(CL.getResource("IMG/dado 4.png"));
+     ImageIcon dado5 = new ImageIcon(CL.getResource("IMG/dado 5.png"));
+     ImageIcon dado6 = new ImageIcon(CL.getResource("IMG/dado 6.png"));
+     
+     
     private int user;
     private boolean started;
     int xmouse, ymouse;
@@ -98,6 +107,8 @@ public class Tablero extends javax.swing.JFrame {
 //        Categ.agregarAlFinal(Abstracto);
 //        Categ.agregarAlFinal(Cienciass);
         // Categ.mostrarSolounaLista(1);
+        
+        
     }
 
     //EStas listas alamecenaran las categorias 
@@ -386,6 +397,7 @@ public class Tablero extends javax.swing.JFrame {
         BARRA = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         BtnEXIT = new javax.swing.JButton();
+        dadoimg = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         dadoLabel = new javax.swing.JLabel();
         P1 = new javax.swing.JLabel();
@@ -461,17 +473,26 @@ public class Tablero extends javax.swing.JFrame {
         });
         jPanel1.add(BtnEXIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, 44, -1));
 
+        dadoimg.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        dadoimg.setPreferredSize(new java.awt.Dimension(80, 80));
+        jPanel1.add(dadoimg, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 350, -1, -1));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/tirar claro.png"))); // NOI18N
         jButton1.setText("Tirar");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/tirar oscuro.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 430, 95, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 420, 140, 80));
 
         dadoLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         dadoLabel.setText("9");
-        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 380, 47, 53));
+        dadoLabel.setPreferredSize(new java.awt.Dimension(80, 80));
+        jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 490, -1, -1));
         jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 130, 140));
         jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 130, 120));
         jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 130, 140));
@@ -517,7 +538,7 @@ public class Tablero extends javax.swing.JFrame {
                 retrocederActionPerformed(evt);
             }
         });
-        jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 340, -1, -1));
+        jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, -1, -1));
         jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 2.png"))); // NOI18N
@@ -648,6 +669,26 @@ public class Tablero extends javax.swing.JFrame {
     boolean acerto = true;
 
     public void mover() {
+         switch(dado){
+        case 1:
+            dadoimg.setIcon(dado1);
+            break;
+        case 2:
+            dadoimg.setIcon(dado2);
+            break;
+        case 3:
+            dadoimg.setIcon(dado3);
+            break;
+        case 4:
+            dadoimg.setIcon(dado4);
+            break;
+        case 5:
+            dadoimg.setIcon(dado5);
+            break;
+        case 6:
+            dadoimg.setIcon(dado6);
+            break;
+    }
         resultados rr = new resultados();
           rr.setVisible(false);
         if (CatgActual == 21) {
@@ -947,6 +988,8 @@ public class Tablero extends javax.swing.JFrame {
 //        }
 //
 //    }
+   
+            
     static class ListaEnlazadaDoble {
 
         Nodo head; // El primer nodo de la lista
@@ -1412,6 +1455,7 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel USER;
     private org.example.Custom.BlurBackground blurBackground1;
     private javax.swing.JLabel dadoLabel;
+    private javax.swing.JLabel dadoimg;
     private javax.swing.JLabel fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
