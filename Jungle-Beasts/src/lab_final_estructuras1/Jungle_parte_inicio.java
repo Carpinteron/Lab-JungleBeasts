@@ -113,7 +113,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(inicio);
-        inicio.setBounds(10, 390, 240, 88);
+        inicio.setBounds(10, 390, 216, 79);
 
         info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cj.png"))); // NOI18N
         info.setBorderPainted(false);
@@ -133,7 +133,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(info);
-        info.setBounds(0, 470, 240, 88);
+        info.setBounds(0, 470, 216, 79);
 
         cred.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/cr.png"))); // NOI18N
         cred.setBorderPainted(false);
@@ -153,7 +153,7 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
             }
         });
         FONDO_REDONDO.add(cred);
-        cred.setBounds(0, 550, 240, 88);
+        cred.setBounds(0, 550, 216, 79);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,7 +182,9 @@ public class Jungle_parte_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_credMouseEntered
 
     private void infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoActionPerformed
-        // TODO add your handling code here:
+        guia g = new guia();
+        g.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_infoActionPerformed
 
     private void infoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoMouseExited
