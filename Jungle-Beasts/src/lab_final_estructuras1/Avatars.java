@@ -3,8 +3,13 @@ package lab_final_estructuras1;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import static lab_final_estructuras1.Jungle_parte_inicio.clip;
 
 public class Avatars extends javax.swing.JFrame implements ActionListener {
 
@@ -23,6 +28,31 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
 
     ImageIcon coni = new ImageIcon(CL.getResource("IMAGENES/coni.png"));
     ImageIcon coni1 = new ImageIcon(CL.getResource("IMAGENES/coni1.png"));
+    public static Clip clip2;
+    private void sonido2(String cadena) {
+        try {
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip2 = AudioSystem.getClip();
+            clip2.open(audioIn);
+            clip2.start();
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    //SUBRUTINA PARA APLICAR SONIDO
+    private void sonido(String cadena) {
+        try {
+            Clip clip = AudioSystem.getClip();
+            URL url = getClass().getResource(cadena);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            // System.err.println(e.getMessage());
+        }
+    }
 
     public Avatars() {
         initComponents();
@@ -32,6 +62,7 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
         this.b.addActionListener(this);
         this.c.addActionListener(this);
         BARRA.setBackground(new Color(0, 0, 0, 0)); // Le establece el color del fondo de la barra tranparente.
+        sonido2("/Sonido/music.wav");
 
     }
     JButton btn;
@@ -331,15 +362,17 @@ public class Avatars extends javax.swing.JFrame implements ActionListener {
 
             System.out.println("A" + Avatar);
             if (Avatar != 0) {
+                clip2.stop();
                 Tablero T = new Tablero(Avatar,true);
                 T.setVisible(true);
                 this.dispose();
+                
             } else {
                 //VALIDACION 
             }
 
         } else {
-            //sonido("/Sonidos/error.wav");
+            sonido("/Sonido/error.wav");
             val.setText("(!) Debe escoger un avatar antes de jugar.");
 
         }
