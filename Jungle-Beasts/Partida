@@ -1,8 +1,8 @@
-Ingles;16;11;6;2;19;10;8;14;1;17;3;5;15;4;20;9;7;18;12;13
-Matematicas;13;19;4;14;5;7;16;15;2;17;11;12;1;10;8;18;20;3;6;9
-General;13;4;11;6;2;15;12;1;5;18;7;10;3;17;19;8;14;20;16;9
-Abstracto;7;13;5;2;4;14;12;20;15;11;1;3;17;10;19;6;18;8;16;9
-Ciencias;19;8;1;20;5;11;14;18;6;10;4;3;2;7;12;9;16;15;13;17
-CaminoCategorias;Inicio;Razonamiento Abstracto;Matematicas;Sociales;Razonamiento Abstracto;Sociales;Razonamiento Abstracto;Ahorcado;Ingles;Ciencias;Ciencias;Conocimiento General;Sociales;Ahorcado;Ciencias;Razonamiento Abstracto;Razonamiento Abstracto;Matematicas;Sociales;Ahorcado;Sociales;Fin
-Posicion1;Inicio
-Posicion2;0
+Ingles;3;13;14;16;20;9;5;4;10;15;2;8;1;18;19;12;6;11;7;17
+Matematicas;8;18;11;19;4;9;13;3;5;17;6;12;10;15;7;14;1;2;20;16
+General;15;14;5;16;13;3;20;4;6;11;12;18;9;10;1;8;7;2;19;17
+Abstracto;10;4;15;14;20;18;6;9;12;3;8;2;16;13;17;19;11;5;7;1
+Ciencias;20;12;6;18;7;9;13;11;16;1;8;14;3;17;10;4;15;5;2;19
+CaminoCategorias;Inicio;Ciencias;Ingles;Conocimiento General;Razonamiento Abstracto;Ciencias;Razonamiento Abstracto;Ahorcado;Ciencias;Razonamiento Abstracto;Ingles;Matematicas;Conocimiento General;Ahorcado;Sociales;Ingles;Matematicas;Sociales;Ciencias;Ahorcado;Razonamiento Abstracto;Fin
+Posicion1;3
+Posicion2;3
