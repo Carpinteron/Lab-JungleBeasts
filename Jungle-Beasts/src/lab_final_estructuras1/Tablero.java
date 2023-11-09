@@ -42,6 +42,7 @@ public class Tablero extends javax.swing.JFrame {
     private int posicionActual = 0;
     private Timer timer;
     ListaEnlazada_2 lista_casillas = new ListaEnlazada_2();
+    
 
         private boolean acerto;
 
@@ -72,7 +73,7 @@ public class Tablero extends javax.swing.JFrame {
 
             }
         } else {
-
+System.out.println("enre aqui");
             RecuperarPartida();
 
         }
@@ -231,7 +232,7 @@ public class Tablero extends javax.swing.JFrame {
         copiarRegistroALista("Partida", Ciencias, "Ciencias", sc);
         copiarRegistroALista("Partida", Camino, "CaminoCategorias", sc);
         posicionActual = copiarposiciones("Partida", "Posicion2", sc) + 1;
-        System.out.println("o " + posicionActual);
+        
         // copiarposiciones("Partida","Posicion;",sc);
         // CatgActual.dato=cat;
 
@@ -258,6 +259,8 @@ public class Tablero extends javax.swing.JFrame {
         lista_casillas.insertar(P20);
         Nodo_2 nodo0 = lista_casillas.obtenerNodoEnPosicion(0);
         nodo0.label.setIcon(null);
+        
+        System.out.println("o " + posicionActual);
         SetEnPos(posicionActual);
     }
     String cat;
@@ -486,6 +489,7 @@ public class Tablero extends javax.swing.JFrame {
         jButton1.setText("Tirar");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/tirar oscuro.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,30 +502,30 @@ public class Tablero extends javax.swing.JFrame {
         dadoLabel.setText("9");
         dadoLabel.setPreferredSize(new java.awt.Dimension(80, 80));
         jPanel1.add(dadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 490, -1, -1));
-        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 130, 140));
-        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 500, 130, 120));
-        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 130, 140));
-        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 270, 130, 130));
-        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 240, 130, 130));
-        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 130, 130, 130));
-        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 140, 130));
-        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 130, 130));
-        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 140, 130));
-        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 130, 140));
-        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 130, 160));
-        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 400, 140, 140));
-        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 130, 130));
-        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 130, 130));
-        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 130, 140));
-        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 130, 130));
-        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 130, 150));
+        jPanel1.add(P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 470, 96, 110));
+        jPanel1.add(P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 510, 96, 110));
+        jPanel1.add(P3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, 96, 110));
+        jPanel1.add(P4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, 96, 110));
+        jPanel1.add(P5, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 260, 96, 110));
+        jPanel1.add(P6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 150, 96, 110));
+        jPanel1.add(P8, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 70, 96, 110));
+        jPanel1.add(P9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 30, 96, 110));
+        jPanel1.add(P10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 96, 110));
+        jPanel1.add(P11, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 100, 96, 110));
+        jPanel1.add(P12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 96, 110));
+        jPanel1.add(P14, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 96, 110));
+        jPanel1.add(P15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, 96, 110));
+        jPanel1.add(P16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 96, 110));
+        jPanel1.add(P17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 96, 110));
+        jPanel1.add(P18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 96, 110));
+        jPanel1.add(P20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 96, 110));
 
         P13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 P13MouseClicked(evt);
             }
         });
-        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 90, 110));
+        jPanel1.add(P13, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 96, 110));
 
         P19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -535,7 +539,7 @@ public class Tablero extends javax.swing.JFrame {
                 P7MouseClicked(evt);
             }
         });
-        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 90, 110));
+        jPanel1.add(P7, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 30, 96, 110));
 
         retroceder.setText("retroceder ");
         retroceder.addActionListener(new java.awt.event.ActionListener() {
@@ -544,7 +548,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
         jPanel1.add(retroceder, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, -1, -1));
-        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 90, 110));
+        jPanel1.add(USER, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 480, 96, 110));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/fondo 2.png"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 630));
@@ -759,7 +763,7 @@ public class Tablero extends javax.swing.JFrame {
     public void Send_ToPreguntas() {
 
         GuardarPartida();
-        framepreguntas p = new framepreguntas(Camino.buscarNodo1(CatgActual),false);
+        framepreguntas p = new framepreguntas(user, Camino.buscarNodo1(CatgActual),false);
         //  framepreguntas p = new framepreguntas(user);
         p.setVisible(true);
         this.dispose();
@@ -1269,9 +1273,11 @@ public class Tablero extends javax.swing.JFrame {
         System.out.println("label q quiero: " + posicionActual);
         if (nodoEnPosicion != null) {
             // Establecer el ícono según el jugador
+            System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: "+user);
             switch (user) {
                 case 1:
                     nodoEnPosicion.label.setIcon(A);
+                    USER.setIcon(A);
                     break;
                 case 2:
                     nodoEnPosicion.label.setIcon(B);
